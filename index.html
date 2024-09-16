@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webgl, lit and design-tokens</title>
+    <link rel="stylesheet" href="/src/main.css" />
+  </head>
+  <body>
+    <div id="main">
+      <section data-atroute="/">front</section>
+      <section data-atroute="/user">user</section>
+      <section data-atroute="/user/list">user/list</section>
+    </div>
+
+    <ds-button data-setroute="/" id="b0">to front</ds-button>
+    <ds-button data-setroute="/user" id="b1" variant="primary"
+      >to user</ds-button
+    >
+    <ds-button data-setroute="/user/list" id="b2" variant="secondary"
+      >to user/list</ds-button
+    >
+
+    <input type="button" value="native" />
+    <input type="button" value="native" />
+    <input type="button" value="native" />
+
+    <input type="text" value="alo der" />
+    
+    <hr />
+
+    <div class="particle_controls">
+      <ds-range key="numParticles" min="1" max="4000" value="2321"></ds-range>
+      <ds-range key="repulsionStrength" min="0.01" max="2" value="0.2" step="0.1"></ds-range>
+      <ds-range key="repulsionRadius" min="1" max="1000" value="100" step="1"></ds-range>
+      <ds-range key="arrowSize" min="1" max="50" value="10" step="1"></ds-range>
+      
+      <!-- <ds-range key="attractionStrength" min="0" max="20000" value="9999"></ds-range>
+      <ds-range key="maxSpeed" min="1" max="100" value="30" step="1"></ds-range>
+      <ds-range key="maxForce" min="0.1" max="2" value="0.6" step="0.1"></ds-range>
+      <ds-range key="friction" min="0.8" max="0.99" value="0.9" step="0.01"></ds-range> -->
+
+      <ds-color key="slowColor" value="#00FFFF"></ds-color>
+      <ds-color key="fastColor" value="#FF00FF"></ds-color>
+    </div>    
+
+    <ds-particles id="particles"></ds-particles>
+
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
