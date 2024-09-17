@@ -11,9 +11,9 @@
     <pre>240917</pre>
     <h1 role="heading">
       The people of the Kingdom<br />
-      webgl <br /> 
+      webgl2 <br /> 
       design-tokens <br />
-      & lit
+      & LitElement
     </h1>
     
     <div role="doc-subtitle">
@@ -50,10 +50,12 @@
     
     <hr />
 
+    <ds-particles id="particles"></ds-particles>
+
     <div class="particle_controls">
       <ds-range key="numParticles" min="1" max="4000" value="2321"></ds-range>
       <ds-range key="repulsionStrength" min="0.01" max="2" value="0.2" step="0.1"></ds-range>
-      <ds-range key="repulsionRadius" min="1" max="1000" value="100" step="1"></ds-range>
+      <ds-range key="repulsionRadius" min="1" max="2000" value="100" step="1"></ds-range>
       <ds-range key="arrowSize" min="1" max="50" value="10" step="1"></ds-range>
       
       <!-- <ds-range key="attractionStrength" min="0" max="20000" value="9999"></ds-range>
@@ -65,7 +67,6 @@
       <ds-color key="fastColor" value="#FF00FF"></ds-color>
     </div>    
 
-    <ds-particles id="particles"></ds-particles>
 
 
     <script type="module" src="/src/main.ts"></script>

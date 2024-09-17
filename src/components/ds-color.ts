@@ -2,6 +2,13 @@ import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { update, type StateType } from "../State";
 
+/**
+ todo: consider alternative ala Adobe Spectrum
+ https://github.com/adobe/spectrum-web-components/blob/main/packages/color-slider/src/ColorSlider.ts
+ background: linear-gradient(to right, rgb(255 0 0) 0%, rgb(255 255 0) 17%, rgb(0 255 0) 33%, rgb(0 255 255) 50%, rgb(0 0 255) 67%, rgb(255 0 255) 83%, rgb(255 0 0) 100%);
+}
+ */
+
 @customElement("ds-color")
 class DSColor extends LitElement {
 	static override styles = css`
