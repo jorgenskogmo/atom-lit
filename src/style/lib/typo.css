@@ -1,0 +1,49 @@
+/*
+
+imported by: theme.css
+purpose: define typographic ramps
+
+version: 0.0.1
+*/
+
+@font-face {
+    font-family: Inter;
+    /* src: url('/public/fonts/Inter/static/Inter-Regular.ttf'); */
+    src: url('public/fonts/Inter/Inter-VariableFont_opsz,wght.ttf');
+}
+
+:root {
+    --font-family-default: system-ui, -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
+    
+    --font-family-inter: Inter, system-ui;
+
+
+    --font-size-xl: 30px;
+    --font-size-lg: 20px;
+    --font-size-md: 1.33rem;
+    --font-size-normal: 16px;
+    --font-size-sm: 0.75rem;
+    --font-size-xs: 0.5rem;
+    --font-size-xxs: 0.25rem;
+
+
+    /* font: italic small-caps bold 12px/30px Georgia, serif; */
+
+    --font-h1: 700 48px/48px var(--font-family-default);
+    --font-h2: 700 30px/36px var(--font-family-default);
+    --font-h3: 700 24px/32px var(--font-family-default);
+    --font-h4: 700 20px/28px var(--font-family-default);
+    --font-subhead: 500 24px/32px var(--font-family-default);
+    --font-p: 500  16px/28px var(--font-family-default);
+}
+    
+/* :root {
+    --font-size-xl: 2rem;
+    --font-size-lg: 1.5rem;
+    --font-size-md: 1.33rem;
+    --font-size-normal: 1.0rem;
+    --font-size-sm: 0.75rem;
+    --font-size-xs: 0.5rem;
+    --font-size-xxs: 0.25rem;
+}
+     */

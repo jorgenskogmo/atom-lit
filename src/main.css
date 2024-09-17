@@ -9,8 +9,31 @@ body {
   color: var(--foreground);
   background-color: var(--background);
 
-  font-size: var(--font-size);
-  font-family: var(--font-family);
+  font: var(--font-p);
+}
+
+h1, [role="heading"] {
+  /* font-size: var(--font-size-xl);
+  line-height: calc(var(--font-size-xl)* 1);
+  font-weight: 700; */
+  font: var(--font-h1);
+}
+
+[role="doc-subtitle"] {
+  font: var(--font-subhead);
+  opacity: 0.75;
+}
+
+p {
+  font: var(--font-p);
+}
+
+hr {
+  display: block;
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background-color: #00000080;
 }
 
 /* app */

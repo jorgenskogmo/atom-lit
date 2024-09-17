@@ -18,7 +18,7 @@ class DSRange extends LitElement {
         display: grid;
         grid-template-columns: 1fr 1fr 100px;
         align-items:center;
-        color: #fff;
+        color: var(--foreground);
         margin-bottom: 10px;
         background-color: var(--background);
         padding: 2px;

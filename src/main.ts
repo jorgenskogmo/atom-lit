@@ -1,5 +1,8 @@
 import "./components.ts";
+import "./router.ts";
 import { setInitialState } from "./State";
+
+// can we define StateType here, based on the key/values we put into the initial object?
 
 // export interface StateType {
 //     /** For testing purposes */
@@ -29,9 +32,7 @@ import { setInitialState } from "./State";
 //   }
 
 setInitialState({
-    numParticles: 500,
+	numParticles: 500,
 });
-
-
 
 //   export interface StateType = typeof initial_state;
