@@ -1,6 +1,6 @@
 import { LitElement, html, css, type PropertyValues } from "lit";
 import { customElement } from "lit/decorators.js";
-import { ParticleSystem } from "../particles/ParticleSystem";
+import { ParticleSystem } from "../lib/ParticleSystem";
 import { subscribe, type StateType, getState } from "../State";
 
 // Derives the keys that exist in both StateType and ParticleSystem, excluding undefined.
@@ -48,25 +48,22 @@ export class DSParticles extends LitElement {
 
 	protected override firstUpdated(_changedProperties: PropertyValues): void {
 		const canvas = this.renderRoot.querySelector("#g") as HTMLCanvasElement;
-		const gl = canvas.getContext("webgl2");
 
 		console.log("ds-part firstUpdated", getState());
 
-		if (gl) {
-			const particleSystem = new ParticleSystem(gl);
-			// particleSystem.numParticles = 2300; // This will automatically resize the particle system
-			// particleSystem.attractionStrength = 10000;
-			// particleSystem.useTrails = true; // This will enable trails
+		const particleSystem = new ParticleSystem(canvas);
+		// particleSystem.numParticles = 2300; // This will automatically resize the particle system
+		// particleSystem.attractionStrength = 10000;
+		// particleSystem.useTrails = true; // This will enable trails
 
-			// particleSystem.slowColor = "#ffffff";
-			// particleSystem.fastColor = "#ff00ff";
+		// particleSystem.slowColor = "#ffffff";
+		// particleSystem.fastColor = "#ff00ff";
 
-			particleSystem.animate();
+		particleSystem.animate();
 
-			subscribe((state) => {
-				updateParticleSystemFromState(particleSystem, state);
-			});
-		}
+		subscribe((state) => {
+			updateParticleSystemFromState(particleSystem, state);
+		});
 	}
 
 	override render() {
