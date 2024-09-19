@@ -74,3 +74,7 @@ export function hsvToHex(h: number, s: number, v: number) {
 	};
 	return `#${f(0)}${f(8)}${f(4)}`;
 }
+
+export function getCSSProp(domElement: HTMLElement, prop: string) {
+	return window.getComputedStyle(domElement).getPropertyValue(prop);
+}

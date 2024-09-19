@@ -1,6 +1,6 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css, type PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { update, type StateType } from "../lib/State";
+import { update, subscribe, type StateType } from "../lib/State";
 
 @customElement("ds-range")
 class DSRange extends LitElement {
@@ -91,8 +91,18 @@ class DSRange extends LitElement {
 	@property({ type: Number })
 	value = 0;
 
-	constructor() {
-		super();
+	protected override firstUpdated(_changedProperties: PropertyValues): void {
+		subscribe((state) => {
+			const a = state[this.key];
+			if (a) {
+				if (typeof a === "number") {
+					this.value = a;
+				}
+				if (typeof a === "string") {
+					this.value = Number.parseFloat(a);
+				}
+			}
+		});
 	}
 
 	private onChange(e: Event) {

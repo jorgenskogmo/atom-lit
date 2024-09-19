@@ -1,31 +1,5 @@
-export interface StateType {
-	/** For testing purposes */
-	a?: number;
-	/** Number of particles in the system */
-	numParticles?: number;
-	/** Strength of attraction between particles */
-	attractionStrength?: number;
-	/** Strength of repulsion between particles */
-	repulsionStrength?: number;
-	/** Radius within which particles repel each other */
-	repulsionRadius?: number;
-	/** Maximum speed of particles */
-	maxSpeed?: number;
-	/** Maximum force that can be applied to particles */
-	maxForce?: number;
-	/** Friction coefficient for particle movement */
-	friction?: number;
-	/** Color of slow-moving particles */
-	slowColor?: string;
-	/** Color of fast-moving particles */
-	fastColor?: string;
-	/** Size of arrows representing particle direction */
-	arrowSize?: number;
-	/** Whether to use trails for particle movement */
-	useTrails?: string;
-	/** Clear color */
-	clearColor?: string;
-}
+import { initialState, type StateType } from "../state";
+export { type StateType } from "../state";
 
 /**
  * Function type for state change subscribers.
@@ -34,7 +8,8 @@ export interface StateType {
 type Subscriber = (state: Readonly<StateType>) => void;
 
 /** The current state of the application */
-const state: StateType = {};
+// const state: StateType = {};
+const state: StateType = initialState;
 
 /** Set of subscriber functions to be called on state changes */
 const subscribers: Set<Subscriber> = new Set();

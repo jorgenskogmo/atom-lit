@@ -36,8 +36,6 @@ class DSColor extends LitElement {
       text-transform: uppercase;
     }
 
-
-    /* https://doodlenerd.com/html-control/css-input-range-generator */
     input[type=range] {
         -webkit-appearance: none;
         margin: 0;

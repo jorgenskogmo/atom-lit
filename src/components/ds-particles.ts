@@ -1,7 +1,8 @@
 import { LitElement, html, css, type PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ParticleSystem } from "../lib/ParticleSystem";
-import { subscribe, type StateType } from "../lib/State";
+import { subscribe, updateMany } from "../lib/State";
+import { initialState, type StateType } from "../state";
 
 // Derives the keys that exist in both StateType and ParticleSystem, excluding undefined.
 type ParticleSystemStateKeys = Exclude<
@@ -63,13 +64,16 @@ export class DSParticles extends LitElement {
 		const canvas = this.renderRoot.querySelector("#g") as HTMLCanvasElement;
 
 		this.particleSystem = new ParticleSystem(canvas);
-		this.particleSystem.animate();
 
 		subscribe((state) => {
 			if (this.particleSystem) {
 				updateParticleSystemFromState(this.particleSystem, state);
 			}
 		});
+
+		updateMany(initialState);
+
+		this.particleSystem.animate();
 	}
 
 	override render() {

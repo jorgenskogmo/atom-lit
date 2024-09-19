@@ -51,10 +51,6 @@ export class ParticleSystem {
 			throw "unable to get WebGL2 context";
 		}
 
-		const c = "#351724"; //rgb(53, 23, 36); // 0.2078431397676468, 0.09019608050584793, 0.1411764770746231
-		const f = this.hexToRgb(c);
-		console.log("f", f);
-
 		this.gl = gl;
 		this.program = this.createShaderProgram();
 
@@ -106,7 +102,6 @@ export class ParticleSystem {
 	set numParticles(value: number) {
 		this._numParticles = value;
 		this.resizeParticles(value);
-		// this.updateInputValue("numParticles", value);
 	}
 
 	get attractionStrength(): number {
@@ -115,7 +110,6 @@ export class ParticleSystem {
 
 	set attractionStrength(value: number) {
 		this._attractionStrength = value;
-		// this.updateInputValue("attractionStrength", value);
 	}
 
 	get repulsionStrength(): number {
@@ -124,7 +118,6 @@ export class ParticleSystem {
 
 	set repulsionStrength(value: number) {
 		this._repulsionStrength = value;
-		// this.updateInputValue("repulsionStrength", value);
 	}
 
 	get repulsionRadius(): number {
@@ -133,7 +126,6 @@ export class ParticleSystem {
 
 	set repulsionRadius(value: number) {
 		this._repulsionRadius = value;
-		// this.updateInputValue("repulsionRadius", value);
 	}
 
 	get maxSpeed(): number {
@@ -142,7 +134,6 @@ export class ParticleSystem {
 
 	set maxSpeed(value: number) {
 		this._maxSpeed = value;
-		// this.updateInputValue("maxSpeed", value);
 	}
 
 	get maxForce(): number {
@@ -151,7 +142,6 @@ export class ParticleSystem {
 
 	set maxForce(value: number) {
 		this._maxForce = value;
-		// this.updateInputValue("maxForce", value);
 	}
 
 	get friction(): number {
@@ -160,7 +150,6 @@ export class ParticleSystem {
 
 	set friction(value: number) {
 		this._friction = value;
-		// this.updateInputValue("friction", value);
 	}
 
 	get slowColor(): string {
@@ -181,7 +170,6 @@ export class ParticleSystem {
 			console.warn("Invalid color value. Using default color.");
 			this._slowColor = new Float32Array([0, 1, 1]); // Default to cyan
 		}
-		// this.updateInputValue("slowColor", this.rgbToHex(this._slowColor));
 	}
 
 	get fastColor(): string {
@@ -202,11 +190,9 @@ export class ParticleSystem {
 			console.warn("Invalid color value. Using default color.");
 			this._fastColor = new Float32Array([1, 0, 1]); // Default to magenta
 		}
-		// this.updateInputValue("fastColor", this.rgbToHex(this._fastColor));
 	}
 
 	set clearColor(value: string) {
-		// this.updateInputValue("clearColor", value);
 		this._clearColor = this.hexToRgb(value);
 	}
 
@@ -216,7 +202,6 @@ export class ParticleSystem {
 
 	set arrowSize(value: number) {
 		this._arrowSize = value;
-		// this.updateInputValue("arrowSize", value);
 	}
 
 	get useTrails(): boolean {
@@ -235,14 +220,6 @@ export class ParticleSystem {
 			toggleButton.textContent = value ? "Disable Trails" : "Enable Trails";
 		}
 	}
-
-	// Helper method to update HTML input value
-	// private updateInputValue(id: string, value: number | string): void {
-	// 	const input = document.getElementById(id) as HTMLInputElement;
-	// 	if (input) {
-	// 		input.value = value.toString();
-	// 	}
-	// }
 
 	// Color helpers
 	private rgbToHex(rgb: Float32Array): string {
@@ -315,7 +292,6 @@ export class ParticleSystem {
 		document.addEventListener("mouseup", () => {
 			this.dragging = false;
 			this.friction = 0.9;
-
 			// Set initial mouse position to center of canvas
 			this.mousePosition[0] = canvas.width / 2;
 			this.mousePosition[1] = canvas.height / 2;
@@ -323,7 +299,7 @@ export class ParticleSystem {
 		canvas.addEventListener("mousedown", () => {
 			this.dragging = true;
 			this.friction = 0.955;
-			this.useTrails = true;
+			this.useTrails = true; // TODO: Expose setter
 		});
 
 		canvas.addEventListener("mousemove", (event: MouseEvent) => {
@@ -349,10 +325,10 @@ export class ParticleSystem {
 		if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
 			canvas.width = displayWidth;
 			canvas.height = displayHeight;
-			this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
+			this.mousePosition[0] = displayWidth / 2;
+			this.mousePosition[1] = displayHeight / 2;
+			this.gl.viewport(0, 0, displayWidth, displayHeight);
 			this.resizeFramebuffers();
-			this.mousePosition[0] = canvas.width / 2;
-			this.mousePosition[1] = canvas.height / 2;
 		}
 	}
 
@@ -658,26 +634,13 @@ export class ParticleSystem {
 
 		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 		// background color
-		// const c = 1.0; //0.155;
-		// gl.clearColor(c, c, c, 1.0);
-		// gl.clearColor(0.0, 0.0, 0.0, 1.0);
 		// gl.clearColor(1.0, 1.0, 1.0, 1.0);
-
 		gl.clearColor(
 			this._clearColor[0],
 			this._clearColor[1],
 			this._clearColor[2],
 			1.0,
 		);
-
-		// dark (purple) mode
-		// gl.clearColor(
-		// 	0.2078431397676468,
-		// 	0.09019608050584793,
-		// 	0.1411764770746231,
-		// 	1.0,
-		// );
-
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		if (this.useTrails) {
