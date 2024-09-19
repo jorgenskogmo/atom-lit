@@ -13,6 +13,11 @@ body {
   font: var(--font-p);
 }
 
+body.dark {
+  --background: #351724;
+  --foreground: #e53782;
+}
+
 h1, [role="heading"] {
   /* font-size: var(--font-size-xl);
   line-height: calc(var(--font-size-xl)* 1);
@@ -39,9 +44,28 @@ hr {
   background-color: #00000080;
 }
 
+
 /* app */
 
 #particles {
   margin-inline: -2rem;
   width: 100vw;
+}
+
+#lightdarkmode {
+  position: absolute;
+  top: calc(3rem + 6px);
+  right: 2rem;
+}
+
+/**/
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }

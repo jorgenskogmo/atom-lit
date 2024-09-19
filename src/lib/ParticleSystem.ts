@@ -43,10 +43,16 @@ export class ParticleSystem {
 	private _useTrails = false;
 
 	constructor(canvas: HTMLCanvasElement) {
-		const gl = canvas.getContext("webgl2") as WebGL2RenderingContext;
+		const gl = canvas.getContext("webgl2", {
+			alpha: false,
+		}) as WebGL2RenderingContext;
 		if (!gl) {
 			throw "unable to get WebGL2 context";
 		}
+
+		const c = "#351724"; //rgb(53, 23, 36); // 0.2078431397676468, 0.09019608050584793, 0.1411764770746231
+		const f = this.hexToRgb(c);
+		console.log("f", f);
 
 		this.gl = gl;
 		this.program = this.createShaderProgram();
@@ -646,9 +652,19 @@ export class ParticleSystem {
 
 		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 		// background color
-		const c = 0.0; //0.155;
-		gl.clearColor(c, c, c, 1.0);
+		// const c = 1.0; //0.155;
+		// gl.clearColor(c, c, c, 1.0);
 		// gl.clearColor(0.0, 0.0, 0.0, 1.0);
+		gl.clearColor(1.0, 1.0, 1.0, 1.0);
+
+		// dark (purple) mode
+		// gl.clearColor(
+		// 	0.2078431397676468,
+		// 	0.09019608050584793,
+		// 	0.1411764770746231,
+		// 	1.0,
+		// );
+
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		if (this.useTrails) {
@@ -754,9 +770,9 @@ export class ParticleSystem {
 
         void main() {
             vec4 color = texture(u_texture, v_texCoord);
-            // outColor = vec4(color.rgb, color.a * 0.92);
-            outColor = vec4(color.rgb, color.a * 0.99);
-            if (outColor.a < 0.01) discard;
+            // outColor = vec4(color.rgb, color.a * 0.92); // 0.92
+            outColor = vec4(color.rgb, color.a * 0.99); // 0.92
+            if (outColor.a < 0.1) discard;            
         }
     `;
 }

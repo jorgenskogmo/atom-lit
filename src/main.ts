@@ -36,3 +36,27 @@ setInitialState({
 });
 
 //   export interface StateType = typeof initial_state;
+
+const setRenderingMode = (isLight: number) => {
+	if (isLight) {
+		document.body.classList.remove("dark");
+		document.body.classList.add("light");
+	} else {
+		document.body.classList.remove("light");
+		document.body.classList.add("dark");
+	}
+};
+
+document
+	.querySelector("#lightdarkmode")
+	?.addEventListener("input", (e: Event) => {
+		if (e.currentTarget) {
+			const on = (e.currentTarget as HTMLElement).getAttribute("on");
+			console.log("lightdark", e.currentTarget, on);
+			setRenderingMode(on === "1" ? 1 : 0);
+		}
+	});
+
+const isLight =
+	document.querySelector("#lightdarkmode")?.getAttribute("on") === "1" ? 1 : 0;
+setRenderingMode(isLight);

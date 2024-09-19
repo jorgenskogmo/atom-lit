@@ -8,21 +8,52 @@
   </head>
   <body>
 
-    <pre>240917</pre>
+    <p>240917</p>
+
+    <ds-switch id="lightdarkmode" on="0"></ds-switch>
+
     <h1 role="heading">
-      The people of the Kingdom<br />
-      webgl2 <br /> 
-      design-tokens <br />
-      & LitElement
+      People of the web-kingdom, look:<br />
+      webgl2,<br /> 
+      design-tokens &<br />
+      LitElement
     </h1>
     
     <div role="doc-subtitle">
-      An experiment into
+      An example of a lean and framework-less approach to modern frontend development.
     </div>
 
     <p>
-      An P experiment into
+      With the increasing robustness and maturity of "the browser is the platform",
+      our application-delivery ...
+    </p>
 
+    <p>
+      The flexibility of the web-stack, based on the HTML, CSS and JS primitives, 
+      can be abstracted as much as one like, over the last years its been increasingly rare
+      to see web-applications developed <em>without</em> a framework, compile/build step and megabytes of node_modules,
+      all seeking to improve developer experience - but resulting in ruining the maintainer experience.
+      The software we develop for the web has never been more fragile.
+      <footnote>
+        Have you tried to load up a web project from just a couple of years ago?
+        On a new laptop? With a newer version of Node?
+        Did it use the (binary) swc? Any deprecated packages? Any security warnings? Abandoned dependencies?
+      </footnote>
+    </p>
+
+    <p>
+      This project is about using as few dependencies and abstractions as possible - while still embracing the (arguably) biggest things in "web":
+      design-systems, custom HTML elements and web-gl.
+    </p>
+
+    <h3>Design-Systems</h3>
+    <p>
+      Design has always been messy - and its almost impossible to ensure a clean, systematic, maintainable, documented and flexible solution to ui-design.
+      Only a few companies have succeeded, either by massive investments outside the reach of most (99.9%) of client projects,
+      or by a enthusiast, un-funded open source approach.
+      Introducing <code>System</code> to the design dicipline, presents the argument that 'design' alone (no matter how effective, communicative and beautiful) is now not enough.
+      We need a systematic approach - to implementation and delivery of the design.
+      The role of 'design engineer' was born.
     </p>
   
 
@@ -50,24 +81,24 @@
     
     <hr />
 
-    <ds-particles id="particles"></ds-particles>
+    
 
     <div class="particle_controls">
       <ds-range key="numParticles" min="1" max="4000" value="2321"></ds-range>
       <ds-range key="repulsionStrength" min="0.01" max="2" value="0.2" step="0.1"></ds-range>
       <ds-range key="repulsionRadius" min="1" max="2000" value="100" step="1"></ds-range>
-      <ds-range key="arrowSize" min="1" max="50" value="10" step="1"></ds-range>
+      <ds-range key="arrowSize" min="1" max="150" value="10" step="1"></ds-range>
       
       <!-- <ds-range key="attractionStrength" min="0" max="20000" value="9999"></ds-range>
       <ds-range key="maxSpeed" min="1" max="100" value="30" step="1"></ds-range>
       <ds-range key="maxForce" min="0.1" max="2" value="0.6" step="0.1"></ds-range>
       <ds-range key="friction" min="0.8" max="0.99" value="0.9" step="0.01"></ds-range> -->
 
-      <ds-color key="slowColor" value="#00FFFF"></ds-color>
-      <ds-color key="fastColor" value="#FF00FF"></ds-color>
+      <ds-color key="slowColor" value="#00d5ff"></ds-color>
+      <ds-color key="fastColor" value="#e100ff"></ds-color>
     </div>    
 
-
+    <ds-particles id="particles"></ds-particles>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

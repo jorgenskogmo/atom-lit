@@ -36,6 +36,7 @@ class DSRange extends LitElement {
     }
     label.value {
       text-align: right;
+      
     }
 
 
@@ -45,14 +46,15 @@ class DSRange extends LitElement {
         margin: 0;
         width: 100%;
         cursor: pointer;
-        border-top: 10px solid #00000000;
-        border-bottom: 10px solid #00000000;
+        border-top: 10px solid var(--background);
+        border-bottom: 10px solid var(--background);
+        background: transparent;
       }
       input[type=range]::-webkit-slider-runnable-track {
         width: 100%;
         height: 4px;
         border-radius: 5px;
-        background-color: #ccc;
+        background-color: var(--foreground); /* #ccc; */
         transition: background-color cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
       }
       input[type=range]::-webkit-slider-runnable-track:active {
@@ -63,15 +65,15 @@ class DSRange extends LitElement {
         height: 20px;
         width: 20px;
         border-radius: 100%;
-        border: 4px solid #000000;
-        outline: 6px solid #fff;
-        background: #FFFFFF;
+        border: 4px solid var(--foreground);
+        outline: 6px solid var(--background);
+        background: var(--background);
         cursor: pointer;
         margin-top: -8px;
         transition: border cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
       }
       input[type=range]::-webkit-slider-thumb:active {
-        border: 7px solid #000000;
+        border: 7px solid var(--foreground);
       }      
   `;
 
