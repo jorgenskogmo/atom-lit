@@ -5,15 +5,6 @@ import { update, type StateType } from "../lib/State";
 @customElement("ds-range")
 class DSRange extends LitElement {
 	static override styles = css`
-    :host {
-        --_track: var(--primary);
-        --_track_value: color-mix(in srgb, var(--primary), #fff 33%);
-        --_track_hover: color-mix(in srgb, var(--primary), #fff 33%);
-        --_track_height: var(--line-height); 
-        --_track_border_width: 0px;
-        --_thumb_size: calc( var(--_track_height) + 0px);
-      }
-    
     .container {
         display: grid;
         grid-template-rows: 1fr 1fr;
@@ -39,8 +30,6 @@ class DSRange extends LitElement {
       
     }
 
-
-    /* https://doodlenerd.com/html-control/css-input-range-generator */
     input[type=range] {
         -webkit-appearance: none;
         margin: 0;
@@ -54,11 +43,11 @@ class DSRange extends LitElement {
         width: 100%;
         height: 4px;
         border-radius: 5px;
-        background-color: var(--foreground); /* #ccc; */
+        background-color: color-mix(in srgb, var(--foreground) 33%, var(--background));
         transition: background-color cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
       }
       input[type=range]::-webkit-slider-runnable-track:active {
-        background-color: #bbb;
+        background-color: var(--foreground);
       }
       input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none;

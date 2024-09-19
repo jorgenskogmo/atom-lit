@@ -2,39 +2,9 @@
 
 /*
 imported by: browser
-purpose: apply theme to doc level elements
+purpose: app specific styling
 */
 
-body {
-  margin: 0;
-  padding: 2rem;
-  color: var(--foreground);
-  background-color: var(--background);
-  font: var(--font-p);
-}
-
-body.dark {
-  --background: #351724;
-  --foreground: #e53782;
-}
-
-h1, [role="heading"] {
-  /* font-size: var(--font-size-xl);
-  line-height: calc(var(--font-size-xl)* 1);
-  font-weight: 700; */
-  /* font: var(--font-h1); */
-  /* font: 700 2vw var(--font-family-default); */
-  font: 700 clamp(1rem, 10vw, 10rem) / clamp(1rem, 10vw, 9rem) var(--font-family-default);
-}
-
-[role="doc-subtitle"] {
-  font: var(--font-subhead);
-  opacity: 0.75;
-}
-
-p {
-  font: var(--font-p);
-}
 
 hr {
   display: block;

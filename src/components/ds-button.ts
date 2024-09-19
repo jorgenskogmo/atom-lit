@@ -5,66 +5,58 @@ import { customElement, property } from "lit/decorators.js";
 class DSButton extends LitElement {
 	static override styles = css`
     :host {
-      .primary {
-        --_background: var(--primary);
-        --_foreground: var(--primary-foreground);
+      --_border-width: 1px;
+      --_background: var(--normal);
+      
+      .positive {
+        --_background: var(--positive);
       }
-      .secondary {
-        --_background: var(--secondary);
-        --_foreground: var(--secondary-foreground);
+      .warning {
+        --_background: var(--warning);
       }
-
-      :hover {
-        outline: var(--border-width) solid
-          color-mix(in srgb, var(--_background), #fff 66%);
-      }
-      :active {
-        outline: var(--border-width) solid
-          color-mix(in srgb, var(--_background), #000 33%);
-      }
+      .negative {
+        --_background: var(--negative);
+      }      
     }
-
-    /* input[type="button"] {
-      all: unset;
-      padding-inline: 8px;
-      padding-block: 2px 3px;
-      border-radius: var(--radius);
-      white-space: nowrap;
-      margin: 2px 1px;
-      cursor: pointer;
-      color: var(--_foreground);
-      background-color: var(--_background);
-      outline: var(--border-width) solid
-        color-mix(in srgb, var(--_background), #000 33%);
-    } */
 
     input[type="button"] {
       all: unset;
-      padding: 10px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      margin: 2px 1px;
       cursor: pointer;
-      color: var(--_foreground);
-      background-color: #000; 
-      outline: 1px solid #000;
+      white-space: nowrap;
+      color: var(--btn-label);
+      background-color: var(--_background);
+      padding: var(--btn-py) var(--btn-px);
+      font: var(--font-label);
+      margin-inline: calc(var(--_border-width) * 2);
+      outline-offset: calc(var(--_border-width) * -1);
+      border-radius: var(--radius);
     }
+
+    input[type="button"]:hover {
+      background-color: color-mix(in srgb, var(--_background), #000 5%);
+      outline: var(--_border-width) solid color-mix(in srgb, var(--_background), #fff 33%)
+    }
+    input[type="button"]:active {
+      outline: var(--_border-width) solid var(--background);
+    }
+
   `;
 
 	@property()
-	variant = "primary";
+	variant: "normal" | "positive" | "warning" | "negative" = "normal";
+
+	@property({ type: String })
+	value = "Button";
 
 	constructor() {
 		super();
-		this.variant = "primary";
 	}
 
 	override render() {
-		return html` <input type="button" class="${this.variant}" value="native: ${this.variant}"></input> `;
+		return html` <input type="button" class="${this.variant}" value="${this.value}"></input> `;
 	}
 }
 
-// customElements.define("ds-button", ButtonComponent);
 declare global {
 	interface HTMLElementTagNameMap {
 		"ds-button": DSButton;

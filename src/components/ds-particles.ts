@@ -1,7 +1,7 @@
 import { LitElement, html, css, type PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ParticleSystem } from "../lib/ParticleSystem";
-import { subscribe, type StateType, getState } from "../lib/State";
+import { subscribe, type StateType } from "../lib/State";
 
 // Derives the keys that exist in both StateType and ParticleSystem, excluding undefined.
 type ParticleSystemStateKeys = Exclude<
@@ -40,7 +40,7 @@ export class DSParticles extends LitElement {
 			height: 100%;
 		}
 		canvas {
-			background-color: #282828;
+			background-color: var(--background);
 			width: 100%;
 			height: 100%;
 		}
@@ -52,11 +52,9 @@ export class DSParticles extends LitElement {
 	private particleSystem: ParticleSystem | undefined;
 
 	override updated(changedProperties: Map<string, unknown>) {
-		console.log(changedProperties); // logs previous values
-		console.log(this.clearColor); // logs current value
 		if (changedProperties.has("clearColor")) {
 			if (this.particleSystem) {
-				this.particleSystem.clearColor = this.clearColor; //"#ff00ff";
+				this.particleSystem.clearColor = this.clearColor;
 			}
 		}
 	}

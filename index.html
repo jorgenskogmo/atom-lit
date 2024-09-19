@@ -19,9 +19,9 @@
       LitElement
     </h1>
     
-    <div role="doc-subtitle">
+    <h2 role="doc-subtitle">
       An example of a lean and framework-less approach to modern frontend development.
-    </div>
+    </h2>
 
     <p>
       With the increasing robustness and maturity of "the browser is the platform",
@@ -57,7 +57,7 @@
     </p>
   
 
-
+<!-- 
     <hr />
     <div id="main">
       <section data-atroute="/">front</section>
@@ -72,16 +72,20 @@
     <ds-button data-setroute="/user/list" id="b2" variant="secondary"
       >to user/list</ds-button
     >
+    <hr /> -->
 
-    <input type="button" value="native" />
-    <input type="button" value="native" />
-    <input type="button" value="native" />
+    <h3>Anyway - here's those buttons:</h3>
 
-    <input type="text" value="alo der" />
-    
-    <hr />
+    <ds-button variant=""></ds-button>
+    <ds-button variant="normal" value="is normal"></ds-button>
+    <ds-button variant="positive" value="is positive"></ds-button>
+    <ds-button variant="warning" value="is warning"></ds-button>
+    <ds-button variant="negative" value="is negative"></ds-button>
 
-    
+
+    <h3>and a couple of LitElement-driven Custom HTML Elements (aka. Web Components)</h3>
+
+    Bound to the particle-system below via a type-safe state mechanism:
 
     <div class="particle_controls">
       <ds-range key="numParticles" min="1" max="4000" value="2321"></ds-range>
