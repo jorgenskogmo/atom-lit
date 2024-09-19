@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { update, type StateType } from "../State";
+import { update, type StateType } from "../lib/State";
 
 @customElement("ds-range")
 class DSRange extends LitElement {
@@ -16,54 +16,75 @@ class DSRange extends LitElement {
     
     .container {
         display: grid;
-        grid-template-columns: 1fr 1fr 100px;
-        align-items:center;
-        color: var(--foreground);
-        margin-bottom: 10px;
-        background-color: var(--background);
-        padding: 2px;
+        grid-template-rows: 1fr 1fr;
     }
-    .container:hover {
-        background-color: color-mix(in srgb, var(--background), #000 33%);
+    .container:hover > .info {
+      opacity: 1;
+    }
+    .info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items:end;
+      opacity: 0.6;
     }
 
     label {
-        display: block;
+      font: var(--font-label);
     }
-    label::first-letter {
+    label.key::first-letter {
         text-transform: capitalize;
     }
-
-    .key, .value {
-        padding-inline: 0.5rem;
+    label.value {
+      text-align: right;
+      
     }
+
 
     /* https://doodlenerd.com/html-control/css-input-range-generator */
     input[type=range] {
         -webkit-appearance: none;
         margin: 0;
         width: 100%;
-        background-color: transparent;
-        overflow: hidden;
+        cursor: pointer;
+        border-top: 10px solid var(--background);
+        border-bottom: 10px solid var(--background);
+        background: transparent;
       }
       input[type=range]::-webkit-slider-runnable-track {
         width: 100%;
-        height: var( --_track_height );
-        cursor: pointer;
-        background: var(--_track);
+        height: 4px;
+        border-radius: 5px;
+        background-color: var(--foreground); /* #ccc; */
+        transition: background-color cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
+      }
+      input[type=range]::-webkit-slider-runnable-track:active {
+        background-color: #bbb;
       }
       input[type=range]::-webkit-slider-thumb {
-        height: var(--_thumb_size);
-        width: var(--_thumb_size);
-        background: var(--_track_value);
-        cursor: pointer;
         -webkit-appearance: none;
-        box-shadow: -400px 0 0 400px var(--_track_value);
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        border: 4px solid var(--foreground);
+        outline: 6px solid var(--background);
+        background: var(--background);
+        cursor: pointer;
+        margin-top: -8px;
+        transition: border cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
       }
-      input[type=range]:focus::-webkit-slider-runnable-track {
-        background: var(--_track);
-      }
+      input[type=range]::-webkit-slider-thumb:active {
+        border: 7px solid var(--foreground);
+      }     
       
+      input[type="range"]:focus {
+        outline: none;
+      }
+      input[type=range]:focus-visible::-webkit-slider-runnable-track, input[type=range]:focus::-webkit-slider-runnable-track {
+        outline: none;
+      }
+      input[type=range]:focus-visible::-webkit-slider-thumb {
+        outline: 4px solid var(--input-focus);
+      }
   `;
 
 	@property({ reflect: true })
@@ -101,20 +122,22 @@ class DSRange extends LitElement {
 	override render() {
 		return html`    
     <div class="container">
-        <label class="key" for="attractionStrength">${this.formatKey(this.key)}:</label>
-        <div class="range">
-            <input
-                type="range"
-                min="${this.min}"
-                max="${this.max}"
-                step="${this.step}"
-                value="${this.value}"
-                @input="${this.onChange}"
-            />
-        </div>
-        <span class="value" id="out">${this.value}</span>
+      <div class="info">
+        <label class="key">${this.formatKey(this.key)}:</label>
+        <label class="value">${this.value}</label>
       </div>
-      `;
+      <div class="range">
+        <input
+            type="range"
+            min="${this.min}"
+            max="${this.max}"
+            step="${this.step}"
+            value="${this.value}"
+            @input="${this.onChange}"
+        />
+        <div class="fill"></div>
+      </div>
+    </div>`;
 	}
 }
 

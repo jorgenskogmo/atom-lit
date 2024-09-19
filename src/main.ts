@@ -1,6 +1,6 @@
-import "./components.ts";
-import "./router.ts";
-import { setInitialState } from "./State";
+import "./components/index";
+import "./lib/router";
+import { rgb2hex } from "./lib/utils";
 
 // can we define StateType here, based on the key/values we put into the initial object?
 
@@ -31,32 +31,26 @@ import { setInitialState } from "./State";
 //     useTrails?: string;
 //   }
 
-setInitialState({
-	numParticles: 500,
-});
+// setInitialState({
+// 	numParticles: 500,
+// });
 
 //   export interface StateType = typeof initial_state;
 
-const setRenderingMode = (isLight: number) => {
-	if (isLight) {
-		document.body.classList.remove("dark");
-		document.body.classList.add("light");
-	} else {
-		document.body.classList.remove("light");
-		document.body.classList.add("dark");
-	}
-};
-
+// connect the light/dark-mode switch to document and particle system
 document
 	.querySelector("#lightdarkmode")
 	?.addEventListener("input", (e: Event) => {
 		if (e.currentTarget) {
 			const on = (e.currentTarget as HTMLElement).getAttribute("on");
-			console.log("lightdark", e.currentTarget, on);
-			setRenderingMode(on === "1" ? 1 : 0);
+			document.body.setAttribute("data-theme", on === "1" ? "light" : "dark");
+			const particles = document.querySelector("#particles");
+			if (particles) {
+				// grab the re-applied css custom properties, covert to HEX and forward to particles
+				const bg = window
+					.getComputedStyle(document.body)
+					.getPropertyValue("background-color");
+				particles.setAttribute("clearColor", rgb2hex(bg));
+			}
 		}
 	});
-
-const isLight =
-	document.querySelector("#lightdarkmode")?.getAttribute("on") === "1" ? 1 : 0;
-setRenderingMode(isLight);

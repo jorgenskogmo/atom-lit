@@ -39,6 +39,7 @@ export class ParticleSystem {
 	private _friction = 0.9;
 	private _slowColor: Float32Array = new Float32Array([0, 1, 1]); // Cyan
 	private _fastColor: Float32Array = new Float32Array([1, 0, 1]); // Magenta
+	private _clearColor: Float32Array = new Float32Array([1, 0, 0]); // Red
 	private _arrowSize = 10;
 	private _useTrails = false;
 
@@ -105,7 +106,7 @@ export class ParticleSystem {
 	set numParticles(value: number) {
 		this._numParticles = value;
 		this.resizeParticles(value);
-		this.updateInputValue("numParticles", value);
+		// this.updateInputValue("numParticles", value);
 	}
 
 	get attractionStrength(): number {
@@ -114,7 +115,7 @@ export class ParticleSystem {
 
 	set attractionStrength(value: number) {
 		this._attractionStrength = value;
-		this.updateInputValue("attractionStrength", value);
+		// this.updateInputValue("attractionStrength", value);
 	}
 
 	get repulsionStrength(): number {
@@ -123,7 +124,7 @@ export class ParticleSystem {
 
 	set repulsionStrength(value: number) {
 		this._repulsionStrength = value;
-		this.updateInputValue("repulsionStrength", value);
+		// this.updateInputValue("repulsionStrength", value);
 	}
 
 	get repulsionRadius(): number {
@@ -132,7 +133,7 @@ export class ParticleSystem {
 
 	set repulsionRadius(value: number) {
 		this._repulsionRadius = value;
-		this.updateInputValue("repulsionRadius", value);
+		// this.updateInputValue("repulsionRadius", value);
 	}
 
 	get maxSpeed(): number {
@@ -141,7 +142,7 @@ export class ParticleSystem {
 
 	set maxSpeed(value: number) {
 		this._maxSpeed = value;
-		this.updateInputValue("maxSpeed", value);
+		// this.updateInputValue("maxSpeed", value);
 	}
 
 	get maxForce(): number {
@@ -150,7 +151,7 @@ export class ParticleSystem {
 
 	set maxForce(value: number) {
 		this._maxForce = value;
-		this.updateInputValue("maxForce", value);
+		// this.updateInputValue("maxForce", value);
 	}
 
 	get friction(): number {
@@ -159,7 +160,7 @@ export class ParticleSystem {
 
 	set friction(value: number) {
 		this._friction = value;
-		this.updateInputValue("friction", value);
+		// this.updateInputValue("friction", value);
 	}
 
 	get slowColor(): string {
@@ -180,7 +181,7 @@ export class ParticleSystem {
 			console.warn("Invalid color value. Using default color.");
 			this._slowColor = new Float32Array([0, 1, 1]); // Default to cyan
 		}
-		this.updateInputValue("slowColor", this.rgbToHex(this._slowColor));
+		// this.updateInputValue("slowColor", this.rgbToHex(this._slowColor));
 	}
 
 	get fastColor(): string {
@@ -201,7 +202,12 @@ export class ParticleSystem {
 			console.warn("Invalid color value. Using default color.");
 			this._fastColor = new Float32Array([1, 0, 1]); // Default to magenta
 		}
-		this.updateInputValue("fastColor", this.rgbToHex(this._fastColor));
+		// this.updateInputValue("fastColor", this.rgbToHex(this._fastColor));
+	}
+
+	set clearColor(value: string) {
+		// this.updateInputValue("clearColor", value);
+		this._clearColor = this.hexToRgb(value);
 	}
 
 	get arrowSize(): number {
@@ -210,7 +216,7 @@ export class ParticleSystem {
 
 	set arrowSize(value: number) {
 		this._arrowSize = value;
-		this.updateInputValue("arrowSize", value);
+		// this.updateInputValue("arrowSize", value);
 	}
 
 	get useTrails(): boolean {
@@ -231,12 +237,12 @@ export class ParticleSystem {
 	}
 
 	// Helper method to update HTML input value
-	private updateInputValue(id: string, value: number | string): void {
-		const input = document.getElementById(id) as HTMLInputElement;
-		if (input) {
-			input.value = value.toString();
-		}
-	}
+	// private updateInputValue(id: string, value: number | string): void {
+	// 	const input = document.getElementById(id) as HTMLInputElement;
+	// 	if (input) {
+	// 		input.value = value.toString();
+	// 	}
+	// }
 
 	// Color helpers
 	private rgbToHex(rgb: Float32Array): string {
@@ -655,7 +661,14 @@ export class ParticleSystem {
 		// const c = 1.0; //0.155;
 		// gl.clearColor(c, c, c, 1.0);
 		// gl.clearColor(0.0, 0.0, 0.0, 1.0);
-		gl.clearColor(1.0, 1.0, 1.0, 1.0);
+		// gl.clearColor(1.0, 1.0, 1.0, 1.0);
+
+		gl.clearColor(
+			this._clearColor[0],
+			this._clearColor[1],
+			this._clearColor[2],
+			1.0,
+		);
 
 		// dark (purple) mode
 		// gl.clearColor(

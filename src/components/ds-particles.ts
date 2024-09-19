@@ -1,7 +1,7 @@
 import { LitElement, html, css, type PropertyValues } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { ParticleSystem } from "../lib/ParticleSystem";
-import { subscribe, type StateType, getState } from "../State";
+import { subscribe, type StateType, getState } from "../lib/State";
 
 // Derives the keys that exist in both StateType and ParticleSystem, excluding undefined.
 type ParticleSystemStateKeys = Exclude<
@@ -33,36 +33,44 @@ function updateParticleSystemFromState(
 @customElement("ds-particles")
 export class DSParticles extends LitElement {
 	static override styles = css`
-    :host {
-      display: flex;
-      border: solid 1px gray;
-      width: 100%;
-      height: 100%;
-    }
-    canvas {
-      background-color: #282828;
-      width: 100%;
-      height: 100%;
-    }
-  `;
+		:host {
+			display: flex;
+			border: solid 1px gray;
+			width: 100%;
+			height: 100%;
+		}
+		canvas {
+			background-color: #282828;
+			width: 100%;
+			height: 100%;
+		}
+    `;
+
+	@property({ type: String, reflect: true })
+	clearColor = "#0099ff";
+
+	private particleSystem: ParticleSystem | undefined;
+
+	override updated(changedProperties: Map<string, unknown>) {
+		console.log(changedProperties); // logs previous values
+		console.log(this.clearColor); // logs current value
+		if (changedProperties.has("clearColor")) {
+			if (this.particleSystem) {
+				this.particleSystem.clearColor = this.clearColor; //"#ff00ff";
+			}
+		}
+	}
 
 	protected override firstUpdated(_changedProperties: PropertyValues): void {
 		const canvas = this.renderRoot.querySelector("#g") as HTMLCanvasElement;
 
-		console.log("ds-part firstUpdated", getState());
-
-		const particleSystem = new ParticleSystem(canvas);
-		// particleSystem.numParticles = 2300; // This will automatically resize the particle system
-		// particleSystem.attractionStrength = 10000;
-		// particleSystem.useTrails = true; // This will enable trails
-
-		// particleSystem.slowColor = "#ffffff";
-		// particleSystem.fastColor = "#ff00ff";
-
-		particleSystem.animate();
+		this.particleSystem = new ParticleSystem(canvas);
+		this.particleSystem.animate();
 
 		subscribe((state) => {
-			updateParticleSystemFromState(particleSystem, state);
+			if (this.particleSystem) {
+				updateParticleSystemFromState(this.particleSystem, state);
+			}
 		});
 	}
 

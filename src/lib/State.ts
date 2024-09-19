@@ -23,6 +23,8 @@ export interface StateType {
 	arrowSize?: number;
 	/** Whether to use trails for particle movement */
 	useTrails?: string;
+	/** Clear color */
+	clearColor?: string;
 }
 
 /**

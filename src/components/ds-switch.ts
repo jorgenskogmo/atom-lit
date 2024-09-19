@@ -35,7 +35,7 @@ class DSSwitch extends LitElement {
     input[type=range] {
         -webkit-appearance: none;
         margin: 0;
-        width: 3rem;
+        width: 48px;
         cursor: pointer;
         background-color: var(--foreground);
       }
@@ -44,40 +44,43 @@ class DSSwitch extends LitElement {
         width: 100%;
         height: 20px;
         outline: 4px solid var(--foreground);
-        border-radius: 24px;
+        border-radius: var(--radius-full);
         background-color: var(--foreground);
       }
-      /* input[type=range]::-webkit-slider-runnable-track:active {
-        background-color: #bbb;
-      } */
+      
       input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none;
         cursor: pointer;
         height: 20px;
         width: 20px;
-        border-radius: 100%;
-        /* border: 2px solid #000000; */
+        border-radius: var(--radius-full);
         margin-top: 0px;
         background: var(--background);
-      }      
+      }   
+
+
+      input[type="range"]:focus {
+        outline: none;
+      }
+      input[type=range]:focus-visible::-webkit-slider-runnable-track, input[type=range]:focus::-webkit-slider-runnable-track {
+        outline: 4px solid var(--input-focus);
+      }
+      
+      
   `;
 
 	@property({ type: Number, reflect: true })
 	on = 1;
 
-	constructor() {
-		super();
+	override updated(changedProperties: Map<string, unknown>) {
+		console.log(changedProperties); // logs previous values
+		console.log("on:", this.on); // logs current value
+		const event = new Event("input", { bubbles: true, composed: true });
+		this.dispatchEvent(event);
 	}
-
-	// override connectedCallback(): void {
-	// 	super.connectedCallback();
-	//     this.on = Number.parseInt(this.on);
-	//  TODO: Fire input event
-	// }
 
 	private onChange(e: Event) {
 		const value = (e.target as HTMLInputElement).value;
-		// console.log("color:", this.on, value);
 		this.on = Number.parseInt(value);
 	}
 
@@ -93,8 +96,8 @@ class DSSwitch extends LitElement {
             value="${this.on ? 1 : 0}"
             @input="${this.onChange}"
         />
-        <div class="icon light ${this.on ? "" : "hide"}"><img src="public/icons/sun-16.svg" /></div>
-        <div class="icon dark ${this.on ? "hide" : ""}"><img src="public/icons/moon-16.svg" /></div>
+        <div class="icon light ${this.on ? "" : "hide"}"><img src="/icons/sun-16.svg" /></div>
+        <div class="icon dark ${this.on ? "hide" : ""}"><img src="/icons/moon-16.svg" /></div>
       </div>
     </div>`;
 	}
