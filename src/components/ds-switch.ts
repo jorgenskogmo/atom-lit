@@ -55,7 +55,7 @@ class DSSwitch extends LitElement {
       input[type="range"]:focus {
         outline: none;
       }
-      input[type=range]:focus-visible::-webkit-slider-runnable-track, input[type=range]:focus::-webkit-slider-runnable-track {
+      input[type=range]:focus-visible::-webkit-slider-runnable-track {
         outline: 4px solid var(--input-focus);
       }
       
@@ -87,8 +87,8 @@ class DSSwitch extends LitElement {
             value="${this.on ? 1 : 0}"
             @input="${this.onChange}"
         />
-        <div class="icon light ${this.on ? "" : "hide"}"><img src="/icons/sun-16.svg" /></div>
-        <div class="icon dark ${this.on ? "hide" : ""}"><img src="/icons/moon-16.svg" /></div>
+        <div class="icon light ${this.on ? "" : "hide"}"><img src="/icons/sun-16.svg" alt="light mode" /></div>
+        <div class="icon dark ${this.on ? "hide" : ""}"><img src="/icons/moon-16.svg" alt="dark mode" /></div>
       </div>
     </div>`;
 	}

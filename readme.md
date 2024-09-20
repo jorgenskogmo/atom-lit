@@ -1,18 +1,22 @@
 # DRAFT
 
-So, in this demo, we're doing two things:
+So, in this demo, we're doing three things:
 
-- a fun particle system, implemented in (raw) webgl
-- a (few) design-token driven UI components, implemented as Custom HTML elements (aka WebComponents)
+- design-token driven css (implemented in figma)
+- custom html elements (implemented with Lit base-class)
+- webgl particle system (implemented in raw webgl)
 
-This gives us three talking-points, that presents an approach to Frontend Engineering that, hopefully, resonates with you.
+This gives us three talking-points that presents an approach to Frontend Engineering that, hopefully, resonates with you.
 
-##
+## 1
 
-Use the platform.
+Relationship between UX/UI, Design Engineering and Frontend Engineering 
 
-- [x] raw webgl
-      ui control of boids
-      design tokens
-      vanilla js and web components
-      web-platform
+## 2
+
+Be an Engineer, not a Frameworker
+
+## 3
+
+Understand the underlying technology.  
+

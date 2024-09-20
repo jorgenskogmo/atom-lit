@@ -122,7 +122,7 @@ class DSRange extends LitElement {
 		return html`    
     <div class="container">
       <div class="info">
-        <label class="key">${this.formatKey(this.key)}:</label>
+        <label class="key" for="${this.key}">${this.formatKey(this.key)}:</label>
         <label class="value">${this.value}</label>
       </div>
       <div class="range">
@@ -133,6 +133,7 @@ class DSRange extends LitElement {
             step="${this.step}"
             value="${this.value}"
             @input="${this.onChange}"
+            id="${this.key}"
         />
         <div class="fill"></div>
       </div>

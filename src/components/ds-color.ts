@@ -114,7 +114,7 @@ class DSColor extends LitElement {
 		return html`    
     <div class="container">
       <div class="info">
-        <label class="key">${this.formatKey(this.key)}:</label>
+        <label class="key" for="${this.key}">${this.formatKey(this.key)}:</label>
         <label class="value">${this.value}</label>
       </div>
       <div class="range">
@@ -125,6 +125,7 @@ class DSColor extends LitElement {
             step="1"
             value="${this.nvalue}"
             @input="${this.onChange}"
+            id="${this.key}"
         />        
       </div>
     </div>`;

@@ -40,6 +40,10 @@ class DSButton extends LitElement {
       outline: var(--_border-width) solid var(--background);
     }
 
+    input[type=button]:focus-visible {
+      outline: 4px solid var(--input-focus);
+    }
+
   `;
 
 	@property()
