@@ -7,9 +7,20 @@ purpose: app specific styling
 
 body {
   margin:0;
-  padding: 2rem;
+  padding: 1rem 2rem;
+  
+  color: #000;
+  background-color: #eee;
+  transition: all 0.25s;
+}
+body.dark-theme {
+  color: #eee;
+  background-color: #000;
+  --atom-button-bg: #20222f;
 }
 
 body, p {
   font: var(--atom-font-p);
 }
+
+

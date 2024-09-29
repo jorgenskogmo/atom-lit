@@ -5,3 +5,5 @@ import "./components/range";
 import "./components/button";
 import "./components/icon";
 import "./components/switch";
+
+import "./components/switch-darkmode";

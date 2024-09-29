@@ -50,6 +50,7 @@ class Atom extends LitElement {
 	// override in component
 	onChange(_e: Event): void {}
 	handleChange(): void {}
+	protected beforeFirstUpdate(): void {}
 
 	announce(value: typeof this.value) {
 		if (this.bind !== undefined) {

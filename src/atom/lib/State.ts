@@ -117,4 +117,4 @@ function notifySubscribers(): void {
 
 updateMany(initialState);
 
-console.log("here", state);
+console.log("initialState", state);

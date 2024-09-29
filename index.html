@@ -4,35 +4,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
   <title>lit-glue</title>
   <link rel="stylesheet" href="./src/main.css" />
   <script type="module" src="./src/main.ts"></script>
 </head>
 
 <body>
-
-  <atom-icon name="align-center"></atom-icon>
   <p>240925</p>
 
-  <atom-button variant="subtle" label="Outline"></atom-button>
-
-  Direct state-subscriber: <span id="state0out" style="color:#09f">non</span>
+  Direct state-subscriber: <span id="state0out" style="color:#09f">n/a</span>
 
   <hr />
 
   <atom-range id="btn0" value="20" bind="num"></atom-range>
 
-  Output from change-event: <span id="btn0out" style="color:red">non</span>
+  Output from change-event: <span id="btn0out" style="color:rgb(0, 110, 255)">non</span>
 
   <hr />
   A "monitor" for the state-value
   <code>num</code>: <atom-binding bind="num"></atom-binding>
 
   <hr />
-
-  <atom-button>
-    <atom-icon name="plus-square"></atom-icon>
-  </atom-button>
 
   <atom-button>Continue</atom-button>
   <atom-button variant="destructive">Destructive</atom-button>
@@ -57,11 +53,17 @@
 
   <hr />
 
+  <atom-button label="">
+    <atom-icon slot="left" name="plus-square"></atom-icon>
+  </atom-button>
 
   <code>clicks</code>: <atom-binding bind="clicks"></atom-binding>
 
   <hr />
   <atom-switch bind="darkmode">Airplane mode</atom-switch>
+
+
+  <atom-switch-darkmode default="system">Dark mode</atom-switch-darkmode>
 
 
 
