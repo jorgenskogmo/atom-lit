@@ -1,5 +1,5 @@
-import { initialState, type StateType } from "../state";
-export { type StateType } from "../state";
+import { initialState, type StateType } from "../../state";
+export { type StateType } from "../../state";
 
 /**
  * Function type for state change subscribers.
@@ -103,15 +103,15 @@ function notifySubscribers(): void {
 	subscribers.forEach((callback) => callback(currentState));
 }
 
-// TODO:
-// Subscribe to single key
-export function subscribeTo(
-	key: keyof StateType,
-	callback: Subscriber,
-): () => void {
-	///
-	return () => unsubscribe(callback);
-}
+// // TODO:
+// // Subscribe to single key
+// export function subscribeTo(
+// 	key: keyof StateType,
+// 	callback: Subscriber,
+// ): () => void {
+// 	///
+// 	return () => unsubscribe(callback);
+// }
 
 // init
 

@@ -1,14 +1,10 @@
-// import "./components/index";
-// import "./lib/router";
-// import { rgb2hex, getCSSProp } from "./lib/utils";
-
 import "./state";
-import "./components/index";
+import "./atom/index";
 
-import type { AtomEventDetail } from "./lib/Atom";
+import type { AtomEventDetail } from "./atom/lib/Atom";
 
 // just for testing:
-import { subscribe, getState, set } from "./lib/State";
+import { subscribe, getState } from "./atom/lib/State";
 
 const slider = document.querySelector("#btn0") as HTMLInputElement;
 
@@ -27,13 +23,13 @@ subscribe((s) => {
 const el = document.querySelector("#state0out") as HTMLDivElement;
 el.innerHTML = `${getState().num}`;
 
-// direct update:
-let nn = 10;
-setInterval(() => {
-	// const n = getState().num + 1;
-	// set("num", n);
-	// slider.value = `${++nn}`;
-}, 1000);
+// // direct update:
+// let nn = 10;
+// setInterval(() => {
+// 	// const n = getState().num + 1;
+// 	// set("num", n);
+// 	// slider.value = `${++nn}`;
+// }, 1000);
 
 //----
 

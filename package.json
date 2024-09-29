@@ -1,5 +1,5 @@
 {
-  "name": "webgl-lit-tokens",
+  "name": "lit-glue",
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
@@ -7,7 +7,6 @@
     "build": "vite build"
   },
   "keywords": [
-    "webgl",
     "lit",
     "design tokens"
   ],
@@ -15,7 +14,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "custom-element-vs-code-integration": "^1.4.1",
     "lit": "^3.2.0"
   },
   "devDependencies": {

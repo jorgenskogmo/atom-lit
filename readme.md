@@ -8,9 +8,25 @@ this is an attempt to
 - Great DX
 - Good UX (but thats not key - its currently more about the dx)
 
+## check
+
 https://github.com/break-stuff/cem-tools?tab=readme-ov-file
 
 bun run custom-elements-manifest analyze
+
+https://github.com/open-wc/api-viewer-element
+
+bun run custom-elements-manifest analyze
+
+wca analyze src --format vscode --outFile vscode-html-custom-data.json
+
+# works!
+
+npx web-component-analyzer analyze src/components --format vscode --outFile vscode-html-custom-data.json
+
+# jakob
+
+https://github.com/bmewburn/vscode-intelephense/issues/2570
 
 ## Overview
 

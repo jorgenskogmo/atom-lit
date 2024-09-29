@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "binding.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Binding",
+          "members": [
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "css` :host { background-color: #00ff9980; /* border: 1px dotted; */ padding-inline: 4px; } `"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "Atom",
+            "module": "/lib/Atom"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Binding",
+          "declaration": {
+            "name": "Binding",
+            "module": "binding.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Button",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "\"normal\" | \"destructive\" | \"subtle\""
+              },
+              "default": "\"normal\""
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onChange",
+              "parameters": [
+                {
+                  "name": "_e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[defaultStyles, localStyles]"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "Atom",
+            "module": "/lib/Atom"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Button",
+          "declaration": {
+            "name": "Button",
+            "module": "button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "icon.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Icon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "FeatherIconNames"
+              },
+              "default": "\"airplay\""
+            },
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "css` :host { /* background-color: #0f0; */ display: inline-flex; width: auto; align-items: stretch; justify-content: center; vertical-align: middle; user-select: none; /* transform: scale(0.75); */ position: relative; } svg { position: relative; /* top: -1px; */ } .feather { width: var(--atom-icon-size, 12px); height: var(--atom-icon-size, 12px); stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; } `"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "protected"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "icon.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "index.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "range.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Range",
+          "members": [
+            {
+              "kind": "field",
+              "name": "min",
+              "type": {
+                "text": "number"
+              },
+              "default": "1"
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "type": {
+                "text": "number"
+              },
+              "default": "30"
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "default": "1"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onChange",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "css` input { accent-color: #000; } `"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "Atom",
+            "module": "/lib/Atom"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Range",
+          "declaration": {
+            "name": "Range",
+            "module": "range.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "switch.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Switch",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onChange",
+              "parameters": [
+                {
+                  "name": "_e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[defaultStyles, localStyles]"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "Atom",
+            "module": "/lib/Atom"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Switch",
+          "declaration": {
+            "name": "Switch",
+            "module": "switch.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

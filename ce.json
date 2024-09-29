@@ -1,0 +1,14 @@
+{
+  "tags": [
+    {
+      "name": "my-component",
+      "description": "My custom component",
+      "attributes": [
+        {
+          "name": "test",
+          "description": "The test attribute"
+        }
+      ]
+    }
+  ]
+}
