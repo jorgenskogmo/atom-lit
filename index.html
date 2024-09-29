@@ -4,90 +4,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>webgl, lit and design-tokens</title>
+  <title>lit-glue</title>
   <link rel="stylesheet" href="./src/main.css" />
 </head>
 
 <body>
 
-  <p>240917</p>
+  <p>240925</p>
 
-  <ds-switch id="lightdarkmode" on="0"></ds-switch>
+  Direct state-subscriber: <span id="state0out" style="color:#09f">non</span>
 
-  <h1 role="heading">
-    People of the web-kingdom, look:<br />
-    webgl2,<br />
-    design-tokens &<br />
-    LitElement
-  </h1>
+  <hr />
 
-  <h2 role="doc-subtitle">
-    An example of a lean and framework-less approach to modern frontend development.
-  </h2>
+  <atom-range id="btn0" value="20" bind="num"></atom-range>
 
-  <p>
-    So, in this demo, we're doing three things:
+  Output from change-event: <span id="btn0out" style="color:red">non</span>
 
-  <ul>
-    <li>design-token driven css (implemented in figma)</li>
-    <li>custom html elements (implemented with Lit base-class)</li>
-    <li>webgl particle system (implemented in raw webgl)</li>
-  </ul>
+  <hr />
+  A "monitor" for the state-value
+  <code>num</code>: <atom-binding bind="num"></atom-binding>
 
+  <hr />
 
-  as three talking-points, that presents an approach to Frontend Engineering that, hopefully, resonates with you.
-  </p>
+  <atom-button>
+    <atom-icon name="plus-square"></atom-icon>
+  </atom-button>
 
-  <br />
-  <br />
+  <atom-button>Continue</atom-button>
+  <atom-button variant="destructive">Destructive</atom-button>
+  <atom-button variant="subtle">Subtle</atom-button>
 
-  <h3 style="color:var(--purple-light);">
-    1. Relationship between UX/UI, Design Engineering and Frontend Engineering
-  </h3>
-  <ds-button variant=""></ds-button>
-  <ds-button variant="normal" value="Normal"></ds-button>
-  <ds-button variant="positive" value="Positive"></ds-button>
-  <ds-button variant="warning" value="Warning"></ds-button>
-  <ds-button variant="negative" value="Negative"></ds-button>
-  <p>
-    A couple of buttons, using design-token driven css (implemented in figma)
-  </p>
+  <atom-button bind="clicks">
+    Login with Email
+    <div slot="left"><atom-icon name="mail"></atom-icon></div>
+  </atom-button>
 
-  <br />
-  <br />
+  <atom-button>
+    Button3
+    <div slot="right"><atom-icon name="aperture"></atom-icon></div>
+  </atom-button>
 
-  <h3 style="color:var(--blue-light);">
-    2. Be an Engineer, not a Frameworker
-  </h3>
-
-  <br />
-  <br />
-
-  <h3 style="color:var(--pink-light);">
-    3. Understand the underlying technology.
-  </h3>
+  <atom-button>
+    Button7
+    <div slot="left"><atom-icon name="x"></atom-icon></div>
+    <div slot="right"><atom-icon name="aperture"></atom-icon></div>
+  </atom-button>
 
 
-  <br />
-  <br />
+  <hr />
 
 
-  <div class="particle_controls">
-    <ds-range key="numParticles" min="1" max="4000" value="2321"></ds-range>
-    <ds-range key="repulsionStrength" min="0.01" max="2" value="0.2" step="0.1"></ds-range>
-    <ds-range key="repulsionRadius" min="1" max="2000" value="100" step="1"></ds-range>
-    <ds-range key="arrowSize" min="1" max="150" value="10" step="1"></ds-range>
+  <code>clicks</code>: <atom-binding bind="clicks"></atom-binding>
 
-    <!-- <ds-range key="attractionStrength" min="0" max="20000" value="9999"></ds-range> -->
-    <!-- <ds-range key="maxSpeed" min="1" max="100" value="30" step="1"></ds-range> -->
-    <ds-range key="maxForce" min="0.1" max="2" value="0.6" step="0.1"></ds-range>
-    <!-- <ds-range key="friction" min="0.8" max="0.99" value="0.9" step="0.01"></ds-range> -->
-
-    <ds-color key="slowColor" value="#00d5ff"></ds-color>
-    <ds-color key="fastColor" value="#e100ff"></ds-color>
-  </div>
-
-  <ds-particles id="particles"></ds-particles>
+  <hr />
+  <atom-switch bind="darkmode">Airplane mode</atom-switch>
 
   <script type="module" src="./src/main.ts"></script>
 </body>

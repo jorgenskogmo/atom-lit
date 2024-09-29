@@ -102,3 +102,19 @@ function notifySubscribers(): void {
 	// biome-ignore lint/complexity/noForEach: <explanation>
 	subscribers.forEach((callback) => callback(currentState));
 }
+
+// TODO:
+// Subscribe to single key
+export function subscribeTo(
+	key: keyof StateType,
+	callback: Subscriber,
+): () => void {
+	///
+	return () => unsubscribe(callback);
+}
+
+// init
+
+updateMany(initialState);
+
+console.log("here", state);

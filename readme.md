@@ -1,22 +1,87 @@
-# DRAFT
+# Atom
 
-So, in this demo, we're doing three things:
+As a study in sustainable and resilient design systems,
+this is an attempt to
 
-- design-token driven css (implemented in figma)
-- custom html elements (implemented with Lit base-class)
-- webgl particle system (implemented in raw webgl)
+- Framework independent custom HTML components
+- As few dependencies as possible
+- Great DX
+- Good UX (but thats not key - its currently more about the dx)
 
-This gives us three talking-points that presents an approach to Frontend Engineering that, hopefully, resonates with you.
+https://github.com/break-stuff/cem-tools?tab=readme-ov-file
 
-## 1
+bun run custom-elements-manifest analyze
 
-Relationship between UX/UI, Design Engineering and Frontend Engineering 
+## Overview
 
-## 2
+By extending from the the Atom class instead of from the LitElement class, the ui components gain:
 
-Be an Engineer, not a Frameworker
+- Optional automatic two-way binding to state
+- Optional automatic emit of ready and change events
 
-## 3
+Toggle this behaviour by including or excluding the `bind=` attribute in containing HTML:
 
-Understand the underlying technology.  
+```html
+// example: Using automatic two-way binding to state: // in /state.js: export
+const initialState = { num: 4, }; // in index.html Range slider:
+<atom-range value="20" bind="num"></atom-range>
 
+Monitor: <atom-binding bind="num"></atom-binding>
+```
+
+```html
+// example: Using events to update the monitor Range slider:
+<atom-range id="slider" value="20"></atom-range>
+
+Monitor: <span id="monitor"></span>
+
+var slider = document.querySelector("#slider) var monitor =
+document.querySelector("#monitor) slider.addEventListener("ready", (e) => {
+monitor.innerText = e.detail.value }) slider.addEventListener("change", (e) => {
+monitor.innerText = e.detail.value })
+```
+
+The `value` prop can also be set programatically.
+
+```html
+// example: Using events to update the monitor Range slider:
+<atom-range id="slider" value="20"></atom-range>
+
+var slider = document.querySelector("#slider) var v = 10; setInterval( () => {
+slider.value = ++v }, 1000)
+```
+
+---
+
+We should probably make a better name for the base "Atom" class ;-)
+
+Now,
+
+The purpose of all this, is to find a way to build ui's, that are a joy to build with.
+
+- [ ] Setup should be extremely simple
+- [ ] As few dependencies as possible
+- [x] UI Components should be useful even without styling
+- [ ] But have a good styling story - so these can be our "whitelabel" components
+
+---
+
+## TODO:
+
+#### Components
+
+- [x] Range slider
+- [x] Button with optional left- and right-icons
+- [x] Binding monitor
+- [ ] Form text-input
+- [ ] Form Select/Dropdown
+- [ ] Switch
+- [ ] Checkbox
+- [ ] ColorPicer
+- [ ] Radio
+- [ ] RadioGroup
+- [ ] ButtonGroup
+- [ ] Icon-only button
+- [ ] Progressbar
+- [ ] Loader
+- [ ] Detail fold in/out view

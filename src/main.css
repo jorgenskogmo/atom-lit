@@ -1,41 +1,15 @@
-@import url("style/theme.css");
+/* @import url("style/theme.css"); */
 
 /*
 imported by: browser
 purpose: app specific styling
 */
 
-
-hr {
-  display: block;
-  width: 100%;
-  border: 0;
-  height: 1px;
-  background-color: #00000080;
+body {
+  margin:0;
+  padding: 2rem;
 }
 
-
-/* app */
-
-#particles {
-  margin-inline: -2rem;
-  width: 100vw;
-}
-
-#lightdarkmode {
-  position: absolute;
-  top: calc(3rem + 6px);
-  right: 2rem;
-}
-
-/**/
-
-.feather {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
+body, p {
+  font: var(--atom-font-p);
 }

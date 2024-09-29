@@ -1,5 +1,5 @@
-import "./ds-button";
-import "./ds-range";
-import "./ds-particles";
-import "./ds-color";
-import "./ds-switch";
+import "./binding";
+import "./range";
+import "./button";
+import "./icon";
+import "./switch";
