@@ -1,14 +1,15 @@
 :root {
     color-scheme: light dark; /* both supported */
     
-    --font-family-default: system-ui, -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
+    --atom-font-family-default: system-ui, -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
     
-    --atom-font-h1: 700 48px/48px var(--font-family-default);
-    --atom-font-h2: 700 30px/36px var(--font-family-default);
-    --atom-font-h3: 700 24px/32px var(--font-family-default);
-    --atom-font-h4: 700 20px/28px var(--font-family-default);
-    --atom-font-p: 400  16px/28px var(--font-family-default);
-    --atom-font-label: 600  13px/20px var(--font-family-default);
+    --atom-font-h1: 700 48px/48px var(--atom-font-family-default);
+    --atom-font-h2: 700 30px/36px var(--atom-font-family-default);
+    --atom-font-h3: 700 24px/32px var(--atom-font-family-default);
+    --atom-font-h4: 700 20px/28px var(--atom-font-family-default);
+    --atom-font-subhead: 500 24px/32px var(--atom-font-family-default);
+    --atom-font-p: 400  16px/28px var(--atom-font-family-default);
+    --atom-font-label: 600  13px/20px var(--atom-font-family-default);
 
     --atom-control-bg: #E2E8F0;
 

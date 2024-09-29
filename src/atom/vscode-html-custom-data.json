@@ -987,9 +987,28 @@
       ]
     },
     {
-      "name": "atom-switch",
-      "description": "Attributes:\n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "name": "atom-switch-darkmode",
+      "description": "Attributes:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `darkclass` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `darkclass` {`string`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
+        {
+          "name": "default",
+          "description": "`default` {`\"dark\" | \"light\" | \"system\"`} - \n\nProperty: default\n\nDefault: light",
+          "values": [
+            {
+              "name": "dark"
+            },
+            {
+              "name": "light"
+            },
+            {
+              "name": "system"
+            }
+          ]
+        },
+        {
+          "name": "darkclass",
+          "description": "`darkclass` {`string`} - \n\nProperty: darkclass\n\nDefault: dark-theme"
+        },
         {
           "name": "value",
           "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 6"
@@ -1012,28 +1031,9 @@
       ]
     },
     {
-      "name": "atom-lightdark",
-      "description": "Attributes:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `darkclass` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `darkclass` {`string`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "name": "atom-switch",
+      "description": "Attributes:\n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
-        {
-          "name": "default",
-          "description": "`default` {`\"dark\" | \"light\" | \"system\"`} - \n\nProperty: default\n\nDefault: light",
-          "values": [
-            {
-              "name": "dark"
-            },
-            {
-              "name": "light"
-            },
-            {
-              "name": "system"
-            }
-          ]
-        },
-        {
-          "name": "darkclass",
-          "description": "`darkclass` {`string`} - \n\nProperty: darkclass\n\nDefault: dark-theme"
-        },
         {
           "name": "value",
           "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 6"

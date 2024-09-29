@@ -115,7 +115,7 @@ export class Button extends Atom {
     }
     
     slot[name=center]::slotted(*) {
-        margin: 0;
+        margin: 0 -1rem;
     }
 `;
 

@@ -16,6 +16,25 @@
 <body>
   <p>240925</p>
 
+  <div style="text-align: end;
+  position: absolute;
+  right: 1rem;
+  top: 2rem;">
+    <atom-switch-darkmode default=" system"></atom-switch-darkmode>
+  </div>
+
+  <h1 role="heading">
+    Presenting Atom-components:<br />
+    LitElement &<br />
+    productive-defaults
+  </h1>
+
+  <h2 role="subheading">
+    Introducing sustainable-software
+  </h2>
+
+  <h3>Range</h3>
+
   Direct state-subscriber: <span id="state0out" style="color:#09f">n/a</span>
 
   <hr />
@@ -30,22 +49,21 @@
 
   <hr />
 
-  <atom-button>Continue</atom-button>
-  <atom-button variant="destructive">Destructive</atom-button>
-  <atom-button variant="subtle">Subtle</atom-button>
+  <h3>Button</h3>
 
-  <atom-button bind="clicks">
-    Login with Email
+  <atom-button label="Continue"></atom-button>
+  <atom-button variant="destructive" label="Destructive"></atom-button>
+  <atom-button variant="subtle" label="Subtle"></atom-button>
+
+  <atom-button label="Login with Email">
     <div slot="left"><atom-icon name="mail"></atom-icon></div>
   </atom-button>
 
-  <atom-button>
-    Button3
+  <atom-button label="Right Icon">
     <div slot="right"><atom-icon name="aperture"></atom-icon></div>
   </atom-button>
 
-  <atom-button>
-    Button7
+  <atom-button label="Two Icons">
     <div slot="left"><atom-icon name="x"></atom-icon></div>
     <div slot="right"><atom-icon name="aperture"></atom-icon></div>
   </atom-button>
@@ -53,16 +71,17 @@
 
   <hr />
 
-  <atom-button label="">
-    <atom-icon slot="left" name="plus-square"></atom-icon>
+  <atom-button label="" bind="clicks">
+    <atom-icon slot="center" name="plus-square"></atom-icon>
   </atom-button>
 
   <code>clicks</code>: <atom-binding bind="clicks"></atom-binding>
 
-  <hr />
-  <atom-switch bind="darkmode">Airplane mode</atom-switch>
 
 
+  <h3>Switch</h3>
+  <atom-switch bind="airplane_mode">Airplane mode</atom-switch>
+  <atom-switch disabled>Disabled</atom-switch>
   <atom-switch-darkmode default="system">Dark mode</atom-switch-darkmode>
 
 

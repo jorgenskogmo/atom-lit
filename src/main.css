@@ -19,8 +19,19 @@ body.dark-theme {
   --atom-button-bg: #20222f;
 }
 
-body, p {
+body {
   font: var(--atom-font-p);
 }
+h1, [role="heading"] {
+  /* fluid */
+  font: 700 clamp(1rem, 10vw, 10rem) / clamp(1rem, 10vw, 9rem) var(--atom-font-family-default);
+}
 
+h2, [role="doc-subtitle"] {
+  font: var(--atom-font-subhead);
+  opacity: 0.75;
+}
 
+p {
+  font: var(--atom-font-p);
+}

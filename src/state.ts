@@ -4,7 +4,7 @@
 export const initialState = {
 	num: 1,
 	clicks: 0,
-	darkmode: 0,
+	airplane_mode: 0,
 };
 
 export type StateType = typeof initialState;

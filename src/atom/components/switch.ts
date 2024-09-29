@@ -1,4 +1,5 @@
-import { Atom, html, customElement, css } from "../lib/Atom";
+import type { PropertyValues } from "lit";
+import { Atom, html, customElement, css, property } from "../lib/Atom";
 
 const localStyles = css`
     :host {
@@ -8,6 +9,13 @@ const localStyles = css`
         
         font-size: var(--atom-button-fontsize);
         font-weight: var(--atom-button-fontweight);
+    }
+
+    .button.on.disabled,
+    .button.off.disabled,
+    .button.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 
     .button {
@@ -21,8 +29,6 @@ const localStyles = css`
         -webkit-user-select: none;
         white-space: nowrap;
         vertical-align: middle;
-
-        
 
         
         background: #ccc;
@@ -76,12 +82,34 @@ const localStyles = css`
         margin-left: 4px;
         font: var(--atom-font-label);
     }
+    .label.disabled {
+        opacity: 0.5;
+    }
 `;
 
 @customElement("atom-switch")
 export class Switch extends Atom {
+	@property({ type: Boolean })
+	disabled = false;
+
 	override handleChange(): void {
 		console.log("handleChange this.value:", this.value);
+	}
+
+	protected override firstUpdated(_changedProperties: PropertyValues): void {
+		console.log("switch firstUpdated", _changedProperties);
+	}
+
+	override attributeChangedCallback(
+		name: string,
+		_old: string | null,
+		value: string | null,
+	): void {
+		console.log("switch attributeChangedCallback", name, _old, value);
+		if (name === "disabled" && _old === null && value !== "false") {
+			console.log("switch attributeChangedCallback is disabled");
+			this.disabled = true;
+		}
 	}
 
 	override onChange(_e: Event) {
@@ -97,9 +125,9 @@ export class Switch extends Atom {
 
 	override render() {
 		return html`    
-        <button @click=${this.onChange} class="button ${this.value ? "on" : "off"}">
+        <button @click=${this.disabled ? null : this.onChange} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
             <div class="thumb"></div>
         </button>
-        <span class="label"><slot>${this.value}</slot>(${this.value})</span>`;
+        <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot></span>`;
 	}
 }
