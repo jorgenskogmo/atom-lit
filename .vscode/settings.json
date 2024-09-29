@@ -1,5 +1,3 @@
 {
-  "test-html.customData": ["./src/components/vscode-data.json"],
-  "ok-html.customData": ["./ce.json"],
-  "html.customData": ["./vscode-html-custom-data.json"]
+  "html.customData": ["./src/atom/vscode-html-custom-data.json"]
 }
