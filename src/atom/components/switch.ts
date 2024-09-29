@@ -1,4 +1,4 @@
-import { Atom, defaultStyles, html, customElement, css } from "../lib/Atom";
+import { Atom, html, customElement, css } from "../lib/Atom";
 
 const localStyles = css`
     :host {
@@ -93,7 +93,7 @@ export class Switch extends Atom {
 		this.announce(this.value);
 	}
 
-	static override styles = [defaultStyles, localStyles];
+	static override styles = localStyles;
 
 	override render() {
 		return html`    

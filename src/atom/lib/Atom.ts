@@ -1,7 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { subscribe, set, type StateType, getState } from "./State";
-import { defaultStyles } from "./atom-styles-default";
 
 export type AtomEventKey = "ready" | "change" | "click";
 
@@ -22,7 +21,7 @@ class Atom extends LitElement {
 	@property({ reflect: false })
 	bind: keyof StateType | undefined = undefined;
 
-	cancelSubscription?: () => void;
+	private cancelSubscription?: () => void;
 
 	override async connectedCallback() {
 		super.connectedCallback();
@@ -62,7 +61,7 @@ class Atom extends LitElement {
 		this.handleChange();
 	}
 
-	emit(key: AtomEventKey, value: AtomEventDetail) {
+	private emit(key: AtomEventKey, value: AtomEventDetail) {
 		const event = new CustomEvent(key, {
 			detail: value,
 		});
@@ -70,4 +69,4 @@ class Atom extends LitElement {
 	}
 }
 
-export { Atom, defaultStyles, html, css, customElement, property };
+export { Atom, html, css, customElement, property };

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "docs": "bunx web-component-analyzer analyze src/atom/components --format vscode --outFile src/atom/vscode-html-custom-data.json"
+    "vscode": "bunx web-component-analyzer analyze src/atom/components --format vscode --outFile src/atom/vscode-html-custom-data.json",
+    "docs": "bunx web-component-analyzer analyze src/atom/components --format markdown --outFile src/atom/docs/wca.md"
   },
   "keywords": [
     "lit",
