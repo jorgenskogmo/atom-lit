@@ -2,7 +2,7 @@
 
 // Define application state here:
 export const initialState = {
-	num: 1,
+	num: 20,
 	clicks: 0,
 	airplane_mode: 0,
 };

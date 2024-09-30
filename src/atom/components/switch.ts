@@ -92,22 +92,22 @@ export class Switch extends Atom {
 	@property({ type: Boolean })
 	disabled = false;
 
-	override handleChange(): void {
-		console.log("handleChange this.value:", this.value);
-	}
+	// override handleChange(): void {
+	// 	console.log("handleChange this.value:", this.value);
+	// }
 
-	protected override firstUpdated(_changedProperties: PropertyValues): void {
-		console.log("switch firstUpdated", _changedProperties);
-	}
+	// protected override firstUpdated(_changedProperties: PropertyValues): void {
+	// 	console.log("switch firstUpdated", _changedProperties);
+	// }
 
 	override attributeChangedCallback(
 		name: string,
 		_old: string | null,
 		value: string | null,
 	): void {
-		console.log("switch attributeChangedCallback", name, _old, value);
+		// console.log("switch attributeChangedCallback", name, _old, value);
 		if (name === "disabled" && _old === null && value !== "false") {
-			console.log("switch attributeChangedCallback is disabled");
+			// console.log("switch attributeChangedCallback is disabled");
 			this.disabled = true;
 		}
 	}
