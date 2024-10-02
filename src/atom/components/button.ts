@@ -41,8 +41,8 @@ export class Button extends Atom {
         transition-timing-function: cubic-bezier(.4,0,.2,1);
         transition-duration: .15s;
 
-        color: var(--atom-button-fg, '#fff');
-        background: var(--atom-button-bg, '#f00');
+        color: var(--atom-bg);
+        background: var(--atom-fg);
         border: var(--atom-button-border);
         border-radius: var(--atom-button-border-radius);
         padding-block: var(--atom-button-padding-block);

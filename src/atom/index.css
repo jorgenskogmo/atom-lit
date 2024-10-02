@@ -1,4 +1,7 @@
+@import url(theme.css);
+
 :root {
+
     color-scheme: light dark; /* both supported */
     
     --atom-font-family-default: system-ui, -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
@@ -11,9 +14,42 @@
     --atom-font-p: 400  16px/28px var(--atom-font-family-default);
     --atom-font-label: 600  13px/20px var(--atom-font-family-default);
 
-    --atom-control-bg: #E7EBEF;
+    
+    
+
+    --atom-colorbase-hue: 204deg;
+    --atom-colorbase-sat: 100%;
+    --atom-colorbase-light: 100%; /* not used */
+    --atom-color-05: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 5%);
+    --atom-color-10: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 10%);
+    --atom-color-30: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 30%);
+    --atom-color-50: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 50%);
+    --atom-color-60: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 60%);
+    --atom-color-90: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 90%);
+    --atom-color-95: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 95%);
+    
+    --atom-color-50-33: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 50% / 33%);
+    --atom-color-50-50: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 50% / 50%);
+    --atom-color-50-66: hsl(var(--atom-colorbase-hue) var(--atom-colorbase-sat) 50% / 66%);
+    
+    
+
+    /* --atom-fg-hsl: 204deg 100% 50%;
+    --atom-bg-hsl: 0deg 0% 100%;
+    --atom-fg: hsl(var(--atom-fg-hsl));
+    --atom-bg: hsl(var(--atom-bg-hsl)); */
+    /* --atom-fg: #09f;
+    --atom-bg: #fff; */
+    --atom-fg: #000; /* var(--atom-color-10); */
+    --atom-mg: var(--atom-color-50); /* accent, middle-ground */
+    --atom-bg: white; /* var(--atom-color-95); */
+    --atom-gray: hsl(var(--atom-colorbase-hue) 0% 66% / 66%);
+
+
+    --atom-control-bg: #ccc;
 
     --atom-button-bg: #0F172A;
+
     --atom-button-destructive-bg: #EF4444;
     --atom-button-outline-bg: #fff;
     --atom-button-subtle-bg: #F1F5F9;
@@ -38,4 +74,40 @@
     --atom-button-icon-padding: 8px; /* 4px */
     --atom-button-icon-offset: -4px; /* 4px */
     --atom-icon-size: 14px; /* 4px */
+}
+
+.light-theme {
+    /* forces light color-scheme */
+    color-scheme: light;
+
+    --atom-bg: var(--atom-color-bg-l);
+    --atom-fg: var(--atom-color-fg-l);
+}
+.dark-theme {
+    /* forces dark color-scheme */
+    color-scheme: dark;
+
+    --atom-bg: var(--atom-color-bg-d);
+    --atom-fg: var(--atom-color-fg-d);
+}
+
+h1 {
+    font: var(--atom-font-h1);
+}
+h2 {
+    font: var(--atom-font-h2);
+}
+h3 {
+    font: var(--atom-font-h3);
+}
+h4 {
+    font: var(--atom-font-h4);
+}
+
+.xs {
+    font: 400 13px/16px var(--atom-font-family-default);
+}
+
+.sm {
+    font: 400 14px/16px var(--atom-font-family-default);
 }

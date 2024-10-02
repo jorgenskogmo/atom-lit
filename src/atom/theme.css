@@ -1,0 +1,36 @@
+:root {
+    /**
+
+    Colors.
+
+    Define key colors in theme:
+    
+    - bg-d           page background in dark-mode
+    - bg-l           page background in light-mode
+    - txt-d          text in dark-mode
+    - txt-l          text in light-mode
+    - accent         accent
+    
+    And possibly override the grayscale ramp
+    - gray-300
+    - gray-500
+    - gray-700
+    
+    */
+
+    --atom-color-bg-d: #000;
+    --atom-color-bg-l: #fff;
+
+    --atom-color-fg-d: #fff;
+    --atom-color-fg-l: #111;
+
+    
+    --atom-color-accent: #f00;
+    /* Disable use of accent color by enabling next line */
+    --atom-color-accent: light-dark(var(--atom-fg), var(--atom-bg));
+
+    --atom-color-gray-300: #ccc;
+    --atom-color-gray-500: #555;
+    --atom-color-gray-700: #333;
+
+}

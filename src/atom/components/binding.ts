@@ -4,9 +4,13 @@ import { Atom, html, customElement, css } from "../lib/Atom";
 export class Binding extends Atom {
 	static override styles = css`
 		:host {
-			background-color: #00ff9980;
-			/* border: 1px dotted; */
-			padding-inline: 4px;
+			background-color: var(--atom-color-accent);
+			color: light-dark(var(--atom-bg), var(--atom-fg));
+			padding: 4px;
+			padding-top: 3px;
+			padding-bottom: 4px;
+			border-radius: 4px;
+			font-size: 80%;
 		}
 	`;
 

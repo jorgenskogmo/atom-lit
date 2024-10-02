@@ -5,17 +5,9 @@ const localStyles = css`
     :host {
         display: inline-block;
         position: relative;
-        width: auto;
-        
+        width: auto;        
         font-size: var(--atom-button-fontsize);
         font-weight: var(--atom-button-fontweight);
-    }
-
-    .button.on.disabled,
-    .button.off.disabled,
-    .button.disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
     }
 
     .button {
@@ -28,24 +20,14 @@ const localStyles = css`
         user-select: none;
         -webkit-user-select: none;
         white-space: nowrap;
-        vertical-align: middle;
-
-        
-        background: #ccc;
+        vertical-align: middle;        
         border: none;
         border-radius: 9999px;
-        
         margin-block-end: 4px;
-
         transition-property: background;
         transition-timing-function: cubic-bezier(.4,0,.2,1);
         transition-duration: .15s;
     }
-    /* .button:hover {
-        background-color: color-mix(in srgb, var(--atom-button-bg), #fff 10%);
-        border-color: color-mix(in srgb, var(--atom-button-bg), #fff 10%);
-    } */
-        
 
     .thumb {
         display: block;
@@ -53,22 +35,28 @@ const localStyles = css`
         width: 20px;
         height: 20px;
         margin: 1px;
-        background: #fff;
-        /* width: var( --atom-button-fontsize );
-        height: var( --atom-button-fontsize ); */
         border-radius: 9999px;
         transition-property: left;
         transition-timing-function: cubic-bezier(.4,0,.2,1);
         transition-duration: .15s;
+        /* background: light-dark(var(--atom-bg), var(--atom-fg)); */
+        background: var(--atom-bg);
     }
     
     .button.on {
-        background: var(--atom-button-bg);
+        background: var(--atom-color-accent);
+        /* background: var(--atom-fg); */
     }
     
     .button.off {
-        background: var(--atom-control-bg);
-
+        background: light-dark(
+            var(--atom-color-gray-300),
+            var(--atom-color-gray-700)
+        );
+        /* background: light-dark(
+            hsl(var(--atom-colorbase-hue) 0% 50% / 25%),
+            hsl(var(--atom-colorbase-hue) 0% 50% / 50%)
+        ); */
     }
 
     .button.off .thumb {
@@ -76,6 +64,26 @@ const localStyles = css`
     }
     .button.on .thumb {
         left: 13px;
+    }
+
+    .button.on.disabled,
+    .button.off.disabled,
+    .button.disabled {
+        /* opacity: 0.5; */
+        background: light-dark(
+            hsl(var(--atom-colorbase-hue) 0% 50% / 25%),
+            hsl(var(--atom-colorbase-hue) 0% 50% / 50%)
+        );
+        cursor: not-allowed;
+    }
+    .button.on.disabled .thumb,
+    .button.off.disabled  .thumb,
+    .button.disabled  .thumb {
+        background: light-dark(
+            hsl(var(--atom-colorbase-hue) 0% 100% / 66%),
+            hsl(var(--atom-colorbase-hue) 0% 50% / 33%)
+        );
+        left:0px;
     }
 
     .label {
@@ -110,6 +118,7 @@ export class Switch extends Atom {
 			// console.log("switch attributeChangedCallback is disabled");
 			this.disabled = true;
 		}
+		super.attributeChangedCallback(name, _old, value);
 	}
 
 	override onChange(_e: Event) {
@@ -128,6 +137,6 @@ export class Switch extends Atom {
         <button @click=${this.disabled ? null : this.onChange} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
             <div class="thumb"></div>
         </button>
-        <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot></span>`;
+        <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot>(${this.value})</span>`;
 	}
 }

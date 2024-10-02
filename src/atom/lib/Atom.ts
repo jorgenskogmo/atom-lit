@@ -26,10 +26,12 @@ class Atom extends LitElement {
 	override async connectedCallback() {
 		super.connectedCallback();
 
+		// console.log("atom connectedCallback", this.bind);
+
 		if (this.bind !== undefined) {
 			this.value = getState()[this.bind] as typeof this.value;
 			this.cancelSubscription = subscribe((s) => {
-				// console.log("atom subscription update:", this.bind, s);
+				console.log("atom subscription update:", this.bind, s);
 				if (this.bind !== undefined) {
 					this.value = s[this.bind] as typeof this.value;
 				}

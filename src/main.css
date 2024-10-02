@@ -9,14 +9,11 @@ body {
   margin:0;
   padding: 1rem 2rem;
   
-  color: #000;
-  background-color: #eee;
+  /* color: light-dark(var(--atom-color-fg-l), var(--atom-color-fg-d));
+  background: light-dark(var(--atom-color-bg-l), var(--atom-color-bg-d)); */
+  color: var(--atom-fg);
+  background: var(--atom-bg);
   transition: all 0.25s;
-}
-body.dark-theme {
-  color: #eee;
-  background-color: #000;
-  --atom-button-bg: #20222f;
 }
 
 body {

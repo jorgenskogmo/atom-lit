@@ -14,13 +14,19 @@
 </head>
 
 <body>
-  <p>240925</p>
+
+  <atom-toast></atom-toast>
+
+  <atom-button onclick="toast('alo', 'der')"></atom-button>
+
+  <p class="xs">xs: a first line <br>and a second line</p>
+  <p class="sm">sm: a first line <br>and a second line</p>
 
   <div style="text-align: end;
   position: absolute;
   right: 1rem;
   top: 2rem;">
-    <atom-switch-darkmode default=" system"></atom-switch-darkmode>
+    <atom-switch-darkmode default="light"></atom-switch-darkmode>
   </div>
 
   <h1 role="heading">
@@ -37,25 +43,25 @@
     A design system with coded components. With up-to-date documentation and examples. <br />
     Quite a task. Unless, what if we:
   </p>
-  <p>
 
-  </p>
 
 
   <h3>Range</h3>
 
-  Direct state-subscriber: <span id="state0out" style="color:#09f">n/a</span>
-
-  <hr />
-
   <atom-range id="btn0" min="1" max="60" value="20" bind="num"></atom-range>
-
-  Output from change-event: <span id="btn0out" style="color:rgb(0, 110, 255)">non</span>
-
+  <p>
+    Direct state-subscriber: <span id="state0out" style="color:#09f">n/a</span>
+    <br />
+    A "monitor" for the state-value
+    <code>num</code>: <atom-binding bind="num"></atom-binding>
+    <br />
+    Output from change-event: <span id="btn0out" style="color:rgb(0, 110, 255)">non</span>
+  </p>
   <hr />
-  A "monitor" for the state-value
-  <code>num</code>: <atom-binding bind="num"></atom-binding>
+  <p>(Experimental) auto docs:</p>
 
+  <code id="range-docs-tag">range-tag</code>
+  <div id="range-docs-attrs">range-docs</div>
   <hr />
 
   <h3>Button</h3>
@@ -63,6 +69,10 @@
   <atom-button label="Continue"></atom-button>
   <atom-button variant="destructive" label="Destructive"></atom-button>
   <atom-button variant="subtle" label="Subtle"></atom-button>
+
+  <atom-button label="" bind="clicks">
+    <atom-icon slot="center" name="aperture"></atom-icon>
+  </atom-button>
 
   <atom-button label="Login with Email">
     <div slot="left"><atom-icon name="mail"></atom-icon></div>
@@ -87,9 +97,33 @@
   <code>clicks</code>: <atom-binding bind="clicks"></atom-binding>
 
 
+  <h3>Colors</h3>
+  <div style="display: grid; grid-template-columns: 5rem 1fr; column-gap: 1rem;">
+    <div style="background-color: var(--atom-color-50)"></div>
+    <div>accent</div>
+    <div style="background-color: var(--atom-color-05)"></div>
+    <div>1</div>
+    <div style="background-color: var(--atom-color-10)"></div>
+    <div>2</div>
+    <div style="background-color: var(--atom-color-30)"></div>
+    <div>3</div>
+    <div style="background-color: var(--atom-color-50)"></div>
+    <div>4</div>
+    <div style="background-color: var(--atom-color-60)"></div>
+    <div>5</div>
+    <div style="background-color: var(--atom-color-90)"></div>
+    <div>6</div>
+    <div style="background-color: var(--atom-color-95)"></div>
+    <div>7</div>
+  </div>
+
+
+
 
   <h3>Switch</h3>
   <atom-switch bind="airplane_mode">Airplane mode</atom-switch>
+  <atom-switch value="1">on</atom-switch>
+  <atom-switch value="0">off</atom-switch>
   <atom-switch disabled>Disabled</atom-switch>
   <atom-switch-darkmode default="system">Dark mode</atom-switch-darkmode>
 
