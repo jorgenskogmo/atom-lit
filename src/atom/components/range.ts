@@ -1,6 +1,4 @@
-import { query, state } from "lit/decorators.js";
 import { Atom, html, customElement, property, css } from "../lib/Atom";
-import type { PropertyValues } from "lit";
 
 @customElement("atom-range")
 export class Range extends Atom {
@@ -28,24 +26,25 @@ export class Range extends Atom {
 			display: flex;
 			align-items: center;
 		}
-				
-		input[type=range] {
+
+		input[type="range"] {
 			-webkit-appearance: none;
-			appearance: none; 
-			width: 100%;
+			appearance: none;
+			background: transparent;
 			cursor: pointer;
-			outline: none;
-			border-radius: 9999px;
+			width: 100%;
 			height: 8px;
-			/* background: #ccc; */
-			/* background: light-dark(
-				hsl(var(--atom-colorbase-hue) 0% 50% / 25%),
-				hsl(var(--atom-colorbase-hue) 0% 50% / 50%)
-			); */
-			background: light-dark(
-				var(--atom-color-gray-300),
-				var(--atom-color-gray-700)
-			);
+			border-radius: 9999px;
+		}
+
+		input[type="range"]:focus {
+			outline: none;
+		}
+				
+		/* webkit */
+
+		input[type=range]::-webkit-slider-runnable-track {
+			height: 8px;
 		}
 
 		input[type=range]::-webkit-slider-thumb {
@@ -53,33 +52,31 @@ export class Range extends Atom {
 			appearance: none; 
 			height: 22px;
 			width: 22px;
-			/* background-color: light-dark(var(--atom-bg), var(--atom-fg)); */
-			background: var(--atom-bg);
+			margin-top: -7px;
+			background-color: var(--atom-bg);
 			border-radius: 50%;
-			/* border: 3px solid var(--atom-mg); */
 			border: 3px solid var(--atom-color-accent);
 			transition: border cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
-		}
-
-		input[type=range]::-moz-range-thumb {
-			height: 16px;
-			width: 16px;
-			background-color: #fff;
-			
-			border-radius: 50%;
-			border: 1px solid #fff;
-			box-shadow: 0 0 0 4px #000;		
 		}
 
 		input[type=range]::-webkit-slider-thumb:active {
 			border-width: 7px;
 		}
+
+		/* moz */
+
+		input[type=range]::-moz-range-thumb {
+			height: 16px;
+			width: 16px;
+			background-color: var(--atom-bg);
+			border-radius: 50%;
+			border: 3px solid var(--atom-color-accent);
+		}
+
 		input[type=range]::-moz-range-thumb:active {
-			height: 7px;
-			width: 7px;
-			/* border: 7px solid #000; */
-			border: 1px solid #fff;
-			box-shadow: 0 0 0 9px #000;
+			height: 8px;
+			width: 8px;
+			border-width: 7px;
 		}
 
 		input[type="range"]:focus {
@@ -100,12 +97,7 @@ export class Range extends Atom {
 
 	override render() {
 		const pct = Math.floor((this.value / this.max) * 100);
-		// const css = `background: linear-gradient(to right, #000 ${pct - 1}%, #ccc ${pct - 1}%)`;
-		// const css = `background: linear-gradient(to right, var(--atom-color-accent) ${pct - 1}%, var(--atom-gray) ${pct - 1}%)`;
-		const css = `background: linear-gradient(to right, var(--atom-color-accent) ${pct - 1}%, light-dark(
-				var(--atom-color-gray-300),
-				var(--atom-color-gray-700)
-			) ${pct - 1}%)`;
+		const css = `background: linear-gradient(to right, var(--atom-color-accent) ${pct - 1}%, var(--atom-control-bg) ${pct - 1}%)`;
 		return html`    
     <div class="range">
         <input

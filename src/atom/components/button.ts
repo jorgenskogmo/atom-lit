@@ -3,7 +3,13 @@ import { Atom, html, customElement, css, property } from "../lib/Atom";
 @customElement("atom-button")
 export class Button extends Atom {
 	@property({ type: String })
-	variant: "normal" | "destructive" | "outline" | "subtle" = "normal";
+	variant:
+		| "normal"
+		| "primary"
+		| "destructive"
+		| "constructive"
+		| "outline"
+		| "subtle" = "normal";
 
 	@property({ type: String })
 	label = "Button";
@@ -41,50 +47,82 @@ export class Button extends Atom {
         transition-timing-function: cubic-bezier(.4,0,.2,1);
         transition-duration: .15s;
 
-        color: var(--atom-bg);
-        background: var(--atom-fg);
-        border: var(--atom-button-border);
+        border-width: 1px;
+        border-color: var(--atom-fg);
+        border-style: solid;
         border-radius: var(--atom-button-border-radius);
         padding-block: var(--atom-button-padding-block);
         padding-inline: var(--atom-button-padding-inline);
         margin-block-end: 4px;
+
+        font: var(--atom-font-control);
     }
+
+    /* normal */
+    .button {
+        background-color: var(--atom-fg);
+        border-color: var(--atom-fg);
+        color: var(--atom-bg);
+    }
+
     .button:hover {
-        background-color: color-mix(in srgb, var(--atom-button-bg), #fff 10%);
-        border-color: color-mix(in srgb, var(--atom-button-bg), #fff 10%);
+        background-color: var(--atom-button-normal-hover);
+        border-color: var(--atom-button-normal-hover);
+    }
+
+    /* primary */
+    .button.primary {
+        background-color: var(--atom-color-accent);
+        border-color: var(--atom-color-accent);
+        color: var(--atom-fg);
+    }
+
+    .button.primary:hover {
+        background-color: var(--atom-button-primary-hover);
+        border-color: var(--atom-button-primary-hover);
     }
     
     /* destructive */
     .button.destructive {
-        background-color: var(--atom-button-destructive-bg);
-        border-color: var(--atom-button-destructive-bg);
-        color: var(--atom-button-destructive-fg);
+        background-color: var(--atom-color-destructive);
+        border-color: var(--atom-color-destructive);
+        color: var(--atom-fg);
     }
     .button.destructive:hover {
-        background-color: color-mix(in srgb, var(--atom-button-destructive-bg), #000 10%);
-        border-color: color-mix(in srgb, var(--atom-button-destructive-bg), #000 10%);
+        background-color: var(--atom-button-destructive-hover);
+        border-color: var(--atom-button-destructive-hover);
+    }
+
+    /* constructive */
+    .button.constructive {
+        background-color: var(--atom-color-constructive);
+        border-color: var(--atom-color-constructive);
+        color: var(--atom-bg);
+    }
+    .button.constructive:hover {
+        background-color: var(--atom-button-constructive-hover);
+        border-color: var(--atom-button-constructive-hover);
     }
 
     /* outline */
     .button.outline {
-        background-color: var(--atom-button-outline-bg);
-        border-color: color-mix(in srgb, var(--atom-button-outline-bg), #000 20%); 
-        color: var(--atom-button-outline-fg);
+        background-color: var(--atom-bg);
+        border-color: var(--atom-button-subtle-hover);
+        color: var(--atom-fg);
     }
     .button.outline:hover {
-        background-color: color-mix(in srgb, var(--atom-button-outline-bg), #000 5%);
-        border-color: color-mix(in srgb, var(--atom-button-outline-bg), #000 20%); 
+        background-color: var(--atom-color-subtle);
     }
 
     /* subtle */
     .button.subtle {
-        background-color: var(--atom-button-subtle-bg);
-        border-color: var(--atom-button-subtle-bg); 
-        color: var(--atom-button-subtle-fg);
+        background-color: var(--atom-color-subtle);
+        border-color: var(--atom-color-subtle); 
+        color: var(--atom-fg);
     }
     .button.subtle:hover {
-        background-color: color-mix(in srgb, var(--atom-button-subtle-bg), #000 5%);
-        border-color: color-mix(in srgb, var(--atom-button-subtle-bg), #000 5%); 
+        background-color: var(--atom-button-subtle-hover);
+        border-color: var(--atom-button-subtle-hover);
     }
 
     /* content */
@@ -95,9 +133,8 @@ export class Button extends Atom {
     }
 
     .inner {
-        height: var(--atom-button-fontsize);
-        /* background-color: #00ff0068; */
-        line-height: var(--atom-button-fontsize);
+        height: var(--atom-icon-size);
+        line-height: var(--atom-icon-size);
         display: flex;
         align-items: center;
     }

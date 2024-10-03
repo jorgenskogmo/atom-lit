@@ -14,6 +14,13 @@
 </head>
 
 <body>
+  <div style="text-align: end;
+  position: absolute;
+  right: 1rem;
+  top: 2rem;">
+    <atom-switch-darkmode default="light"></atom-switch-darkmode>
+  </div>
+
 
   <atom-toast></atom-toast>
 
@@ -22,12 +29,7 @@
   <p class="xs">xs: a first line <br>and a second line</p>
   <p class="sm">sm: a first line <br>and a second line</p>
 
-  <div style="text-align: end;
-  position: absolute;
-  right: 1rem;
-  top: 2rem;">
-    <atom-switch-darkmode default="light"></atom-switch-darkmode>
-  </div>
+
 
   <h1 role="heading">
     Presenting Atom-components:<br />
@@ -66,15 +68,20 @@
 
   <h3>Button</h3>
 
-  <atom-button label="Continue"></atom-button>
+  <atom-button label="Default"></atom-button>
+  <atom-button variant="normal" label="Normal"></atom-button>
+  <atom-button variant="primary" label="Primary"></atom-button>
   <atom-button variant="destructive" label="Destructive"></atom-button>
+  <atom-button variant="constructive" label="Constructive"></atom-button>
   <atom-button variant="subtle" label="Subtle"></atom-button>
+  <atom-button variant="outline" label="Outline"></atom-button>
 
+  <br />
   <atom-button label="" bind="clicks">
     <atom-icon slot="center" name="aperture"></atom-icon>
   </atom-button>
 
-  <atom-button label="Login with Email">
+  <atom-button label="Left Icon">
     <div slot="left"><atom-icon name="mail"></atom-icon></div>
   </atom-button>
 
@@ -97,7 +104,7 @@
   <code>clicks</code>: <atom-binding bind="clicks"></atom-binding>
 
 
-  <h3>Colors</h3>
+  <!-- <h3>Colors</h3>
   <div style="display: grid; grid-template-columns: 5rem 1fr; column-gap: 1rem;">
     <div style="background-color: var(--atom-color-50)"></div>
     <div>accent</div>
@@ -115,7 +122,7 @@
     <div>6</div>
     <div style="background-color: var(--atom-color-95)"></div>
     <div>7</div>
-  </div>
+  </div> -->
 
 
 

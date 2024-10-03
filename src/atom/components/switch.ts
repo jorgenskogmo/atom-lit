@@ -1,4 +1,3 @@
-import type { PropertyValues } from "lit";
 import { Atom, html, customElement, css, property } from "../lib/Atom";
 
 const localStyles = css`
@@ -27,36 +26,29 @@ const localStyles = css`
         transition-property: background;
         transition-timing-function: cubic-bezier(.4,0,.2,1);
         transition-duration: .15s;
+
+        padding: 2px;
     }
 
     .thumb {
         display: block;
         position: relative;
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         margin: 1px;
         border-radius: 9999px;
         transition-property: left;
         transition-timing-function: cubic-bezier(.4,0,.2,1);
         transition-duration: .15s;
-        /* background: light-dark(var(--atom-bg), var(--atom-fg)); */
         background: var(--atom-bg);
     }
     
     .button.on {
         background: var(--atom-color-accent);
-        /* background: var(--atom-fg); */
     }
     
     .button.off {
-        background: light-dark(
-            var(--atom-color-gray-300),
-            var(--atom-color-gray-700)
-        );
-        /* background: light-dark(
-            hsl(var(--atom-colorbase-hue) 0% 50% / 25%),
-            hsl(var(--atom-colorbase-hue) 0% 50% / 50%)
-        ); */
+        background: var(--atom-control-bg);
     }
 
     .button.off .thumb {

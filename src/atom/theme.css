@@ -24,11 +24,13 @@
     --atom-color-fg-d: #fff;
     --atom-color-fg-l: #111;
 
+    --atom-color-accent: #09f;
+    --atom-color-destructive: #F10;
+    --atom-color-constructive: #0f9;
     
-    --atom-color-accent: #f00;
-    /* Disable use of accent color by enabling next line */
-    --atom-color-accent: light-dark(var(--atom-fg), var(--atom-bg));
-
+    --atom-color-constructive-d-fg: #3f9826;
+    --atom-color-constructive-d-bg: #135600;
+    
     --atom-color-gray-300: #ccc;
     --atom-color-gray-500: #555;
     --atom-color-gray-700: #333;

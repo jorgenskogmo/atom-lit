@@ -4,8 +4,8 @@ import { Atom, html, customElement, css } from "../lib/Atom";
 export class Binding extends Atom {
 	static override styles = css`
 		:host {
-			background-color: var(--atom-color-accent);
-			color: light-dark(var(--atom-bg), var(--atom-fg));
+			background-color: var(--atom-control-bg);
+			color: var(--atom-fg);
 			padding: 4px;
 			padding-top: 3px;
 			padding-bottom: 4px;
