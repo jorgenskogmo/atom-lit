@@ -26,13 +26,17 @@
 
     --atom-color-accent: #09f;
     --atom-color-destructive: #F10;
-    --atom-color-constructive: #0f9;
-    
-    --atom-color-constructive-d-fg: #3f9826;
-    --atom-color-constructive-d-bg: #135600;
+    --atom-color-constructive: #55c436;
     
     --atom-color-gray-300: #ccc;
     --atom-color-gray-500: #555;
     --atom-color-gray-700: #333;
 
+    --atom-button-border-radius: 6px;
+    --atom-button-padding-block: 8px;
+    --atom-button-padding-inline: 16px;
+    
+    --atom-button-icon-padding: 8px;
+    --atom-button-icon-offset: -4px;
+    --atom-icon-size: 14px;
 }

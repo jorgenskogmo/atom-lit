@@ -86,6 +86,8 @@ The purpose of all this, is to find a way to build ui's, that are a joy to build
 
 ## TODO:
 
+Consider separating Button variants,
+so that we can have $constructive-$outline?
 
 #### Tokens
 
@@ -99,7 +101,7 @@ Respect onclick attributes from consumer
 
 - [x] Range slider
 - [x] Button with optional left- and right-icons
-- [ ] Icon-only button
+- [x] Icon-only button
 - [x] Binding monitor
 - [x] Switch
 - [ ] ColorPicker

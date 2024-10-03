@@ -74,7 +74,7 @@ export class Button extends Atom {
     .button.primary {
         background-color: var(--atom-color-accent);
         border-color: var(--atom-color-accent);
-        color: var(--atom-fg);
+        color: var(--atom-bg);
     }
 
     .button.primary:hover {
@@ -86,7 +86,7 @@ export class Button extends Atom {
     .button.destructive {
         background-color: var(--atom-color-destructive);
         border-color: var(--atom-color-destructive);
-        color: var(--atom-fg);
+        color: var(--atom-bg);
     }
     .button.destructive:hover {
         background-color: var(--atom-button-destructive-hover);
