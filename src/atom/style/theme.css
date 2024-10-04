@@ -18,15 +18,17 @@
     
     */
 
-    --atom-color-bg-d: #000;
-    --atom-color-bg-l: #fff;
+    --atom-color-bg-d: #222;
+    /* --atom-color-bg-l: #fff; */
+    --atom-color-bg-l: #f6f5de;
 
     --atom-color-fg-d: #fff;
     --atom-color-fg-l: #111;
 
-    --atom-color-accent: #09f;
+    --atom-color-accent: #72621f;
+    /* --atom-color-accent: #000; */
     --atom-color-destructive: #F10;
-    --atom-color-constructive: #55c436;
+    --atom-color-constructive: #2dad32;
     
     --atom-color-gray-300: #ccc;
     --atom-color-gray-500: #555;

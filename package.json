@@ -1,7 +1,11 @@
 {
-  "name": "lit-glue",
+  "name": "atom-lit",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./src/atom/index.ts",
+  "exports": {
+    ".": "./src/atom/index.ts",
+    "./atom": "./src/atom/index.ts"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

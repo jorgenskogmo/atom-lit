@@ -1,52 +1,49 @@
-import { html, LitElement, css } from "lit";
+import { LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
+import { SVGSprite } from "../lib/FeatherIconSprite";
 import type { FeatherIconNamesType } from "../lib/FeatherIcons";
 
 @customElement("atom-icon")
 export class Icon extends LitElement {
+	// Render into the light DOM instead of a shadow root.
+	// This allows the <use> element to reference the SVG symbol in the parent document.
+	override createRenderRoot() {
+		return this;
+	}
+
 	@property({ type: String, reflect: true })
 	name: FeatherIconNamesType = "airplay";
 
-	protected override firstUpdated(): void {
-		if (this.shadowRoot) {
-			// this.shadowRoot.innerHTML = `<div style="width: 16px; height:16px;">${icons[this.name]}</div>`;
-			this.shadowRoot.innerHTML = `<svg class="feather">
-                <use href="/icons/feather-sprite.svg#${this.name}" />
-            </svg>`;
+	public override connectedCallback(): void {
+		super.connectedCallback();
+
+		if (!document.querySelector("#atom-iconsprite")) {
+			this.writeSprite();
 		}
-	}
 
-	static override styles = css`
-        :host {
-            /* background-color: #0f0; */
-            display: inline-flex;
-            width: auto;
-            align-items: stretch;
-            justify-content: center;
-            vertical-align: middle;
-            user-select: none;
-
-            /* transform: scale(0.75); */
-            position: relative;            
-        }
-        svg {
-            position: relative;
-            /* top: -1px; */
-        }
-
-        .feather {
+		const style = `
+            display: inline;            
+            // background-color: #090;
             width: var(--atom-icon-size, 12px);
             height: var(--atom-icon-size, 12px);
+            margin-top: 9px;
             stroke: currentColor;
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
-            fill: none;
-        }
-    `;
+            fill: none;`;
 
-	protected override render() {
-		return html`•`;
+		this.innerHTML = `<svg style="${style}">
+	        <use xlink:href="#${this.name}" />
+	    </svg>`;
+	}
+
+	private writeSprite() {
+		console.log(`icon "${this.name}" injecting icon sprite`);
+		const el = document.createElement("div");
+		el.id = "atom-iconsprite";
+		el.innerHTML = SVGSprite;
+		document.body.appendChild(el);
 	}
 }

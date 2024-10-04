@@ -1,4 +1,4 @@
-@import url(theme.css);
+/* @import url(theme.css); */
 
 :root {
 
@@ -10,7 +10,7 @@
     --atom-font-h2: 700 30px/36px var(--atom-font-family-default);
     --atom-font-h3: 700 24px/32px var(--atom-font-family-default);
     --atom-font-h4: 700 20px/28px var(--atom-font-family-default);
-    --atom-font-subhead: 500 24px/32px var(--atom-font-family-default);
+    --atom-font-subhead: 400 24px/32px var(--atom-font-family-default);
     --atom-font-p: 400 16px/28px var(--atom-font-family-default);
     --atom-font-control: 400 13px/20px var(--atom-font-family-default);
     --atom-font-label: 600 13px/20px var(--atom-font-family-default);
@@ -76,3 +76,25 @@ h4 {
 .sm {
     font: 400 14px/16px var(--atom-font-family-default);
 }
+
+
+body {
+    color: var(--atom-fg);
+    background: var(--atom-bg);
+    transition: all 0.25s;
+}
+ 
+* {
+    font: var(--atom-font-p);
+}
+
+
+/* h1, [role="heading"] {
+    font: 700 clamp(1rem, 10vw, 10rem) / clamp(1rem, 10vw, 9rem) var(--atom-font-family-default);
+}
+
+h2, [role="doc-subtitle"] {
+    font: var(--atom-font-subhead);
+    opacity: 0.75;
+} */
+

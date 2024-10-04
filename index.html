@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
   <div style="text-align: end;
   position: absolute;
   right: 1rem;
@@ -68,7 +69,7 @@
 
   <h3>Button</h3>
 
-  <atom-button label="Default"></atom-button>
+  <atom-button label="dette er en knap"></atom-button>
   <atom-button variant="normal" label="Normal"></atom-button>
   <atom-button variant="primary" label="Primary"></atom-button>
   <atom-button variant="destructive" label="Destructive"></atom-button>
@@ -98,7 +99,7 @@
   <hr />
 
   <atom-button label="" bind="clicks">
-    <atom-icon slot="center" name="plus-square"></atom-icon>
+    <atom-icon slot="center" name="plus"></atom-icon>
   </atom-button>
 
   <code>clicks</code>: <atom-binding bind="clicks"></atom-binding>
@@ -140,7 +141,9 @@
   <atom-switch-darkmode default="system">Dark mode</atom-switch-darkmode>
 
 
-
+  <svg>
+    <use xlink:href="#airplay" />
+  </svg>
 
 
 </body>

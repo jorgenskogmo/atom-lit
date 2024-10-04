@@ -129,6 +129,6 @@ export class Switch extends Atom {
         <button @click=${this.disabled ? null : this.onChange} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
             <div class="thumb"></div>
         </button>
-        <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot>(${this.value})</span>`;
+        <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot></span>`;
 	}
 }

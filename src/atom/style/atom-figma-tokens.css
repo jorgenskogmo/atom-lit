@@ -1,0 +1,27 @@
+:root {
+    --dark-btn-px: 16px;
+    --dark-btn-py: 8px;
+    --dark-color-accent: #ff49db;
+    --dark-color-background: #232323;
+    --dark-color-foreground: #cccccc;
+    --dark-color-input-focus: #ffc82c;
+    --dark-color-negative: #f92828;
+    --dark-color-normal-dark: #eff2f7;
+    --dark-color-normal-light: #111111;
+    --dark-color-normal: #eff2f7;
+    --dark-color-positive: #29eb7f;
+    --dark-color-warning: #f8b700;
+    --light-btn-px: 888px;
+    --light-btn-py: 8px;
+    --light-color-accent: #7e5bef;
+    --light-color-background: #eff2f7;
+    --light-color-btn-label: #ffffff;
+    --light-color-foreground: #232323;
+    --light-color-input-focus: #ff49db;
+    --light-color-negative: #f92828;
+    --light-color-normal-dark: #111111;
+    --light-color-normal-light: #eff2f7;
+    --light-color-normal: #232323;
+    --light-color-positive: #13ce66;
+    --light-color-warning: #ffc82c;
+}

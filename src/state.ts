@@ -1,9 +1,7 @@
-// State.ts should be the only consumer
-
-// Define application state here:
+// app state
 export const initialState = {
-	num: 20,
-	clicks: 0,
+	num: 10,
+	clicks: 99,
 	airplane_mode: 0,
 };
 

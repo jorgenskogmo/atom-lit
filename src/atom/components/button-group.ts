@@ -15,7 +15,7 @@ export class ButtonGroup extends Atom {
             display: inline-block;
             font: var(--atom-font-control);
             padding-inline: var(--atom-button-padding-inline);
-            padding-block: var(--atom-button-padding-block);
+            padding-block: calc(var(--atom-button-padding-block) / 2);
             border-radius: var(--atom-button-border-radius);
             color: var(--atom-fg);
             cursor: pointer;
@@ -30,7 +30,8 @@ export class ButtonGroup extends Atom {
         }
 
         .item.selected {
-            background-color: var(--atom-bg);
+            background-color: var(--atom-fg);
+            color: var(--atom-bg);
         }
 	`;
 
@@ -51,6 +52,6 @@ export class ButtonGroup extends Atom {
 	}
 
 	override render() {
-		return html`<div>${this.options.split(",").map((opt) => this.item(opt.trim()))}</div>`;
+		return html`${this.options.split(",").map((opt) => this.item(opt.trim()))}`;
 	}
 }

@@ -1,34 +1,18 @@
-/* @import url("style/theme.css"); */
-
-/*
-imported by: browser
-purpose: app specific styling
+/**
+ * app specific styling
 */
 
 body {
   margin:0;
   padding: 1rem 2rem;
-  
-  /* color: light-dark(var(--atom-color-fg-l), var(--atom-color-fg-d));
-  background: light-dark(var(--atom-color-bg-l), var(--atom-color-bg-d)); */
-  color: var(--atom-fg);
-  background: var(--atom-bg);
-  transition: all 0.25s;
 }
 
-body {
-  font: var(--atom-font-p);
-}
 h1, [role="heading"] {
   /* fluid */
   font: 700 clamp(1rem, 10vw, 10rem) / clamp(1rem, 10vw, 9rem) var(--atom-font-family-default);
 }
 
-h2, [role="doc-subtitle"] {
+h2, [role="subheading"] {
   font: var(--atom-font-subhead);
   opacity: 0.75;
-}
-
-p {
-  font: var(--atom-font-p);
 }

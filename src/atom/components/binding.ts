@@ -3,7 +3,7 @@ import { Atom, html, customElement, css } from "../lib/Atom";
 @customElement("atom-binding")
 export class Binding extends Atom {
 	static override styles = css`
-		:host {
+		span {
 			background-color: var(--atom-control-bg);
 			color: var(--atom-fg);
 			padding: 4px;
