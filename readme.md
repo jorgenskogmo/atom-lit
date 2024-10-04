@@ -130,3 +130,47 @@ Respect onclick attributes from consumer
 # Other
 
 Favicon from https://favicon.io/favicon-generator/
+
+
+---
+
+## Notes on integration in a Angular project:
+
+### in atom-lit:
+
+```sh
+bun run buildjs
+bun link
+```
+
+### in angular
+
+package.json: add `"atom-lit": "link:atom-lit"` to dependencies
+
+`bun i`
+
+edit angular.json: architect > build :
+
+"styles": [
+    "src/styles.css",
+    "node_modules/atom-lit/atom-lib.css"
+],
+"scripts": [
+    "node_modules/atom-lit/atom-lib.js"
+]
+
+edit/create /.vscode/settings.json and add:
+
+`"html.customData": ["./node_modules/atom-lit/src/atom/vscode-html-custom-data.json"]`
+
+and then, in the .component.ts angular files where you want to use atom-lit,
+add 
+
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+
+@Component({
+	...
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+
+

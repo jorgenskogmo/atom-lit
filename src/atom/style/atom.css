@@ -20,6 +20,8 @@
     
 }
 
+/* FIXME: rewrite to work without the class on body */
+
 .light-theme {
     /* forces light color-scheme */
     color-scheme: light;

@@ -48,14 +48,15 @@ export class Toast extends Atom {
 	@query(".container")
 	private container!: HTMLDivElement;
 
-	private timeout_hide: Timer | undefined = undefined;
-	private timeout_remove: Timer | undefined = undefined;
+	private timeout_hide: ReturnType<typeof setTimeout> | undefined = undefined;
+	private timeout_remove: ReturnType<typeof setTimeout> | undefined = undefined;
 
 	private DISPLAY_DURATION = 2000; // ms
 
 	constructor() {
 		super();
-		window.toast = (title: string, msg: string) => {
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		(window as any).toast = (title: string, msg: string) => {
 			console.log("toast:", title, msg);
 
 			this.container.innerHTML = `

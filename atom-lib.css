@@ -1,0 +1,116 @@
+/* src/atom/style/atom-figma-tokens.css */
+:root {
+  --dark-btn-px: 16px;
+  --dark-btn-py: 8px;
+  --dark-color-accent: #ff49db;
+  --dark-color-background: #232323;
+  --dark-color-foreground: #cccccc;
+  --dark-color-input-focus: #ffc82c;
+  --dark-color-negative: #f92828;
+  --dark-color-normal-dark: #eff2f7;
+  --dark-color-normal-light: #111111;
+  --dark-color-normal: #eff2f7;
+  --dark-color-positive: #29eb7f;
+  --dark-color-warning: #f8b700;
+  --light-btn-px: 888px;
+  --light-btn-py: 8px;
+  --light-color-accent: #7e5bef;
+  --light-color-background: #eff2f7;
+  --light-color-btn-label: #ffffff;
+  --light-color-foreground: #232323;
+  --light-color-input-focus: #ff49db;
+  --light-color-negative: #f92828;
+  --light-color-normal-dark: #111111;
+  --light-color-normal-light: #eff2f7;
+  --light-color-normal: #232323;
+  --light-color-positive: #13ce66;
+  --light-color-warning: #ffc82c;
+}
+
+/* src/atom/style/theme.css */
+:root {
+  --atom-color-bg-d: #222;
+  --atom-color-bg-l: #f6f5de;
+  --atom-color-fg-d: #fff;
+  --atom-color-fg-l: #111;
+  --atom-color-accent: #72621f;
+  --atom-color-destructive: #F10;
+  --atom-color-constructive: #2dad32;
+  --atom-color-gray-300: #ccc;
+  --atom-color-gray-500: #555;
+  --atom-color-gray-700: #333;
+  --atom-button-border-radius: 6px;
+  --atom-button-padding-block: 8px;
+  --atom-button-padding-inline: 16px;
+  --atom-button-icon-padding: 8px;
+  --atom-button-icon-offset: -4px;
+  --atom-icon-size: 14px;
+}
+
+/* src/atom/style/atom.css */
+:root {
+  color-scheme: light dark;
+  --atom-font-family-default:
+    system-ui,
+    -apple-system,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  --atom-font-h1: 700 48px/48px var(--atom-font-family-default);
+  --atom-font-h2: 700 30px/36px var(--atom-font-family-default);
+  --atom-font-h3: 700 24px/32px var(--atom-font-family-default);
+  --atom-font-h4: 700 20px/28px var(--atom-font-family-default);
+  --atom-font-subhead: 400 24px/32px var(--atom-font-family-default);
+  --atom-font-p: 400 16px/28px var(--atom-font-family-default);
+  --atom-font-control: 400 13px/20px var(--atom-font-family-default);
+  --atom-font-label: 600 13px/20px var(--atom-font-family-default);
+  --atom-control-bg: #ccc;
+}
+.light-theme {
+  color-scheme: light;
+  --atom-bg: var(--atom-color-bg-l);
+  --atom-fg: var(--atom-color-fg-l);
+  --atom-control-bg: var(--atom-color-gray-300);
+  --atom-color-subtle: color-mix(in srgb, var(--atom-bg), var(--atom-fg) 5%);
+  --atom-button-normal-hover: color-mix(in srgb, var(--atom-fg), var(--atom-bg) 20%);
+  --atom-button-destructive-hover: color-mix(in srgb, var(--atom-color-destructive), var(--atom-bg) 20%);
+  --atom-button-constructive-hover: color-mix(in srgb, var(--atom-color-constructive), var(--atom-bg) 20%);
+  --atom-button-subtle-hover: color-mix(in srgb, var(--atom-color-subtle), var(--atom-fg) 3%);
+}
+.dark-theme {
+  color-scheme: dark;
+  --atom-bg: var(--atom-color-bg-d);
+  --atom-fg: var(--atom-color-fg-d);
+  --atom-control-bg: var(--atom-color-gray-700);
+  --atom-color-subtle: color-mix(in srgb, var(--atom-bg), var(--atom-fg) 20%);
+  --atom-button-normal-hover: color-mix(in srgb, var(--atom-fg), var(--atom-bg) 10%);
+  --atom-button-destructive-hover: color-mix(in srgb, var(--atom-color-destructive), var(--atom-bg) 10%);
+  --atom-button-constructive-hover: color-mix(in srgb, var(--atom-color-constructive), var(--atom-bg) 10%);
+  --atom-button-subtle-hover: color-mix(in srgb, var(--atom-color-subtle), var(--atom-fg) 3%);
+}
+h1 {
+  font: var(--atom-font-h1);
+}
+h2 {
+  font: var(--atom-font-h2);
+}
+h3 {
+  font: var(--atom-font-h3);
+}
+h4 {
+  font: var(--atom-font-h4);
+}
+.xs {
+  font: 400 13px/16px var(--atom-font-family-default);
+}
+.sm {
+  font: 400 14px/16px var(--atom-font-family-default);
+}
+body {
+  color: var(--atom-fg);
+  background: var(--atom-bg);
+  transition: all 0.25s;
+}
+* {
+  font: var(--atom-font-p);
+}
