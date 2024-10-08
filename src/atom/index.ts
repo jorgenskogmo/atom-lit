@@ -1,6 +1,5 @@
 // css
 import "./style/atom-figma-tokens.css";
-import "./style/theme.css";
 import "./style/atom.css";
 
 // atoms

@@ -60,9 +60,9 @@ export class Button extends Atom {
 
     /* normal */
     .button {
-        background-color: var(--atom-fg);
-        border-color: var(--atom-fg);
-        color: var(--atom-bg);
+        background-color: var(--atom-btn-normal-bg);
+        border-color: var(--atom-btn-normal-bg);
+        color: var(--atom-btn-normal-fg);
     }
 
     .button:hover {
@@ -72,9 +72,9 @@ export class Button extends Atom {
 
     /* primary */
     .button.primary {
-        background-color: var(--atom-color-accent);
-        border-color: var(--atom-color-accent);
-        color: var(--atom-bg);
+        background-color: var(--atom-btn-primary-bg);
+        border-color: var(--atom-btn-primary-bg);
+        color: var(--atom-btn-primary-fg);
     }
 
     .button.primary:hover {
@@ -86,7 +86,7 @@ export class Button extends Atom {
     .button.destructive {
         background-color: var(--atom-color-destructive);
         border-color: var(--atom-color-destructive);
-        color: var(--atom-bg);
+        color: var(--atom-btn-destructive-fg);
     }
     .button.destructive:hover {
         background-color: var(--atom-button-destructive-hover);
@@ -97,7 +97,7 @@ export class Button extends Atom {
     .button.constructive {
         background-color: var(--atom-color-constructive);
         border-color: var(--atom-color-constructive);
-        color: var(--atom-bg);
+        color: var(--atom-btn-constructive-fg);
     }
     .button.constructive:hover {
         background-color: var(--atom-button-constructive-hover);
