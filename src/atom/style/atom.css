@@ -59,6 +59,7 @@
     /* computed */
     --atom-color-subtle: color-mix(in srgb, var(--atom-bg), var(--atom-fg) 5%);
     --atom-button-normal-hover: color-mix(in srgb, var(--atom-btn-normal-bg), var(--atom-bg) 20%);
+    --atom-button-primary-hover: color-mix(in srgb, var(--atom-btn-primary-bg), var(--atom-bg) 20%);
     --atom-button-destructive-hover: color-mix(in srgb, var(--atom-color-destructive), var(--atom-bg) 20%);
     --atom-button-constructive-hover: color-mix(in srgb, var(--atom-color-constructive), var(--atom-bg) 20%);
     --atom-button-subtle-hover: color-mix(in srgb, var(--atom-color-subtle), var(--atom-fg) 3%);
@@ -90,6 +91,7 @@
     /* computed */
     --atom-color-subtle: color-mix(in srgb, var(--atom-bg), var(--atom-fg) 20%);
     --atom-button-normal-hover: color-mix(in srgb, var(--atom-btn-normal-bg), var(--atom-bg) 10%);
+    --atom-button-primary-hover: color-mix(in srgb, var(--atom-btn-primary-bg), var(--atom-bg) 10%);
     --atom-button-destructive-hover: color-mix(in srgb, var(--atom-color-destructive), var(--atom-bg) 10%);
     --atom-button-constructive-hover: color-mix(in srgb, var(--atom-color-constructive), var(--atom-bg) 10%);
     --atom-button-subtle-hover: color-mix(in srgb, var(--atom-color-subtle), var(--atom-fg) 3%);

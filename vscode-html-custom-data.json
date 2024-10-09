@@ -3,15 +3,16 @@
   "tags": [
     {
       "name": "atom-binding",
-      "description": "Attributes:\n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "value",
-          "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 6"
+          "description": "`value` {`string | number`} - \n\nProperty: value\n\nDefault: 0",
+          "values": []
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -20,7 +21,41 @@
               "name": "clicks"
             },
             {
-              "name": "darkmode"
+              "name": "airplane_mode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atom-button-group",
+      "description": "Attributes:\n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "attributes": [
+        {
+          "name": "selected",
+          "description": "`selected` {`string`} - \n\nProperty: selected\n\nDefault: "
+        },
+        {
+          "name": "options",
+          "description": "`options` {`string`} - \n\nProperty: options\n\nDefault: "
+        },
+        {
+          "name": "value",
+          "description": "`value` {`string | number`} - \n\nProperty: value\n\nDefault: 0",
+          "values": []
+        },
+        {
+          "name": "bind",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "values": [
+            {
+              "name": "num"
+            },
+            {
+              "name": "clicks"
+            },
+            {
+              "name": "airplane_mode"
             }
           ]
         }
@@ -28,17 +63,23 @@
     },
     {
       "name": "atom-button",
-      "description": "Attributes:\n\n  * `variant` {`\"normal\" | \"destructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `variant` {`\"normal\" | \"destructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `variant` {`\"normal\" | \"primary\" | \"destructive\" | \"constructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `variant` {`\"normal\" | \"primary\" | \"destructive\" | \"constructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "variant",
-          "description": "`variant` {`\"normal\" | \"destructive\" | \"outline\" | \"subtle\"`} - \n\nProperty: variant\n\nDefault: normal",
+          "description": "`variant` {`\"normal\" | \"primary\" | \"destructive\" | \"constructive\" | \"outline\" | \"subtle\"`} - \n\nProperty: variant\n\nDefault: normal",
           "values": [
             {
               "name": "normal"
             },
             {
+              "name": "primary"
+            },
+            {
               "name": "destructive"
+            },
+            {
+              "name": "constructive"
             },
             {
               "name": "outline"
@@ -54,11 +95,11 @@
         },
         {
           "name": "value",
-          "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 6"
+          "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 0"
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -67,7 +108,7 @@
               "name": "clicks"
             },
             {
-              "name": "darkmode"
+              "name": "airplane_mode"
             }
           ]
         }
@@ -75,7 +116,7 @@
     },
     {
       "name": "atom-icon",
-      "description": "Attributes:\n\n  * `name` {`\"activity\" | \"airplay\" | \"alert-circle\" | \"alert-octagon\" | \"alert-triangle\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"anchor\" | \"aperture\" | \"archive\" | ... 275 more ... | \"default\"`} - \n\nProperties:\n\n  * `name` {`\"activity\" | \"airplay\" | \"alert-circle\" | \"alert-octagon\" | \"alert-triangle\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"anchor\" | \"aperture\" | \"archive\" | ... 275 more ... | \"default\"`} - \n\n  * `styles` {`CSSResult`} - ",
+      "description": "Attributes:\n\n  * `name` {`\"activity\" | \"airplay\" | \"alert-circle\" | \"alert-octagon\" | \"alert-triangle\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"anchor\" | \"aperture\" | \"archive\" | ... 275 more ... | \"default\"`} - \n\nProperties:\n\n  * `name` {`\"activity\" | \"airplay\" | \"alert-circle\" | \"alert-octagon\" | \"alert-triangle\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"anchor\" | \"aperture\" | \"archive\" | ... 275 more ... | \"default\"`} - ",
       "attributes": [
         {
           "name": "name",
@@ -951,7 +992,7 @@
     },
     {
       "name": "atom-range",
-      "description": "Attributes:\n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "min",
@@ -971,7 +1012,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -980,7 +1021,7 @@
               "name": "clicks"
             },
             {
-              "name": "darkmode"
+              "name": "airplane_mode"
             }
           ]
         }
@@ -988,7 +1029,7 @@
     },
     {
       "name": "atom-switch-darkmode",
-      "description": "Attributes:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `darkclass` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `darkclass` {`string`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `disabled` {`boolean`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "default",
@@ -1006,16 +1047,17 @@
           ]
         },
         {
-          "name": "darkclass",
-          "description": "`darkclass` {`string`} - \n\nProperty: darkclass\n\nDefault: dark-theme"
+          "name": "disabled",
+          "description": "`disabled` {`boolean`} - \n\nProperty: disabled\n\nDefault: false",
+          "valueSet": "v"
         },
         {
           "name": "value",
-          "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 6"
+          "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 0"
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -1024,7 +1066,7 @@
               "name": "clicks"
             },
             {
-              "name": "darkmode"
+              "name": "airplane_mode"
             }
           ]
         }
@@ -1032,15 +1074,20 @@
     },
     {
       "name": "atom-switch",
-      "description": "Attributes:\n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `disabled` {`boolean`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
+          "name": "disabled",
+          "description": "`disabled` {`boolean`} - \n\nProperty: disabled\n\nDefault: false",
+          "valueSet": "v"
+        },
+        {
           "name": "value",
-          "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 6"
+          "description": "`value` {`number`} - \n\nProperty: value\n\nDefault: 0"
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"darkmode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -1049,7 +1096,33 @@
               "name": "clicks"
             },
             {
-              "name": "darkmode"
+              "name": "airplane_mode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atom-toast",
+      "description": "Attributes:\n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `container` {`HTMLDivElement`} - \n\n  * `timeout_hide` {`Timer | undefined`} - \n\n  * `timeout_remove` {`Timer | undefined`} - \n\n  * `DISPLAY_DURATION` {`number`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "attributes": [
+        {
+          "name": "value",
+          "description": "`value` {`string | number`} - \n\nProperty: value\n\nDefault: 0",
+          "values": []
+        },
+        {
+          "name": "bind",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "values": [
+            {
+              "name": "num"
+            },
+            {
+              "name": "clicks"
+            },
+            {
+              "name": "airplane_mode"
             }
           ]
         }

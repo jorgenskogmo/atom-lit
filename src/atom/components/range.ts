@@ -1,7 +1,16 @@
-import { Atom, html, customElement, property, css } from "../lib/Atom";
+import {
+	Atom,
+	html,
+	customElement,
+	property,
+	css,
+	type AtomEventKey,
+} from "../lib/Atom";
 
 @customElement("atom-range")
 export class Range extends Atom {
+	static atomEvent: AtomEventKey = "change";
+
 	@property({ type: Number, reflect: true })
 	min = 1;
 
@@ -11,13 +20,12 @@ export class Range extends Atom {
 	@property({ type: Number, reflect: true })
 	step = 1;
 
-	override handleChange(): void {
-		// console.log("handleChange this.value:", this.value);
-	}
+	@property({ type: Number, reflect: true })
+	override value = 6;
 
-	override onChange(e: Event) {
-		const value = Number.parseInt((e.target as HTMLInputElement).value);
-		this.announce(value);
+	override action(event: Event) {
+		const value = Number.parseFloat((event.target as HTMLInputElement).value);
+		this.announce(Range.atomEvent, value, event);
 	}
 
 	static override styles = css`
@@ -107,7 +115,8 @@ export class Range extends Atom {
             max=${this.max}
             step=${this.step}
             value=${this.value}
-            @input=${this.onChange}
+            @change=${this.action}
+            @input=${this.action}
         />
         <span class="label" style="margin-inline:0.5rem">${this.value}</span>
     </div>`;

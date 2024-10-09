@@ -632,26 +632,16 @@
   function getState() {
     return Object.freeze({ ...state });
   }
+  function update(key, value) {
+    state[key] = value;
+    notifySubscribers();
+  }
   function updateMany(data) {
     Object.entries(data).forEach(([key, value]) => {
       if (key in state) {
         state[key] = value;
       }
     });
-    notifySubscribers();
-  }
-  function set(keyOrData, value) {
-    if (typeof keyOrData === "string") {
-      if (value !== void 0) {
-        state[keyOrData] = value;
-      }
-    } else {
-      Object.entries(keyOrData).forEach(([key, val]) => {
-        if (key in state) {
-          state[key] = val;
-        }
-      });
-    }
     notifySubscribers();
   }
   function subscribe(callback) {
@@ -672,7 +662,7 @@
   var Atom = class extends h3 {
     constructor() {
       super(...arguments);
-      this.value = 6;
+      this.value = 0;
       this.bind = void 0;
     }
     async connectedCallback() {
@@ -680,45 +670,44 @@
       if (this.bind !== void 0) {
         this.value = getState()[this.bind];
         this.cancelSubscription = subscribe((s2) => {
-          console.log("atom subscription update:", this.bind, s2);
           if (this.bind !== void 0) {
             this.value = s2[this.bind];
           }
         });
       }
       await new Promise((resolve) => setTimeout(resolve));
-      this.emit("ready", { value: this.value });
+      this.announce("ready", this.value);
     }
     disconnectedCallback() {
       if (this.cancelSubscription) {
         this.cancelSubscription();
       }
     }
-    // override in component
-    onChange(_e) {
+    // Stub method to be overridden in derived classes
+    action(_event) {
     }
-    handleChange() {
-    }
-    beforeFirstUpdate() {
-    }
-    announce(value) {
+    announce(eventKey, value, originalEvent) {
       if (this.bind !== void 0) {
-        set(this.bind, value);
+        console.log("@Atom updating state:", this.bind, value);
+        update(this.bind, value);
       } else {
-        this.emit("change", { value });
         this.value = value;
       }
-      this.handleChange();
-    }
-    emit(key, value) {
-      const event = new CustomEvent(key, {
-        detail: value
+      let finalEventKey = eventKey;
+      if (eventKey === "click" && originalEvent && originalEvent instanceof KeyboardEvent) {
+        finalEventKey = "keyup";
+      }
+      const event = new CustomEvent(finalEventKey, {
+        bubbles: true,
+        composed: true,
+        detail: { value, originalEvent }
       });
+      console.log("@Atom dispatch event:", eventKey, value);
       this.dispatchEvent(event);
     }
   };
   __decorateClass([
-    n4({ type: Number, reflect: true })
+    n4()
   ], Atom.prototype, "value", 2);
   __decorateClass([
     n4({ reflect: false })
@@ -752,12 +741,11 @@
       this.min = 1;
       this.max = 30;
       this.step = 1;
+      this.value = 6;
     }
-    handleChange() {
-    }
-    onChange(e5) {
-      const value = Number.parseInt(e5.target.value);
-      this.announce(value);
+    action(event) {
+      const value = Number.parseFloat(event.target.value);
+      this.announce(Range.atomEvent, value, event);
     }
     render() {
       const pct = Math.floor(this.value / this.max * 100);
@@ -771,12 +759,14 @@
             max=${this.max}
             step=${this.step}
             value=${this.value}
-            @input=${this.onChange}
+            @change=${this.action}
+            @input=${this.action}
         />
         <span class="label" style="margin-inline:0.5rem">${this.value}</span>
     </div>`;
     }
   };
+  Range.atomEvent = "change";
   Range.styles = i`
 
 		.range {
@@ -860,6 +850,9 @@
   __decorateClass([
     n4({ type: Number, reflect: true })
   ], Range.prototype, "step", 2);
+  __decorateClass([
+    n4({ type: Number, reflect: true })
+  ], Range.prototype, "value", 2);
   Range = __decorateClass([
     t2("atom-range")
   ], Range);
@@ -868,19 +861,18 @@
   var Button = class extends Atom {
     constructor() {
       super(...arguments);
+      this.value = 0;
       this.variant = "normal";
       this.label = "Button";
     }
-    handleChange() {
-      console.log("handleChange this.value:", this.value);
-    }
-    onChange(_e) {
-      const value = this.value + 1;
-      this.announce(value);
+    action(event) {
+      console.log("Button action");
+      this.value++;
+      this.announce(Button.atomEvent, this.value, event);
     }
     render() {
       return ke`    
-        <button @click=${this.onChange} class="button ${this.variant}">
+        <button @click=${this.action} class="button ${this.variant}" role="button" tabindex="0">
             <div class="inner">
                 <slot name="left" class="prefix"></slot>
                 <span class="label">${this.label}</span>
@@ -890,6 +882,7 @@
         </button>`;
     }
   };
+  Button.atomEvent = "click";
   Button.styles = i`
     :host {
         display: inline-block;
@@ -927,9 +920,9 @@
 
     /* normal */
     .button {
-        background-color: var(--atom-fg);
-        border-color: var(--atom-fg);
-        color: var(--atom-bg);
+        background-color: var(--atom-btn-normal-bg);
+        border-color: var(--atom-btn-normal-bg);
+        color: var(--atom-btn-normal-fg);
     }
 
     .button:hover {
@@ -939,9 +932,9 @@
 
     /* primary */
     .button.primary {
-        background-color: var(--atom-color-accent);
-        border-color: var(--atom-color-accent);
-        color: var(--atom-bg);
+        background-color: var(--atom-btn-primary-bg);
+        border-color: var(--atom-btn-primary-bg);
+        color: var(--atom-btn-primary-fg);
     }
 
     .button.primary:hover {
@@ -953,7 +946,7 @@
     .button.destructive {
         background-color: var(--atom-color-destructive);
         border-color: var(--atom-color-destructive);
-        color: var(--atom-bg);
+        color: var(--atom-btn-destructive-fg);
     }
     .button.destructive:hover {
         background-color: var(--atom-button-destructive-hover);
@@ -964,7 +957,7 @@
     .button.constructive {
         background-color: var(--atom-color-constructive);
         border-color: var(--atom-color-constructive);
-        color: var(--atom-bg);
+        color: var(--atom-btn-constructive-fg);
     }
     .button.constructive:hover {
         background-color: var(--atom-button-constructive-hover);
@@ -1022,6 +1015,9 @@
         margin: 0 -1rem;
     }
 `;
+  __decorateClass([
+    n4({ type: Number, reflect: true })
+  ], Button.prototype, "value", 2);
   __decorateClass([
     n4({ type: String })
   ], Button.prototype, "variant", 2);
@@ -1171,37 +1167,36 @@
   var Switch = class extends Atom {
     constructor() {
       super(...arguments);
+      this.value = 0;
       this.disabled = false;
     }
-    // override handleChange(): void {
-    // 	console.log("handleChange this.value:", this.value);
-    // }
-    // protected override firstUpdated(_changedProperties: PropertyValues): void {
-    // 	console.log("switch firstUpdated", _changedProperties);
-    // }
     attributeChangedCallback(name, _old, value) {
       if (name === "disabled" && _old === null && value !== "false") {
         this.disabled = true;
       }
       super.attributeChangedCallback(name, _old, value);
     }
-    onChange(_e) {
+    action(event) {
       if (this.value) {
         this.value = 0;
       } else {
         this.value = 1;
       }
-      this.announce(this.value);
+      this.announce(Switch.atomEvent, this.value, event);
     }
     render() {
       return ke`    
-        <button @click=${this.disabled ? null : this.onChange} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
+        <button @click=${this.disabled ? null : this.action} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
             <div class="thumb"></div>
         </button>
         <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot></span>`;
     }
   };
+  Switch.atomEvent = "change";
   Switch.styles = localStyles;
+  __decorateClass([
+    n4({ type: Number, reflect: true })
+  ], Switch.prototype, "value", 2);
   __decorateClass([
     n4({ type: Boolean })
   ], Switch.prototype, "disabled", 2);
@@ -1298,18 +1293,22 @@
       this.selected = "";
       this.options = "";
     }
-    select(label) {
+    select(label, event) {
       console.log("select", label);
       this.selected = label;
+      this.announce(ButtonGroup.atomEvent, this.selected, event);
     }
     item(label) {
       const selected = label === this.selected ? "selected" : "";
-      return ke`<div @click=${() => this.select(label)} class="item ${selected}">${label}</div>`;
+      return ke`<div @click=${(event) => this.select(label, event)} class="item ${selected}">${label}</div>`;
     }
     render() {
       return ke`${this.options.split(",").map((opt) => this.item(opt.trim()))}`;
     }
   };
+  ButtonGroup.atomEvent = "click";
+  // @property({ type: String, reflect: true })
+  // override value = "";
   ButtonGroup.styles = i`
 		:host {
             background-color: var(--atom-color-subtle);
@@ -1394,7 +1393,7 @@
     }
   };
   __decorateClass([
-    n4()
+    n4({ type: String })
   ], SwitchDarkmode.prototype, "default", 2);
   SwitchDarkmode = __decorateClass([
     t2("atom-switch-darkmode")

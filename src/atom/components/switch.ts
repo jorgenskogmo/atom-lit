@@ -1,4 +1,11 @@
-import { Atom, html, customElement, css, property } from "../lib/Atom";
+import {
+	Atom,
+	html,
+	customElement,
+	css,
+	property,
+	type AtomEventKey,
+} from "../lib/Atom";
 
 const localStyles = css`
     :host {
@@ -89,16 +96,13 @@ const localStyles = css`
 
 @customElement("atom-switch")
 export class Switch extends Atom {
+	static atomEvent: AtomEventKey = "change";
+
+	@property({ type: Number, reflect: true })
+	override value = 0;
+
 	@property({ type: Boolean })
 	disabled = false;
-
-	// override handleChange(): void {
-	// 	console.log("handleChange this.value:", this.value);
-	// }
-
-	// protected override firstUpdated(_changedProperties: PropertyValues): void {
-	// 	console.log("switch firstUpdated", _changedProperties);
-	// }
 
 	override attributeChangedCallback(
 		name: string,
@@ -113,20 +117,20 @@ export class Switch extends Atom {
 		super.attributeChangedCallback(name, _old, value);
 	}
 
-	override onChange(_e: Event) {
+	override action(event: Event) {
 		if (this.value) {
 			this.value = 0;
 		} else {
 			this.value = 1;
 		}
-		this.announce(this.value);
+		this.announce(Switch.atomEvent, this.value, event);
 	}
 
 	static override styles = localStyles;
 
 	override render() {
 		return html`    
-        <button @click=${this.disabled ? null : this.onChange} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
+        <button @click=${this.disabled ? null : this.action} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
             <div class="thumb"></div>
         </button>
         <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot></span>`;

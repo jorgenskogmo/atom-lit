@@ -3,7 +3,7 @@ import "./atom/index";
 
 import { Remarkable } from "remarkable";
 const md = new Remarkable();
-import * as CD from "./atom/vscode-html-custom-data.json";
+import * as CD from "../vscode-html-custom-data.json";
 
 console.log(
 	"CD",

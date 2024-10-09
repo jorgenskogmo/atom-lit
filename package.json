@@ -8,10 +8,13 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "buildjs": "./node_modules/.bin/esbuild src/atom/index.ts --bundle --outfile='atom-lib.js'",
-    "vscode": "bunx web-component-analyzer analyze src/atom/components --format vscode --outFile src/atom/vscode-html-custom-data.json > /dev/null",
-    "docs": "bunx web-component-analyzer analyze src/atom/components --format markdown --outFile src/atom/docs/wca.md"
+    "build": "bun run build:js && bun run build:vscode && bun run build:react",
+    "build:dist": "vite build",
+    "build:js": "./node_modules/.bin/esbuild src/atom/index.ts --bundle --outfile='atom-lib.js'",
+    "build:vscode": "bunx web-component-analyzer analyze src/atom/components --format vscode --outFile vscode-html-custom-data.json > /dev/null",
+    "build:docs": "bunx web-component-analyzer analyze src/atom/components --format markdown --outFile src/atom/docs/wca.md",
+    "build:react": "bun generate-declarations-react.ts",
+    "wip:types": "npx tsc -p tsconfig.atom.json"
   },
   "keywords": [
     "lit",

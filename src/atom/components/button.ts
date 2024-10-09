@@ -1,7 +1,19 @@
-import { Atom, html, customElement, css, property } from "../lib/Atom";
+import {
+	Atom,
+	html,
+	customElement,
+	css,
+	property,
+	type AtomEventKey,
+} from "../lib/Atom";
 
 @customElement("atom-button")
 export class Button extends Atom {
+	static atomEvent: AtomEventKey = "click";
+
+	@property({ type: Number, reflect: true })
+	override value = 0;
+
 	@property({ type: String })
 	variant:
 		| "normal"
@@ -14,13 +26,11 @@ export class Button extends Atom {
 	@property({ type: String })
 	label = "Button";
 
-	override handleChange(): void {
-		console.log("handleChange this.value:", this.value);
-	}
-
-	override onChange(_e: Event) {
-		const value = this.value + 1;
-		this.announce(value);
+	override action(event: Event) {
+		console.log("Button action");
+		this.value++;
+		// For a button, we emit the click event
+		this.announce(Button.atomEvent, this.value, event);
 	}
 
 	static override styles = css`
@@ -158,7 +168,7 @@ export class Button extends Atom {
 
 	override render() {
 		return html`    
-        <button @click=${this.onChange} class="button ${this.variant}">
+        <button @click=${this.action} class="button ${this.variant}" role="button" tabindex="0">
             <div class="inner">
                 <slot name="left" class="prefix"></slot>
                 <span class="label">${this.label}</span>

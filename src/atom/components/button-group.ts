@@ -1,8 +1,20 @@
-import { Atom, html, customElement, css, property } from "../lib/Atom";
+import {
+	Atom,
+	html,
+	customElement,
+	css,
+	property,
+	type AtomEventKey,
+} from "../lib/Atom";
 import "./button";
 
 @customElement("atom-button-group")
 export class ButtonGroup extends Atom {
+	static atomEvent: AtomEventKey = "click";
+
+	// @property({ type: String, reflect: true })
+	// override value = "";
+
 	static override styles = css`
 		:host {
             background-color: var(--atom-color-subtle);
@@ -41,14 +53,15 @@ export class ButtonGroup extends Atom {
 	@property({ type: String, reflect: true })
 	options = "";
 
-	private select(label: string) {
+	private select(label: string, event: Event) {
 		console.log("select", label);
 		this.selected = label;
+		this.announce(ButtonGroup.atomEvent, this.selected, event);
 	}
 
 	private item(label: string) {
 		const selected = label === this.selected ? "selected" : "";
-		return html`<div @click=${() => this.select(label)} class="item ${selected}">${label}</div>`;
+		return html`<div @click=${(event: Event) => this.select(label, event)} class="item ${selected}">${label}</div>`;
 	}
 
 	override render() {

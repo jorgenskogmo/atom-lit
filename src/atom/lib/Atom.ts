@@ -1,23 +1,13 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { subscribe, set, type StateType, getState } from "./State";
+import { subscribe, update, type StateType, getState } from "./State";
 
-export type AtomEventKey = "ready" | "change" | "click";
-
-export type AtomEventDetail = {
-	value: string | number;
-};
+export type AtomEventKey = "ready" | "change" | "click" | "keyup";
 
 class Atom extends LitElement {
-	// All UI Components should use $value for their internal state
-	@property({ type: Number, reflect: true })
-	value = 6;
+	@property()
+	value: number | string = 0;
 
-	// @property({ type: Boolean, reflect: true })
-	// instant = false;
-
-	// if undefined: emit a change event
-	// if !unedfined: this.value is bound (r+w) to state
 	@property({ reflect: false })
 	bind: keyof StateType | undefined = undefined;
 
@@ -26,21 +16,18 @@ class Atom extends LitElement {
 	override async connectedCallback() {
 		super.connectedCallback();
 
-		// console.log("atom connectedCallback", this.bind);
-
 		if (this.bind !== undefined) {
 			this.value = getState()[this.bind] as typeof this.value;
 			this.cancelSubscription = subscribe((s) => {
-				console.log("atom subscription update:", this.bind, s);
+				// console.log("atom subscription update:", this.bind, s);
 				if (this.bind !== undefined) {
 					this.value = s[this.bind] as typeof this.value;
 				}
 			});
 		}
 
-		// give the html time to render:
 		await new Promise((resolve) => setTimeout(resolve));
-		this.emit("ready", { value: this.value });
+		this.announce("ready", this.value);
 	}
 
 	override disconnectedCallback() {
@@ -49,25 +36,38 @@ class Atom extends LitElement {
 		}
 	}
 
-	// override in component
-	onChange(_e: Event): void {}
-	handleChange(): void {}
-	protected beforeFirstUpdate(): void {}
-
-	announce(value: typeof this.value) {
-		if (this.bind !== undefined) {
-			set(this.bind, value);
-		} else {
-			this.emit("change", { value: value });
-			this.value = value;
-		}
-		this.handleChange();
+	// Stub method to be overridden in derived classes
+	action(_event: Event): void {
+		// Default implementation does nothing
 	}
 
-	private emit(key: AtomEventKey, value: AtomEventDetail) {
-		const event = new CustomEvent(key, {
-			detail: value,
+	announce(
+		eventKey: AtomEventKey,
+		value: typeof this.value,
+		originalEvent?: Event,
+	) {
+		if (this.bind !== undefined) {
+			console.log("@Atom updating state:", this.bind, value);
+			update(this.bind, value as never); // not ideal...
+		} else {
+			this.value = value;
+		}
+
+		let finalEventKey = eventKey;
+		if (
+			eventKey === "click" &&
+			originalEvent &&
+			originalEvent instanceof KeyboardEvent
+		) {
+			finalEventKey = "keyup";
+		}
+		const event = new CustomEvent(finalEventKey, {
+			bubbles: true,
+			composed: true,
+			detail: { value, originalEvent },
 		});
+
+		console.log("@Atom dispatch event:", eventKey, value);
 		this.dispatchEvent(event);
 	}
 }

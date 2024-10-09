@@ -16,6 +16,26 @@
 | `onChange`     | `(_e: Event): void`     |
 
 
+# atom-button-group
+
+## Properties
+
+| Property   | Attribute  | Type                                             | Default     |
+|------------|------------|--------------------------------------------------|-------------|
+| `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `options`  | `options`  | `string`                                         | ""          |
+| `selected` | `selected` | `string`                                         | ""          |
+| `value`    | `value`    | `number`                                         | 6           |
+
+## Methods
+
+| Method         | Type                    |
+|----------------|-------------------------|
+| `announce`     | `(value: number): void` |
+| `handleChange` | `(): void`              |
+| `onChange`     | `(_e: Event): void`     |
+
+
 # atom-button
 
 ## Properties
@@ -43,6 +63,12 @@
 | Property | Attribute | Type                                             | Default   |
 |----------|-----------|--------------------------------------------------|-----------|
 | `name`   | `name`    | `"activity" \| "airplay" \| "alert-circle" \| "alert-octagon" \| "alert-triangle" \| "align-center" \| "align-justify" \| "align-left" \| "align-right" \| "anchor" \| "aperture" \| "archive" \| ... 275 more ... \| "default"` | "airplay" |
+
+## Methods
+
+| Method             | Type       |
+|--------------------|------------|
+| `createRenderRoot` | `(): this` |
 
 
 # atom-range

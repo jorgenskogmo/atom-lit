@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "system", // Use 'system' or 'amd' to enable 'outFile'
+      "outFile": "atom-lib.d.ts", // Output single declaration file
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "outDir": "dist",
+      "rootDir": "src",
+      "strict": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "experimentalDecorators": true,
+      "jsx": "react", // Enable JSX support
+      "jsxFactory": "h", // Specify the JSX factory function (e.g., 'h' for Preact, 'React.createElement' for React)
+      "jsxFragmentFactory": "Fragment" // Specify the JSX fragment factory function (optional)
+    },
+    "include": ["src/atom/components/*.ts"],
+    "exclude": ["node_modules", "dist"],
+  }

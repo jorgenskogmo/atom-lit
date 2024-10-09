@@ -6,7 +6,7 @@ const LOCALSTORAGE_KEY = "atom-theme";
 
 @customElement("atom-switch-darkmode")
 export class SwitchDarkmode extends Switch {
-	@property()
+	@property({ type: String })
 	default: "dark" | "light" | "system" = "light"; // default to light mode
 
 	protected override willUpdate(changedProperties: PropertyValues): void {
