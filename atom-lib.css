@@ -45,6 +45,7 @@
   --atom-font-p: 400 16px/28px var(--atom-font-family-default);
   --atom-font-control: 400 13px/20px var(--atom-font-family-default);
   --atom-font-label: 600 13px/20px var(--atom-font-family-default);
+  --atom-font-code: 400 13px/20px monospace;
   --atom-control-bg: #ccc;
   --atom-color-gray-300: #ccc;
   --atom-color-gray-500: #555;

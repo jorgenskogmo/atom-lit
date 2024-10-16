@@ -20,6 +20,9 @@ declare namespace JSX {
       disabled?: boolean;
       onChange?: (event: CustomEvent) => void;
     };
+    "atom-code": {
+      lang?: "js" | "ts" | "css" | "html";
+    };
     "atom-range": {
       min?: number;
       max?: number;

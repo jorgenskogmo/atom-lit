@@ -2,6 +2,12 @@ import { initialState, type StateType } from "../../state";
 export { type StateType } from "../../state";
 
 /**
+ * consider replacement with lit signals?
+ *
+ * need to simplify anyway
+ */
+
+/**
  * Function type for state change subscribers.
  * @param state - The current state after an update.
  */

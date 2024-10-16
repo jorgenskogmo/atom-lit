@@ -8,13 +8,15 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "bun run build:js && bun run build:vscode && bun run build:react",
-    "build:dist": "vite build",
+    "build": "bun run build:js && bun run build:react && bun run build:docs:index",
     "build:js": "./node_modules/.bin/esbuild src/atom/index.ts --bundle --outfile='atom-lib.js'",
     "build:vscode": "bunx web-component-analyzer analyze src/atom/components --format vscode --outFile vscode-html-custom-data.json > /dev/null",
-    "build:docs": "bunx web-component-analyzer analyze src/atom/components --format markdown --outFile src/atom/docs/wca.md",
+    "build:docs:index": "bun run scripts/docs-build-index.ts",
     "build:react": "bun generate-declarations-react.ts",
-    "wip:types": "npx tsc -p tsconfig.atom.json"
+    "build:docs": "bunx web-component-analyzer analyze src/atom/components --format markdown --outFile src/atom/docs/wca.md",
+    "wip:types": "npx tsc -p tsconfig.atom.json",
+    "wip:bb": "bun build ./index.tsx --outdir ./build",
+    "dist": "vite build"
   },
   "keywords": [
     "lit",
@@ -27,12 +29,15 @@
     "defaults"
   ],
   "dependencies": {
+    "dedent": "^1.5.3",
+    "highlight.js": "^11.10.0",
     "lit": "^3.2.0",
     "remarkable": "^2.0.1"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.3",
     "@types/bun": "^1.1.10",
+    "@types/remarkable": "^2.0.8",
     "typescript": "^5.6.2",
     "vite": "^5.4.3"
   }

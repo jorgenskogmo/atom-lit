@@ -1,5 +1,9 @@
 # Overview
 
+---
+hmm, should onclick="method()" actually work? https://github.com/lit/lit-element/issues/654
+---
+
 The "atom-*" series of repositories is a prototype of how to build a full stack design-system:
 
 - [figma]() holds the design-tokens as Figma Variables and serves as our single source of truth. (WIP)

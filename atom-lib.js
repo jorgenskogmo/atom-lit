@@ -11,6 +11,21 @@
     return result;
   };
 
+  // src/atom/style/init.ts
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("atom domcontentloaded", document.body.classList);
+    if (document.body.classList.contains("dark-theme") || document.body.classList.contains("light-theme")) {
+      console.log("atom: theme already set");
+    } else {
+      console.log("atom index settings color scheme");
+      if (window.matchMedia("(prefers-color-scheme: dark)")) {
+        document.body.classList.add("dark-theme");
+      } else {
+        document.body.classList.add("light-theme");
+      }
+    }
+  });
+
   // node_modules/@lit/reactive-element/css-tag.js
   var t = globalThis;
   var e = t.ShadowRoot && (void 0 === t.ShadyCSS || t.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype;
@@ -104,8 +119,8 @@
     }
     static createProperty(t3, s2 = y) {
       if (s2.state && (s2.attribute = false), this._$Ei(), this.elementProperties.set(t3, s2), !s2.noAccessor) {
-        const i3 = Symbol(), r4 = this.getPropertyDescriptor(t3, i3, s2);
-        void 0 !== r4 && e2(this.prototype, t3, r4);
+        const i3 = Symbol(), r5 = this.getPropertyDescriptor(t3, i3, s2);
+        void 0 !== r5 && e2(this.prototype, t3, r5);
       }
     }
     static getPropertyDescriptor(t3, s2, i3) {
@@ -117,8 +132,8 @@
       return { get() {
         return e5?.call(this);
       }, set(s3) {
-        const r4 = e5?.call(this);
-        h4.call(this, s3), this.requestUpdate(t3, r4, i3);
+        const r5 = e5?.call(this);
+        h4.call(this, s3), this.requestUpdate(t3, r5, i3);
       }, configurable: true, enumerable: true };
     }
     static getPropertyOptions(t3) {
@@ -194,15 +209,15 @@
     _$EC(t3, s2) {
       const i3 = this.constructor.elementProperties.get(t3), e5 = this.constructor._$Eu(t3, i3);
       if (void 0 !== e5 && true === i3.reflect) {
-        const r4 = (void 0 !== i3.converter?.toAttribute ? i3.converter : u).toAttribute(s2, i3.type);
-        this._$Em = t3, null == r4 ? this.removeAttribute(e5) : this.setAttribute(e5, r4), this._$Em = null;
+        const r5 = (void 0 !== i3.converter?.toAttribute ? i3.converter : u).toAttribute(s2, i3.type);
+        this._$Em = t3, null == r5 ? this.removeAttribute(e5) : this.setAttribute(e5, r5), this._$Em = null;
       }
     }
     _$AK(t3, s2) {
       const i3 = this.constructor, e5 = i3._$Eh.get(t3);
       if (void 0 !== e5 && this._$Em !== e5) {
-        const t4 = i3.getPropertyOptions(e5), r4 = "function" == typeof t4.converter ? { fromAttribute: t4.converter } : void 0 !== t4.converter?.fromAttribute ? t4.converter : u;
-        this._$Em = e5, this[e5] = r4.fromAttribute(s2, t4.type), this._$Em = null;
+        const t4 = i3.getPropertyOptions(e5), r5 = "function" == typeof t4.converter ? { fromAttribute: t4.converter } : void 0 !== t4.converter?.fromAttribute ? t4.converter : u;
+        this._$Em = e5, this[e5] = r5.fromAttribute(s2, t4.type), this._$Em = null;
       }
     }
     requestUpdate(t3, s2, i3) {
@@ -313,10 +328,10 @@
     let h4, o4 = 2 === i3 ? "<svg>" : 3 === i3 ? "<math>" : "", n5 = T;
     for (let i4 = 0; i4 < s2; i4++) {
       const s3 = t3[i4];
-      let r4, l2, c4 = -1, a2 = 0;
-      for (; a2 < s3.length && (n5.lastIndex = a2, l2 = n5.exec(s3), null !== l2); ) a2 = n5.lastIndex, n5 === T ? "!--" === l2[1] ? n5 = E : void 0 !== l2[1] ? n5 = k : void 0 !== l2[2] ? (M.test(l2[2]) && (h4 = RegExp("</" + l2[2], "g")), n5 = O) : void 0 !== l2[3] && (n5 = O) : n5 === O ? ">" === l2[0] ? (n5 = h4 ?? T, c4 = -1) : void 0 === l2[1] ? c4 = -2 : (c4 = n5.lastIndex - l2[2].length, r4 = l2[1], n5 = void 0 === l2[3] ? O : '"' === l2[3] ? j : S2) : n5 === j || n5 === S2 ? n5 = O : n5 === E || n5 === k ? n5 = T : (n5 = O, h4 = void 0);
+      let r5, l2, c4 = -1, a2 = 0;
+      for (; a2 < s3.length && (n5.lastIndex = a2, l2 = n5.exec(s3), null !== l2); ) a2 = n5.lastIndex, n5 === T ? "!--" === l2[1] ? n5 = E : void 0 !== l2[1] ? n5 = k : void 0 !== l2[2] ? (M.test(l2[2]) && (h4 = RegExp("</" + l2[2], "g")), n5 = O) : void 0 !== l2[3] && (n5 = O) : n5 === O ? ">" === l2[0] ? (n5 = h4 ?? T, c4 = -1) : void 0 === l2[1] ? c4 = -2 : (c4 = n5.lastIndex - l2[2].length, r5 = l2[1], n5 = void 0 === l2[3] ? O : '"' === l2[3] ? j : S2) : n5 === j || n5 === S2 ? n5 = O : n5 === E || n5 === k ? n5 = T : (n5 = O, h4 = void 0);
       const u2 = n5 === O && t3[i4 + 1].startsWith("/>") ? " " : "";
-      o4 += n5 === T ? s3 + _ : c4 >= 0 ? (e5.push(r4), s3.slice(0, c4) + f2 + s3.slice(c4) + v + u2) : s3 + v + (-2 === c4 ? i4 : u2);
+      o4 += n5 === T ? s3 + _ : c4 >= 0 ? (e5.push(r5), s3.slice(0, c4) + f2 + s3.slice(c4) + v + u2) : s3 + v + (-2 === c4 ? i4 : u2);
     }
     return [N(t3, o4 + (t3[s2] || "<?>") + (2 === i3 ? "</svg>" : 3 === i3 ? "</math>" : "")), e5];
   };
@@ -325,29 +340,29 @@
       let e5;
       this.parts = [];
       let h4 = 0, o4 = 0;
-      const n5 = t3.length - 1, r4 = this.parts, [l2, a2] = U(t3, i3);
+      const n5 = t3.length - 1, r5 = this.parts, [l2, a2] = U(t3, i3);
       if (this.el = _B.createElement(l2, s2), I.currentNode = this.el.content, 2 === i3 || 3 === i3) {
         const t4 = this.el.content.firstChild;
         t4.replaceWith(...t4.childNodes);
       }
-      for (; null !== (e5 = I.nextNode()) && r4.length < n5; ) {
+      for (; null !== (e5 = I.nextNode()) && r5.length < n5; ) {
         if (1 === e5.nodeType) {
           if (e5.hasAttributes()) for (const t4 of e5.getAttributeNames()) if (t4.endsWith(f2)) {
             const i4 = a2[o4++], s3 = e5.getAttribute(t4).split(v), n6 = /([.?@])?(.*)/.exec(i4);
-            r4.push({ type: 1, index: h4, name: n6[2], strings: s3, ctor: "." === n6[1] ? Y : "?" === n6[1] ? Z : "@" === n6[1] ? q : G }), e5.removeAttribute(t4);
-          } else t4.startsWith(v) && (r4.push({ type: 6, index: h4 }), e5.removeAttribute(t4));
+            r5.push({ type: 1, index: h4, name: n6[2], strings: s3, ctor: "." === n6[1] ? Y : "?" === n6[1] ? Z : "@" === n6[1] ? q : G }), e5.removeAttribute(t4);
+          } else t4.startsWith(v) && (r5.push({ type: 6, index: h4 }), e5.removeAttribute(t4));
           if (M.test(e5.tagName)) {
             const t4 = e5.textContent.split(v), i4 = t4.length - 1;
             if (i4 > 0) {
               e5.textContent = c3 ? c3.emptyScript : "";
-              for (let s3 = 0; s3 < i4; s3++) e5.append(t4[s3], lt()), I.nextNode(), r4.push({ type: 2, index: ++h4 });
+              for (let s3 = 0; s3 < i4; s3++) e5.append(t4[s3], lt()), I.nextNode(), r5.push({ type: 2, index: ++h4 });
               e5.append(t4[i4], lt());
             }
           }
-        } else if (8 === e5.nodeType) if (e5.data === m) r4.push({ type: 2, index: h4 });
+        } else if (8 === e5.nodeType) if (e5.data === m) r5.push({ type: 2, index: h4 });
         else {
           let t4 = -1;
-          for (; -1 !== (t4 = e5.data.indexOf(v, t4 + 1)); ) r4.push({ type: 7, index: h4 }), t4 += v.length - 1;
+          for (; -1 !== (t4 = e5.data.indexOf(v, t4 + 1)); ) r5.push({ type: 7, index: h4 }), t4 += v.length - 1;
         }
         h4++;
       }
@@ -376,13 +391,13 @@
     u(t3) {
       const { el: { content: i3 }, parts: s2 } = this._$AD, e5 = (t3?.creationScope ?? w).importNode(i3, true);
       I.currentNode = e5;
-      let h4 = I.nextNode(), o4 = 0, n5 = 0, r4 = s2[0];
-      for (; void 0 !== r4; ) {
-        if (o4 === r4.index) {
+      let h4 = I.nextNode(), o4 = 0, n5 = 0, r5 = s2[0];
+      for (; void 0 !== r5; ) {
+        if (o4 === r5.index) {
           let i4;
-          2 === r4.type ? i4 = new et(h4, h4.nextSibling, this, t3) : 1 === r4.type ? i4 = new r4.ctor(h4, r4.name, r4.strings, this, t3) : 6 === r4.type && (i4 = new K(h4, this, t3)), this._$AV.push(i4), r4 = s2[++n5];
+          2 === r5.type ? i4 = new et(h4, h4.nextSibling, this, t3) : 1 === r5.type ? i4 = new r5.ctor(h4, r5.name, r5.strings, this, t3) : 6 === r5.type && (i4 = new K(h4, this, t3)), this._$AV.push(i4), r5 = s2[++n5];
         }
-        o4 !== r4?.index && (h4 = I.nextNode(), o4++);
+        o4 !== r5?.index && (h4 = I.nextNode(), o4++);
       }
       return I.currentNode = w, e5;
     }
@@ -466,8 +481,8 @@
       if (void 0 === h4) t3 = z(this, t3, i3, 0), o4 = !st(t3) || t3 !== this._$AH && t3 !== R, o4 && (this._$AH = t3);
       else {
         const e6 = t3;
-        let n5, r4;
-        for (t3 = h4[0], n5 = 0; n5 < h4.length - 1; n5++) r4 = z(this, e6[s2 + n5], i3, n5), r4 === R && (r4 = this._$AH[n5]), o4 ||= !st(r4) || r4 !== this._$AH[n5], r4 === D ? t3 = D : t3 !== D && (t3 += (r4 ?? "") + h4[n5 + 1]), this._$AH[n5] = r4;
+        let n5, r5;
+        for (t3 = h4[0], n5 = 0; n5 < h4.length - 1; n5++) r5 = z(this, e6[s2 + n5], i3, n5), r5 === R && (r5 = this._$AH[n5]), o4 ||= !st(r5) || r5 !== this._$AH[n5], r5 === D ? t3 = D : t3 !== D && (t3 += (r5 ?? "") + h4[n5 + 1]), this._$AH[n5] = r5;
       }
       o4 && !e5 && this.j(t3);
     }
@@ -564,43 +579,48 @@
 
   // node_modules/@lit/reactive-element/decorators/property.js
   var o3 = { attribute: true, type: String, converter: u, reflect: false, hasChanged: f };
-  var r3 = (t3 = o3, e5, r4) => {
-    const { kind: n5, metadata: i3 } = r4;
+  var r3 = (t3 = o3, e5, r5) => {
+    const { kind: n5, metadata: i3 } = r5;
     let s2 = globalThis.litPropertyMetadata.get(i3);
-    if (void 0 === s2 && globalThis.litPropertyMetadata.set(i3, s2 = /* @__PURE__ */ new Map()), s2.set(r4.name, t3), "accessor" === n5) {
-      const { name: o4 } = r4;
-      return { set(r5) {
+    if (void 0 === s2 && globalThis.litPropertyMetadata.set(i3, s2 = /* @__PURE__ */ new Map()), s2.set(r5.name, t3), "accessor" === n5) {
+      const { name: o4 } = r5;
+      return { set(r6) {
         const n6 = e5.get.call(this);
-        e5.set.call(this, r5), this.requestUpdate(o4, n6, t3);
+        e5.set.call(this, r6), this.requestUpdate(o4, n6, t3);
       }, init(e6) {
         return void 0 !== e6 && this.P(o4, void 0, t3), e6;
       } };
     }
     if ("setter" === n5) {
-      const { name: o4 } = r4;
-      return function(r5) {
+      const { name: o4 } = r5;
+      return function(r6) {
         const n6 = this[o4];
-        e5.call(this, r5), this.requestUpdate(o4, n6, t3);
+        e5.call(this, r6), this.requestUpdate(o4, n6, t3);
       };
     }
     throw Error("Unsupported decorator location: " + n5);
   };
   function n4(t3) {
     return (e5, o4) => "object" == typeof o4 ? r3(t3, e5, o4) : ((t4, e6, o5) => {
-      const r4 = e6.hasOwnProperty(o5);
-      return e6.constructor.createProperty(o5, r4 ? { ...t4, wrapped: true } : t4), r4 ? Object.getOwnPropertyDescriptor(e6, o5) : void 0;
+      const r5 = e6.hasOwnProperty(o5);
+      return e6.constructor.createProperty(o5, r5 ? { ...t4, wrapped: true } : t4), r5 ? Object.getOwnPropertyDescriptor(e6, o5) : void 0;
     })(t3, e5, o4);
+  }
+
+  // node_modules/@lit/reactive-element/decorators/state.js
+  function r4(r5) {
+    return n4({ ...r5, state: true, attribute: false });
   }
 
   // node_modules/@lit/reactive-element/decorators/base.js
   var e3 = (e5, t3, c4) => (c4.configurable = true, c4.enumerable = true, Reflect.decorate && "object" != typeof t3 && Object.defineProperty(e5, t3, c4), c4);
 
   // node_modules/@lit/reactive-element/decorators/query.js
-  function e4(e5, r4) {
+  function e4(e5, r5) {
     return (n5, s2, i3) => {
       const o4 = (t3) => t3.renderRoot?.querySelector(e5) ?? null;
-      if (r4) {
-        const { get: e6, set: r5 } = "object" == typeof s2 ? n5 : i3 ?? (() => {
+      if (r5) {
+        const { get: e6, set: r6 } = "object" == typeof s2 ? n5 : i3 ?? (() => {
           const t3 = Symbol();
           return { get() {
             return this[t3];
@@ -610,7 +630,7 @@
         })();
         return e3(n5, s2, { get() {
           let t3 = e6.call(this);
-          return void 0 === t3 && (t3 = o4(this), (null !== t3 || this.hasUpdated) && r5.call(this, t3)), t3;
+          return void 0 === t3 && (t3 = o4(this), (null !== t3 || this.hasUpdated) && r6.call(this, t3)), t3;
         } });
       }
       return e3(n5, s2, { get() {
@@ -675,8 +695,6 @@
           }
         });
       }
-      await new Promise((resolve) => setTimeout(resolve));
-      this.announce("ready", this.value);
     }
     disconnectedCallback() {
       if (this.cancelSubscription) {
@@ -687,8 +705,10 @@
     action(_event) {
     }
     announce(eventKey, value, originalEvent) {
+      if (originalEvent) {
+        originalEvent.stopPropagation();
+      }
       if (this.bind !== void 0) {
-        console.log("@Atom updating state:", this.bind, value);
         update(this.bind, value);
       } else {
         this.value = value;
@@ -713,26 +733,104 @@
     n4({ reflect: false })
   ], Atom.prototype, "bind", 2);
 
+  // src/atom/components/binding.css.ts
+  var styles = i`
+    span {
+        background-color: var(--atom-control-bg);
+        color: var(--atom-fg);
+        padding: 4px;
+        padding-top: 3px;
+        padding-bottom: 4px;
+        border-radius: 4px;
+        font-size: 80%;
+    }
+`;
+
   // src/atom/components/binding.ts
   var Binding = class extends Atom {
     render() {
       return ke`<span>${this.value}</span>`;
     }
   };
-  Binding.styles = i`
-		span {
-			background-color: var(--atom-control-bg);
-			color: var(--atom-fg);
-			padding: 4px;
-			padding-top: 3px;
-			padding-bottom: 4px;
-			border-radius: 4px;
-			font-size: 80%;
-		}
-	`;
+  Binding.styles = styles;
   Binding = __decorateClass([
     t2("atom-binding")
   ], Binding);
+
+  // src/atom/components/range.css.ts
+  var styles2 = i`
+.range {
+    display: flex;
+    align-items: center;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    height: 8px;
+    border-radius: 9999px;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+        
+/* webkit */
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 8px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; 
+    height: 22px;
+    width: 22px;
+    margin-top: -7px;
+    background-color: var(--atom-bg);
+    border-radius: 50%;
+    border: 3px solid var(--atom-color-accent);
+    transition: border cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+    border-width: 7px;
+}
+
+/* moz */
+
+input[type=range]::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    background-color: var(--atom-bg);
+    border-radius: 50%;
+    border: 3px solid var(--atom-color-accent);
+}
+
+input[type=range]::-moz-range-thumb:active {
+    height: 8px;
+    width: 8px;
+    border-width: 7px;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+input[type=range]:focus-visible::-webkit-slider-runnable-track, input[type=range]:focus::-webkit-slider-runnable-track {
+    outline: none;
+}
+input[type=range]:focus-visible::-webkit-slider-thumb {
+    outline: 4px solid #f00;
+    outline-offset: 4px;
+}
+input[type=range]:focus-visible::-moz-range-thumb {
+    outline: 4px solid #f00;
+    outline-offset: 8px;
+}
+`;
 
   // src/atom/components/range.ts
   var Range = class extends Atom {
@@ -767,80 +865,7 @@
     }
   };
   Range.atomEvent = "change";
-  Range.styles = i`
-
-		.range {
-			display: flex;
-			align-items: center;
-		}
-
-		input[type="range"] {
-			-webkit-appearance: none;
-			appearance: none;
-			background: transparent;
-			cursor: pointer;
-			width: 100%;
-			height: 8px;
-			border-radius: 9999px;
-		}
-
-		input[type="range"]:focus {
-			outline: none;
-		}
-				
-		/* webkit */
-
-		input[type=range]::-webkit-slider-runnable-track {
-			height: 8px;
-		}
-
-		input[type=range]::-webkit-slider-thumb {
-			-webkit-appearance: none;
-			appearance: none; 
-			height: 22px;
-			width: 22px;
-			margin-top: -7px;
-			background-color: var(--atom-bg);
-			border-radius: 50%;
-			border: 3px solid var(--atom-color-accent);
-			transition: border cubic-bezier(0.165, 0.84, 0.44, 1) 100ms;
-		}
-
-		input[type=range]::-webkit-slider-thumb:active {
-			border-width: 7px;
-		}
-
-		/* moz */
-
-		input[type=range]::-moz-range-thumb {
-			height: 16px;
-			width: 16px;
-			background-color: var(--atom-bg);
-			border-radius: 50%;
-			border: 3px solid var(--atom-color-accent);
-		}
-
-		input[type=range]::-moz-range-thumb:active {
-			height: 8px;
-			width: 8px;
-			border-width: 7px;
-		}
-
-		input[type="range"]:focus {
-			outline: none;
-		}
-		input[type=range]:focus-visible::-webkit-slider-runnable-track, input[type=range]:focus::-webkit-slider-runnable-track {
-			outline: none;
-		}
-		input[type=range]:focus-visible::-webkit-slider-thumb {
-			outline: 4px solid #f00;
-			outline-offset: 4px;
-		}
-		input[type=range]:focus-visible::-moz-range-thumb {
-			outline: 4px solid #f00;
-			outline-offset: 8px;
-		}
-	`;
+  Range.styles = styles2;
   __decorateClass([
     n4({ type: Number, reflect: true })
   ], Range.prototype, "min", 2);
@@ -857,6 +882,140 @@
     t2("atom-range")
   ], Range);
 
+  // src/atom/components/button.css.ts
+  var styles3 = i`
+:host {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    font: var(--atom-font-p);
+}
+
+.button {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+
+    border-width: 1px;
+    border-color: var(--atom-fg);
+    border-style: solid;
+    border-radius: var(--atom-button-border-radius);
+    padding-block: var(--atom-button-padding-block);
+    padding-inline: var(--atom-button-padding-inline);
+    margin-block-end: 4px;
+
+    font: var(--atom-font-control);
+}
+
+/* normal */
+.button {
+    background-color: var(--atom-btn-normal-bg);
+    border-color: var(--atom-btn-normal-bg);
+    color: var(--atom-btn-normal-fg);
+}
+
+.button:hover {
+    background-color: var(--atom-button-normal-hover);
+    border-color: var(--atom-button-normal-hover);
+}
+
+/* primary */
+.button.primary {
+    background-color: var(--atom-btn-primary-bg);
+    border-color: var(--atom-btn-primary-bg);
+    color: var(--atom-btn-primary-fg);
+}
+
+.button.primary:hover {
+    background-color: var(--atom-button-primary-hover);
+    border-color: var(--atom-button-primary-hover);
+}
+
+/* destructive */
+.button.destructive {
+    background-color: var(--atom-color-destructive);
+    border-color: var(--atom-color-destructive);
+    color: var(--atom-btn-destructive-fg);
+}
+.button.destructive:hover {
+    background-color: var(--atom-button-destructive-hover);
+    border-color: var(--atom-button-destructive-hover);
+}
+
+/* constructive */
+.button.constructive {
+    background-color: var(--atom-color-constructive);
+    border-color: var(--atom-color-constructive);
+    color: var(--atom-btn-constructive-fg);
+}
+.button.constructive:hover {
+    background-color: var(--atom-button-constructive-hover);
+    border-color: var(--atom-button-constructive-hover);
+}
+
+/* outline */
+.button.outline {
+    background-color: var(--atom-bg);
+    border-color: var(--atom-button-subtle-hover);
+    color: var(--atom-fg);
+}
+.button.outline:hover {
+    background-color: var(--atom-color-subtle);
+}
+
+/* subtle */
+.button.subtle {
+    background-color: var(--atom-color-subtle);
+    border-color: var(--atom-color-subtle); 
+    color: var(--atom-fg);
+}
+.button.subtle:hover {
+    background-color: var(--atom-button-subtle-hover);
+    border-color: var(--atom-button-subtle-hover);
+}
+
+/* content */
+
+.inner > slot {
+    display: inline-block;
+    margin-top: -1px;
+}
+
+.inner {
+    height: var(--atom-icon-size);
+    line-height: var(--atom-icon-size);
+    display: flex;
+    align-items: center;
+}
+
+slot[name=left]::slotted(*)::after, 
+slot[name=right]::slotted(*)::before {
+    content: "";
+    padding-right: var(--atom-button-icon-padding);
+}
+slot[name=left]::slotted(*) {
+    margin-left: var(--atom-button-icon-offset);
+}
+slot[name=right]::slotted(*) {
+    margin-right: var(--atom-button-icon-offset);
+}
+
+slot[name=center]::slotted(*) {
+    margin: 0 -1rem;
+}
+`;
+
   // src/atom/components/button.ts
   var Button = class extends Atom {
     constructor() {
@@ -866,7 +1025,7 @@
       this.label = "Button";
     }
     action(event) {
-      console.log("Button action");
+      console.log("@Button action", event);
       this.value++;
       this.announce(Button.atomEvent, this.value, event);
     }
@@ -883,138 +1042,7 @@
     }
   };
   Button.atomEvent = "click";
-  Button.styles = i`
-    :host {
-        display: inline-block;
-        position: relative;
-        width: auto;
-        font: var(--atom-font-p);
-    }
-    
-    .button {
-        cursor: pointer;
-        display: inline-flex;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        white-space: nowrap;
-        vertical-align: middle;
-
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
-        transition-duration: .15s;
-
-        border-width: 1px;
-        border-color: var(--atom-fg);
-        border-style: solid;
-        border-radius: var(--atom-button-border-radius);
-        padding-block: var(--atom-button-padding-block);
-        padding-inline: var(--atom-button-padding-inline);
-        margin-block-end: 4px;
-
-        font: var(--atom-font-control);
-    }
-
-    /* normal */
-    .button {
-        background-color: var(--atom-btn-normal-bg);
-        border-color: var(--atom-btn-normal-bg);
-        color: var(--atom-btn-normal-fg);
-    }
-
-    .button:hover {
-        background-color: var(--atom-button-normal-hover);
-        border-color: var(--atom-button-normal-hover);
-    }
-
-    /* primary */
-    .button.primary {
-        background-color: var(--atom-btn-primary-bg);
-        border-color: var(--atom-btn-primary-bg);
-        color: var(--atom-btn-primary-fg);
-    }
-
-    .button.primary:hover {
-        background-color: var(--atom-button-primary-hover);
-        border-color: var(--atom-button-primary-hover);
-    }
-    
-    /* destructive */
-    .button.destructive {
-        background-color: var(--atom-color-destructive);
-        border-color: var(--atom-color-destructive);
-        color: var(--atom-btn-destructive-fg);
-    }
-    .button.destructive:hover {
-        background-color: var(--atom-button-destructive-hover);
-        border-color: var(--atom-button-destructive-hover);
-    }
-
-    /* constructive */
-    .button.constructive {
-        background-color: var(--atom-color-constructive);
-        border-color: var(--atom-color-constructive);
-        color: var(--atom-btn-constructive-fg);
-    }
-    .button.constructive:hover {
-        background-color: var(--atom-button-constructive-hover);
-        border-color: var(--atom-button-constructive-hover);
-    }
-
-    /* outline */
-    .button.outline {
-        background-color: var(--atom-bg);
-        border-color: var(--atom-button-subtle-hover);
-        color: var(--atom-fg);
-    }
-    .button.outline:hover {
-        background-color: var(--atom-color-subtle);
-    }
-
-    /* subtle */
-    .button.subtle {
-        background-color: var(--atom-color-subtle);
-        border-color: var(--atom-color-subtle); 
-        color: var(--atom-fg);
-    }
-    .button.subtle:hover {
-        background-color: var(--atom-button-subtle-hover);
-        border-color: var(--atom-button-subtle-hover);
-    }
-
-    /* content */
-
-    .inner > slot {
-        display: inline-block;
-        margin-top: -1px;
-    }
-
-    .inner {
-        height: var(--atom-icon-size);
-        line-height: var(--atom-icon-size);
-        display: flex;
-        align-items: center;
-    }
-
-    slot[name=left]::slotted(*)::after, 
-    slot[name=right]::slotted(*)::before {
-        content: "";
-        padding-right: var(--atom-button-icon-padding);
-    }
-    slot[name=left]::slotted(*) {
-        margin-left: var(--atom-button-icon-offset);
-    }
-    slot[name=right]::slotted(*) {
-        margin-right: var(--atom-button-icon-offset);
-    }
-    
-    slot[name=center]::slotted(*) {
-        margin: 0 -1rem;
-    }
-`;
+  Button.styles = styles3;
   __decorateClass([
     n4({ type: Number, reflect: true })
   ], Button.prototype, "value", 2);
@@ -1063,7 +1091,9 @@
 	    </svg>`;
     }
     writeSprite() {
-      console.log(`icon "${this.name}" injecting icon sprite`);
+      console.log(
+        `atom-icon@first-instance: "${this.name}", injecting icon sprite`
+      );
       const el = document.createElement("div");
       el.id = "atom-iconsprite";
       el.innerHTML = SVGSprite;
@@ -1077,93 +1107,95 @@
     t2("atom-icon")
   ], Icon);
 
-  // src/atom/components/switch.ts
-  var localStyles = i`
-    :host {
-        display: inline-block;
-        position: relative;
-        width: auto;        
-        font-size: var(--atom-button-fontsize);
-        font-weight: var(--atom-button-fontweight);
-    }
+  // src/atom/components/switch.css.ts
+  var styles4 = i`
+:host {
+    display: inline-block;
+    position: relative;
+    width: auto;        
+    font-size: var(--atom-button-fontsize);
+    font-weight: var(--atom-button-fontweight);
+}
 
-    .button {
-        cursor: pointer;
-        display: inline-flex;
-        align-items: stretch;
-        justify-content: center;
-        width: 50px;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        white-space: nowrap;
-        vertical-align: middle;        
-        border: none;
-        border-radius: 9999px;
-        margin-block-end: 4px;
-        transition-property: background;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
-        transition-duration: .15s;
+.button {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 50px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;        
+    border: none;
+    border-radius: 9999px;
+    margin-block-end: 4px;
+    transition-property: background;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
 
-        padding: 2px;
-    }
+    padding: 2px;
+}
 
-    .thumb {
-        display: block;
-        position: relative;
-        width: 18px;
-        height: 18px;
-        margin: 1px;
-        border-radius: 9999px;
-        transition-property: left;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
-        transition-duration: .15s;
-        background: var(--atom-bg);
-    }
-    
-    .button.on {
-        background: var(--atom-color-accent);
-    }
-    
-    .button.off {
-        background: var(--atom-control-bg);
-    }
+.thumb {
+    display: block;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    margin: 1px;
+    border-radius: 9999px;
+    transition-property: left;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+    background: var(--atom-bg);
+}
 
-    .button.off .thumb {
-        left: -13px;
-    }
-    .button.on .thumb {
-        left: 13px;
-    }
+.button.on {
+    background: var(--atom-color-accent);
+}
 
-    .button.on.disabled,
-    .button.off.disabled,
-    .button.disabled {
-        /* opacity: 0.5; */
-        background: light-dark(
-            hsl(var(--atom-colorbase-hue) 0% 50% / 25%),
-            hsl(var(--atom-colorbase-hue) 0% 50% / 50%)
-        );
-        cursor: not-allowed;
-    }
-    .button.on.disabled .thumb,
-    .button.off.disabled  .thumb,
-    .button.disabled  .thumb {
-        background: light-dark(
-            hsl(var(--atom-colorbase-hue) 0% 100% / 66%),
-            hsl(var(--atom-colorbase-hue) 0% 50% / 33%)
-        );
-        left:0px;
-    }
+.button.off {
+    background: var(--atom-control-bg);
+}
 
-    .label {
-        margin-left: 4px;
-        font: var(--atom-font-label);
-    }
-    .label.disabled {
-        opacity: 0.5;
-    }
+.button.off .thumb {
+    left: -13px;
+}
+.button.on .thumb {
+    left: 13px;
+}
+
+.button.on.disabled,
+.button.off.disabled,
+.button.disabled {
+    /* opacity: 0.5; */
+    background: light-dark(
+        hsl(var(--atom-colorbase-hue) 0% 50% / 25%),
+        hsl(var(--atom-colorbase-hue) 0% 50% / 50%)
+    );
+    cursor: not-allowed;
+}
+.button.on.disabled .thumb,
+.button.off.disabled  .thumb,
+.button.disabled  .thumb {
+    background: light-dark(
+        hsl(var(--atom-colorbase-hue) 0% 100% / 66%),
+        hsl(var(--atom-colorbase-hue) 0% 50% / 33%)
+    );
+    left:0px;
+}
+
+.label {
+    margin-left: 4px;
+    font: var(--atom-font-label);
+}
+.label.disabled {
+    opacity: 0.5;
+}
 `;
+
+  // src/atom/components/switch.ts
   var Switch = class extends Atom {
     constructor() {
       super(...arguments);
@@ -1177,11 +1209,7 @@
       super.attributeChangedCallback(name, _old, value);
     }
     action(event) {
-      if (this.value) {
-        this.value = 0;
-      } else {
-        this.value = 1;
-      }
+      this.value = this.value === 1 ? 0 : 1;
       this.announce(Switch.atomEvent, this.value, event);
     }
     render() {
@@ -1193,7 +1221,7 @@
     }
   };
   Switch.atomEvent = "change";
-  Switch.styles = localStyles;
+  Switch.styles = styles4;
   __decorateClass([
     n4({ type: Number, reflect: true })
   ], Switch.prototype, "value", 2);
@@ -1350,6 +1378,120 @@
     t2("atom-button-group")
   ], ButtonGroup);
 
+  // src/atom/components/breadcrumbs.css.ts
+  var styles5 = i`
+:host {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+a {
+    color: #0077cc;
+    text-decoration: none;
+    margin: 0 5px;
+}
+a:hover {
+    text-decoration: underline;
+}
+span {
+    margin: 0 5px;
+    color: #666;
+}
+`;
+
+  // src/atom/components/breadcrumbs.ts
+  var Breadcrumbs = class extends h3 {
+    constructor() {
+      super();
+      this.breadcrumbs = [];
+      this.breadcrumbs = this.getBreadcrumbs();
+    }
+    getBreadcrumbs() {
+      const path = window.location.pathname;
+      const parts = path.split("/").filter(Boolean);
+      const result = [
+        { name: "Home", path: "/" },
+        ...parts.map((part, index) => {
+          const pageName = (part.charAt(0).toUpperCase() + part.slice(1)).replace(
+            ".html",
+            ""
+          );
+          return {
+            name: pageName,
+            path: `/${parts.slice(0, index + 1).join("/")}/`
+          };
+        })
+      ];
+      console.log("Breadcrumbs generated:", result);
+      return result;
+    }
+    render() {
+      return ke`
+      ${this.breadcrumbs.map(
+        (crumb, index) => ke`
+          ${index > 0 ? ke`<span>/</span>` : ""}
+          ${index === this.breadcrumbs.length - 1 ? ke`<span>${crumb.name}</span>` : ke`<a href="${crumb.path}">${crumb.name}</a>`}
+        `
+      )}
+    `;
+    }
+  };
+  Breadcrumbs.styles = styles5;
+  __decorateClass([
+    r4()
+  ], Breadcrumbs.prototype, "breadcrumbs", 2);
+  Breadcrumbs = __decorateClass([
+    t2("atom-breadcrumbs")
+  ], Breadcrumbs);
+
+  // src/atom/components/code.css.ts
+  var styles6 = i`
+    span {
+        background-color: var(--atom-control-bg);
+        color: var(--atom-fg);
+        padding: 4px;
+        padding-top: 3px;
+        padding-bottom: 4px;
+        border-radius: 4px;
+        font-size: 80%;
+    }
+`;
+
+  // src/atom/components/code.ts
+  var Code = class extends Atom {
+    render() {
+      return ke`    
+        <div>
+            <div class="text">
+                <slot></slot>
+            </div>
+        </div>`;
+    }
+  };
+  Code.styles = styles6;
+  Code = __decorateClass([
+    t2("atom-code")
+  ], Code);
+  var CodeFragment = class extends Atom {
+    constructor() {
+      super(...arguments);
+      this.lang = "js";
+    }
+    render() {
+      return ke`    
+        <div>
+            <p>lang: ${this.lang}</p>
+            <slot></slot>
+        </div>`;
+    }
+  };
+  __decorateClass([
+    n4({ type: String })
+  ], CodeFragment.prototype, "lang", 2);
+  CodeFragment = __decorateClass([
+    t2("atom-code-fragment")
+  ], CodeFragment);
+
   // src/atom/components/switch-darkmode.ts
   var LOCALSTORAGE_KEY = "atom-theme";
   var SwitchDarkmode = class extends Switch {
@@ -1373,7 +1515,8 @@
         this.setTheme();
       }
     }
-    handleChange() {
+    action() {
+      this.value = this.value === 1 ? 0 : 1;
       this.setTheme();
     }
     setTheme() {

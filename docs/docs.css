@@ -1,0 +1,27 @@
+code {
+    background-color: #013d25;
+    color: #0f9;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font: var(--atom-font-control);
+}
+
+section.params {
+    padding: 1rem 0.5rem;
+    background-color: color-mix(in srgb, var(--atom-fg) 20%, #0000 100%);
+    
+    font: var(--atom-font-code);
+    p {
+        font: inherit
+    }
+}
+
+section.example {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--atom-fg) 20%, #0000 100%);
+
+    h3 {
+        margin: 0;
+    }
+}

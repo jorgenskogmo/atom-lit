@@ -10,7 +10,7 @@ console.log(
 	CD.tags.find((t) => t.name === "atom-range"),
 );
 
-import type { AtomEventDetail } from "./atom/lib/Atom";
+import type { AtomEventKey } from "./atom/lib/Atom";
 
 // just for testing:
 import { subscribe, getState } from "./atom/lib/State";
@@ -19,7 +19,7 @@ async function main() {
 	const slider = document.querySelector("#btn0") as HTMLInputElement;
 
 	// event listener:
-	slider.addEventListener("change", ((e: CustomEvent<AtomEventDetail>) => {
+	slider.addEventListener("change", ((e: CustomEvent<AtomEventKey>) => {
 		console.log("change:", e);
 		const el = document.querySelector("#btn0out") as HTMLDivElement;
 		el.innerText = `${e.detail.value}`;

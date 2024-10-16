@@ -40,7 +40,9 @@ export class Icon extends LitElement {
 	}
 
 	private writeSprite() {
-		console.log(`icon "${this.name}" injecting icon sprite`);
+		console.log(
+			`atom-icon@first-instance: "${this.name}", injecting icon sprite`,
+		);
 		const el = document.createElement("div");
 		el.id = "atom-iconsprite";
 		el.innerHTML = SVGSprite;

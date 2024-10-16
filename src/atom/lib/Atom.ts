@@ -26,8 +26,8 @@ class Atom extends LitElement {
 			});
 		}
 
-		await new Promise((resolve) => setTimeout(resolve));
-		this.announce("ready", this.value);
+		// await new Promise((resolve) => setTimeout(resolve));
+		// this.announce("ready", this.value);
 	}
 
 	override disconnectedCallback() {
@@ -46,8 +46,12 @@ class Atom extends LitElement {
 		value: typeof this.value,
 		originalEvent?: Event,
 	) {
+		if (originalEvent) {
+			originalEvent.stopPropagation();
+		}
+
 		if (this.bind !== undefined) {
-			console.log("@Atom updating state:", this.bind, value);
+			// console.log("@Atom updating state:", this.bind, value);
 			update(this.bind, value as never); // not ideal...
 		} else {
 			this.value = value;

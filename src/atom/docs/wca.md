@@ -5,15 +5,17 @@
 | Property | Attribute | Type                                             | Default     |
 |----------|-----------|--------------------------------------------------|-------------|
 | `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
-| `value`  | `value`   | `number`                                         | 6           |
+| `value`  | `value`   | `string \| number`                               | 0           |
 
 ## Methods
 
-| Method         | Type                    |
-|----------------|-------------------------|
-| `announce`     | `(value: number): void` |
-| `handleChange` | `(): void`              |
-| `onChange`     | `(_e: Event): void`     |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(_event: Event): void`                          |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
+
+
+# atom-breadcrumbs
 
 
 # atom-button-group
@@ -25,15 +27,14 @@
 | `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
 | `options`  | `options`  | `string`                                         | ""          |
 | `selected` | `selected` | `string`                                         | ""          |
-| `value`    | `value`    | `number`                                         | 6           |
+| `value`    | `value`    | `string \| number`                               | 0           |
 
 ## Methods
 
-| Method         | Type                    |
-|----------------|-------------------------|
-| `announce`     | `(value: number): void` |
-| `handleChange` | `(): void`              |
-| `onChange`     | `(_e: Event): void`     |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(_event: Event): void`                          |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
 
 
 # atom-button
@@ -44,16 +45,15 @@
 |-----------|-----------|--------------------------------------------------|-------------|
 | `bind`    | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
 | `label`   | `label`   | `string`                                         | "Button"    |
-| `value`   | `value`   | `number`                                         | 6           |
+| `value`   | `value`   | `number`                                         | 0           |
 | `variant` | `variant` | `"normal" \| "primary" \| "destructive" \| "constructive" \| "outline" \| "subtle"` | "normal"    |
 
 ## Methods
 
-| Method         | Type                    |
-|----------------|-------------------------|
-| `announce`     | `(value: number): void` |
-| `handleChange` | `(): void`              |
-| `onChange`     | `(_e: Event): void`     |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(event: Event): void`                           |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
 
 
 # atom-icon
@@ -85,11 +85,10 @@
 
 ## Methods
 
-| Method         | Type                    |
-|----------------|-------------------------|
-| `announce`     | `(value: number): void` |
-| `handleChange` | `(): void`              |
-| `onChange`     | `(e: Event): void`      |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(event: Event): void`                           |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
 
 
 # atom-switch-darkmode
@@ -101,15 +100,15 @@
 | `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
 | `default`  | `default`  | `"dark" \| "light" \| "system"`                  | "light"     |
 | `disabled` | `disabled` | `boolean`                                        | false       |
-| `value`    | `value`    | `number`                                         | 6           |
+| `value`    | `value`    | `number`                                         | 0           |
 
 ## Methods
 
-| Method         | Type                    |
-|----------------|-------------------------|
-| `announce`     | `(value: number): void` |
-| `handleChange` | `(): void`              |
-| `onChange`     | `(_e: Event): void`     |
+| Method         | Type                                             |
+|----------------|--------------------------------------------------|
+| `action`       | `(event: Event): void`                           |
+| `announce`     | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
+| `handleChange` | `(): void`                                       |
 
 
 # atom-switch
@@ -120,15 +119,14 @@
 |------------|------------|--------------------------------------------------|-------------|
 | `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
 | `disabled` | `disabled` | `boolean`                                        | false       |
-| `value`    | `value`    | `number`                                         | 6           |
+| `value`    | `value`    | `number`                                         | 0           |
 
 ## Methods
 
-| Method         | Type                    |
-|----------------|-------------------------|
-| `announce`     | `(value: number): void` |
-| `handleChange` | `(): void`              |
-| `onChange`     | `(_e: Event): void`     |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(event: Event): void`                           |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
 
 
 # atom-toast
@@ -138,12 +136,11 @@
 | Property | Attribute | Type                                             | Default     |
 |----------|-----------|--------------------------------------------------|-------------|
 | `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
-| `value`  | `value`   | `number`                                         | 6           |
+| `value`  | `value`   | `string \| number`                               | 0           |
 
 ## Methods
 
-| Method         | Type                    |
-|----------------|-------------------------|
-| `announce`     | `(value: number): void` |
-| `handleChange` | `(): void`              |
-| `onChange`     | `(_e: Event): void`     |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(_event: Event): void`                          |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |

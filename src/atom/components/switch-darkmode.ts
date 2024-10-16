@@ -34,7 +34,8 @@ export class SwitchDarkmode extends Switch {
 		}
 	}
 
-	override handleChange(): void {
+	override action(): void {
+		this.value = this.value === 1 ? 0 : 1;
 		this.setTheme();
 	}
 

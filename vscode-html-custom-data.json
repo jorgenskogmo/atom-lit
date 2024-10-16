@@ -28,6 +28,11 @@
       ]
     },
     {
+      "name": "atom-breadcrumbs",
+      "description": "Properties:\n\n  * `styles` {`CSSResult`} - \n\n  * `breadcrumbs` {`{ name: string; path: string; }[]`} - ",
+      "attributes": []
+    },
+    {
       "name": "atom-button-group",
       "description": "Attributes:\n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [

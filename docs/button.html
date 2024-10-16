@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <title>lit-glue: docs: button</title>
+    <link rel="stylesheet" href="docs.css" />
+    <script type="module" src="./docs.ts"></script>
+</head>
+
+<body>
+    <atom-breadcrumbs></atom-breadcrumbs>
+
+    <h2>button</h2>
+
+    <p>
+        The <code>atom-button</code> component is a themed and atom-state-integrated UI button with (optional) icons.
+    </p>
+
+
+    <section class="params">
+        <p>
+            @Param: <code>label</code> - the text to display on the button<br />
+            @Param: <code>variant</code> - (optional) its visual variant (normal | primary | destructive | constructive | subtle | outline)<br />
+            @Param: <code>onclick</code> - (optional) the method to call when clicked<br />
+        </p>
+    </section>
+
+    <section class="example">
+        <h3>Variants</h3>
+
+        <atom-button label="dette er en knap"></atom-button>
+        <atom-button variant="normal" label="Normal"></atom-button>
+        <atom-button variant="primary" label="Primary"></atom-button>
+        <atom-button variant="destructive" label="Destructive"></atom-button>
+        <atom-button variant="constructive" label="Constructive"></atom-button>
+        <atom-button variant="subtle" label="Subtle"></atom-button>
+        <atom-button variant="outline" label="Outline"></atom-button>
+    </section>
+
+    <section class="example">
+        <h3>Icons</h3>
+
+        <atom-button label="" bind="clicks">
+            <atom-icon slot="center" name="aperture"></atom-icon>
+        </atom-button>
+
+        <atom-button label="Left Icon">
+            <div slot="left"><atom-icon name="mail"></atom-icon></div>
+        </atom-button>
+
+        <atom-button label="Right Icon">
+            <div slot="right"><atom-icon name="aperture"></atom-icon></div>
+        </atom-button>
+
+        <atom-button label="Two Icons">
+            <div slot="left"><atom-icon name="x"></atom-icon></div>
+            <div slot="right"><atom-icon name="aperture"></atom-icon></div>
+        </atom-button>
+    </section>
+
+    <section class="example">
+        <h3>Example 1: Using atom-state</h3>
+
+        <p>
+            A atom-binding element bound to the <a href="state.html">state-variable</a> <code>clicks</code>:<br>
+            <atom-binding bind="clicks"></atom-binding>
+            <br><br>
+
+            a atom-range element bound to the same variable:<br />
+            <atom-button variant="normal" label="using atom-state" bind="clicks"></atom-button>
+            <br><br>
+        </p>
+    </section>
+
+    <section class="example">
+        <h3>Example 1: Using addEventListener</h3>
+
+        <p>
+            <atom-button id="btn1" label="using addEventListener"></atom-button>
+
+            <script>
+                document.querySelector("#btn1").addEventListener("click", (e) => {
+                    console.log("@example1: btn1Clicked, e:", e, ", event.target.value:", e.target.value)
+                });
+            </script>
+        </p>
+    </section>
+
+</body>
+
+</html>

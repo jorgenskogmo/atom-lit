@@ -1,0 +1,31 @@
+/* Exported at Tue, 08 Oct 2024 16:53:29 GMT */
+:root {
+    --atomlib-dark-boolean-abool: 0; /* bool:false */
+    --atomlib-dark-color-accent: #0099ff; 
+    --atomlib-dark-color-background: #111111; 
+    --atomlib-dark-color-btn-fg-constructive: #ffffff; 
+    --atomlib-dark-color-btn-fg-destructive: #ffffff; 
+    --atomlib-dark-color-btn-fg-normal: #000000; 
+    --atomlib-dark-color-btn-fg-primary: #000000; 
+    --atomlib-dark-color-btn-normal: #ffffff; 
+    --atomlib-dark-color-btn-primary: #00ff99; 
+    --atomlib-dark-color-constructive: #2dad32; 
+    --atomlib-dark-color-destructive: #eb2222; 
+    --atomlib-dark-color-foreground: #ffffff; 
+    --atomlib-dark-float-anumber: 3.140000104904175; 
+    --atomlib-light-boolean-abool: 1; /* bool:true */
+    --atomlib-light-color-accent: #ff00ff; 
+    --atomlib-light-color-background: #eeeeee; 
+    --atomlib-light-color-btn-fg-constructive: #ffffff; 
+    --atomlib-light-color-btn-fg-destructive: #ffffff; 
+    --atomlib-light-color-btn-fg-normal: #ffffff; 
+    --atomlib-light-color-btn-fg-primary: #ffffff; 
+    --atomlib-light-color-btn-normal: #000000; 
+    --atomlib-light-color-btn-primary: #0099ff; 
+    --atomlib-light-color-constructive: #009900; 
+    --atomlib-light-color-destructive: #ed2727; 
+    --atomlib-light-color-foreground: #111111; 
+    --atomlib-light-float-anumber: 2; 
+    /* "hallo" (astring @ light) */
+    /* der (astring @ dark) */
+}

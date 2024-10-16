@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <title>lit-glue: docs: binding</title>
+    <!-- <script src="../atom-lib.js"></script>
+    <link rel="stylesheet" href="../atom-lib.css" /> -->
+
+    <link rel="stylesheet" href="docs.css" />
+    <script type="module" src="./docs.ts"></script>
+</head>
+
+<body>
+    <atom-breadcrumbs></atom-breadcrumbs>
+
+    <h2>binding</h2>
+
+    <p>
+        The <code>atom-binding</code> component is a simple way to display the value of a <a href="state.html">state-variable</a>.
+    </p>
+    <p>
+        It acts as a value-observer, that updates its content whenever the state-variable it is <code>bound</code> to changes.
+    </p>
+
+
+    <section class="params">
+        <p>
+            @Param: <code>bind</code> - the name of the state-variable to observe.
+        </p>
+    </section>
+
+    <section class="example">
+        <h3>Example 1: Using atom-state</h3>
+
+        <p>
+            A atom-binding element bound to the <a href="state.html">state-variable</a> <code>clicks</code>:<br>
+            <atom-binding bind="clicks"></atom-binding>
+            <br><br>
+
+            a atom-range element bound to the same variable:<br />
+            <atom-range id="btn0" min="1" max="200" bind="clicks"></atom-range>
+            <br><br>
+
+            a atom-button element that increments it:<br>
+            <atom-button label="Increment" bind="clicks"></atom-button>
+            <br><br>
+        </p>
+    </section>
+
+    <section class="example">
+        <h3>Example 2: Using vanilla state TODO</h3>
+
+        <p>
+            <input type="button" onclick="ex2_dec()" value="decrement" />
+            <atom-binding bind="clicks2"></atom-binding>
+            <input type="button" onclick="ex2_inc()" value="increment" />
+
+            <script type="module">
+                import { set, getState } from '../src/atom/lib/State.ts';
+                set("clicks2", 10);
+                window.ex2_inc = () => {
+                    set("clicks2", getState().clicks2 + 1);
+                }
+                window.ex2_dec = () => {
+                    set("clicks2", getState().clicks2 - 1);
+                }
+            </script>
+        </p>
+    </section>
+
+</body>
+
+</html>

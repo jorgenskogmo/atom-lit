@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <title>lit-glue: docs: code</title>
+    <!-- <script src="../atom-lib.js"></script>
+    <link rel="stylesheet" href="../atom-lib.css" /> -->
+
+    <link rel="stylesheet" href="docs.css" />
+    <script type="module" src="./docs.ts"></script>
+</head>
+
+<body>
+    <atom-breadcrumbs></atom-breadcrumbs>
+
+    <h2>code</h2>
+
+    <p>
+        The <code>atom-code</code> component is a simple way to render syntax highlighted code.
+    </p>
+    <p>
+        It allows passing multiple code-blocks, using <code>atom-code-fragment</code>, and letting the user toggle between them.
+    </p>
+
+    <!-- <atom-code>
+        <code lang="html">
+    <atom-code>        
+        <code lang="html">
+            // your code here                                
+        </code>
+    </atom-code>
+    </code>
+    </atom-code> -->
+
+
+    <section class="params">
+        <p>
+            @Param: <code>bind</code> - the name of the state-variable to observe.
+        </p>
+    </section>
+
+    <section class="example">
+        <h3>Example 1: Single</h3>
+
+        <p>
+            <atom-code>
+
+                <code lang="javascript">
+                    // #1 the following should render as formatted code
+                    const a = 1.0; // ok?
+                    function b() {
+                        return 1;
+                    }
+                    const c = () => { a() }
+                </code>
+
+
+            </atom-code>
+
+        </p>
+    </section>
+
+    <section class="example">
+        <h3>Example 2: Multiple</h3>
+
+        <p>
+            <atom-code>
+
+                <code lang="javascript">
+                    // #1 the following should render as formatted code
+                    const a = 1.0; // ok?
+                    function b() {
+                        return 1;
+                    }
+                    const c = () => { a() }
+                </code>
+
+                <code lang="typescript">
+                    // #2 the following should render as formatted code
+                    type Section = {
+                        html: string;
+                        lang: string;
+                    };
+                    type HappinessScoreConfig = 
+                        | number 
+                        | (weatherOpinion: WeatherOpinion) => number;
+                </code>
+
+                <code lang="css">
+                    pre { border: collapse }
+                </code>
+
+            </atom-code>
+
+        </p>
+    </section>
+
+</body>
+
+</html>
