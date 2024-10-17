@@ -8,6 +8,7 @@ import { styles as hilitejsCss } from "./code-hilitejs.css";
 
 import dedent from "dedent";
 import hljs from "highlight.js";
+// TODO: Import minimal hljs bundle
 // import hljs from "highlight.js/lib/core";
 // import javascript from "highlight.js/lib/languages/javascript";
 // import typescript from "highlight.js/lib/languages/typescript";
@@ -16,7 +17,8 @@ import hljs from "highlight.js";
 
 type Section = {
 	html: string;
-	lang: string;
+	raw: string;
+	language: string;
 };
 
 @customElement("atom-code")
@@ -34,23 +36,23 @@ export class Code extends Atom {
 		console.log(this.querySelectorAll(selector));
 
 		this.sections = [...this.querySelectorAll(selector)].map((frag) => {
-			const html = (frag as HTMLElement).innerHTML;
+			const raw = (frag as HTMLElement).innerText;
 			const language = (frag as HTMLElement).getAttribute("lang") || "c";
 			return {
-				lang: language,
-				html: hljs
-					.highlight(dedent`${html}`, { language })
-					.value.replace("&amp;gt;", ">"), // FIXME: find better way
+				language,
+				raw: dedent`${raw}`,
+				html: hljs.highlight(dedent`${raw}`, { language }).value,
 			};
 		});
-		console.log("sections:", this.sections);
-		console.log("sections[0]:", this.sections[0]);
 		this.fragmentIndex = 0;
 	}
 
 	private setFragmentIndex(index: number) {
-		console.log("setFragmentIndex", index);
 		this.fragmentIndex = index;
+	}
+
+	private copy() {
+		navigator.clipboard.writeText(this.sections[this.fragmentIndex].raw);
 	}
 
 	override render() {
@@ -58,15 +60,17 @@ export class Code extends Atom {
 			this.sections.length > 1
 				? this.sections.map(
 						(s: Section, index: number) =>
-							html`<button class="hasmany ${this.fragmentIndex === index ? "selected" : ""}" @click=${() => this.setFragmentIndex(index)}>${s.lang}</button> `,
+							html`<button class="hasmany ${this.fragmentIndex === index ? "selected" : ""}" @click=${() => this.setFragmentIndex(index)}>${s.language}</button> `,
 					)
-				: html`<button class="selected">${this.sections[0].lang}</button>`;
+				: html`<button class="selected">${this.sections[0].language}</button>`;
 
 		return html`    
         <div class="container">
             <div class="header">${buttons}</div>
             
             <pre><code class="hljs">${unsafeHTML(this.sections[this.fragmentIndex].html)}</code></pre>
+
+            <button class="copyBtn" @click=${() => this.copy()}>copy</button>
         </div>`;
 	}
 }

@@ -2,23 +2,28 @@ import { css } from "../lib/Atom";
 
 export const styles = css`
     .container {
-        border-radius: 4px;
-        overflow: hidden;
+        position: relative;
+        
     }
+    
+    .container, code {
+        border-radius: 8px;
+        background: #282c34;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
     pre {
         border-top: 1px solid var(--atom-bg);
         margin: 0;
     }
     
     .header {
-        background: #282c34;
         padding: 0px;
-        padding-left: 8px;
         font-size: normal;
         display: flex;
     }
     .header button {
-        /* background: #f00; */
         background: none;
         height: 100%;
         display: inline-block;
@@ -26,7 +31,7 @@ export const styles = css`
         border: none;
         color: #666;
         font-size: 14px;
-        padding: 8px;
+        padding: 8px 16px;
         margin: 0;
         border-right: 1px solid var(--atom-bg);
 
@@ -38,13 +43,9 @@ export const styles = css`
         color: var(--atom-fg);
     }
 
-    /* span {
-        background-color: var(--atom-control-bg);
-        color: var(--atom-fg);
-        padding: 4px;
-        padding-top: 3px;
-        padding-bottom: 4px;
-        border-radius: 4px;
-        font-size: 80%;
-    } */
+    .copyBtn {
+        position: absolute;
+        right: 1rem;
+        top: 3rem;
+    }
 `;
