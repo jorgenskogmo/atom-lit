@@ -5,15 +5,14 @@ export const styles = css`
     display: inline-block;
     position: relative;
     width: auto;
-    font: var(--atom-font-p);
+    /* font: var(--atom-font-p); */
 }
 
 .button {
     cursor: pointer;
-    display: inline-flex;
+    display: inline;
     align-items: stretch;
     justify-content: center;
-    width: 100%;
     text-decoration: none;
     user-select: none;
     -webkit-user-select: none;
@@ -104,31 +103,29 @@ export const styles = css`
 
 /* content */
 
-.inner > slot {
-    display: inline-block;
+.label {
     margin-top: -1px;
 }
 
 .inner {
     height: var(--atom-icon-size);
     line-height: var(--atom-icon-size);
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
-slot[name=left]::slotted(*)::after, 
-slot[name=right]::slotted(*)::before {
-    content: "";
-    padding-right: var(--atom-button-icon-padding);
+.inner > slot {
+    display: block;
+    height: var(--atom-icon-size);
 }
-slot[name=left]::slotted(*) {
+
+slot[name=left]::slotted(atom-icon){
+    padding-right: var(--atom-button-icon-padding);
     margin-left: var(--atom-button-icon-offset);
 }
-slot[name=right]::slotted(*) {
+slot[name=right]::slotted(atom-icon){
+    padding-left: var(--atom-button-icon-padding);
     margin-right: var(--atom-button-icon-offset);
 }
 
-slot[name=center]::slotted(*) {
-    margin: 0 -1rem;
-}
 `;

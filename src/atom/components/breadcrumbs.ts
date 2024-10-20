@@ -31,7 +31,7 @@ export class Breadcrumbs extends LitElement {
 				};
 			}),
 		];
-		console.log("Breadcrumbs generated:", result);
+		// console.log("Breadcrumbs generated:", result);
 		return result;
 	}
 
@@ -39,7 +39,7 @@ export class Breadcrumbs extends LitElement {
 		return html`
       ${this.breadcrumbs.map(
 				(crumb, index) => html`
-          ${index > 0 ? html`<span>/</span>` : ""}
+          ${index > 0 ? html`<span class="slash">/</span>` : ""}
           ${
 						index === this.breadcrumbs.length - 1
 							? html`<span>${crumb.name}</span>`

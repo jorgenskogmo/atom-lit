@@ -1,3 +1,14 @@
+
+
+body {
+    color: var(--atom-fg);
+    background: var(--atom-bg);
+    transition: all 0.25s;
+    font: var(--atom-font-p);
+    margin:0;
+    padding: 1rem 2rem;
+}
+ 
 code {
     background-color: #013d25;
     color: #0f9;

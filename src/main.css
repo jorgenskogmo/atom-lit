@@ -5,6 +5,10 @@
 body {
   margin:0;
   padding: 1rem 2rem;
+  color: var(--atom-fg);
+  background: var(--atom-bg);
+  transition: all 0.25s;
+  font: var(--atom-font-p);
 }
 
 h1, [role="heading"] {

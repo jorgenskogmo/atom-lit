@@ -117,11 +117,3 @@ h4 {
 .sm {
   font: 400 14px/16px var(--atom-font-family-default);
 }
-body {
-  color: var(--atom-fg);
-  background: var(--atom-bg);
-  transition: all 0.25s;
-}
-* {
-  font: var(--atom-font-p);
-}

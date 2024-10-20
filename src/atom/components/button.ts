@@ -41,8 +41,7 @@ export class Button extends Atom {
         <button @click=${this.action} class="button ${this.variant}" role="button" tabindex="0">
             <div class="inner">
                 <slot name="left" class="prefix"></slot>
-                <span class="label">${this.label}</span>
-                <slot name="center" class="center"></slot>
+                <slot name="center" class="center"><div class="label">${this.label}</div></slot>
                 <slot name="right" class="suffix"></slot>
             </div>
         </button>`;

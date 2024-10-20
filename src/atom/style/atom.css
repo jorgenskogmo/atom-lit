@@ -28,8 +28,8 @@
     --atom-button-padding-block: 8px;
     --atom-button-padding-inline: 16px;
     
-    --atom-button-icon-padding: 8px;
-    --atom-button-icon-offset: -4px;
+    --atom-button-icon-padding: 6px;
+    --atom-button-icon-offset: -6px;
     --atom-icon-size: 14px;
     
 }
@@ -119,17 +119,19 @@ h4 {
     font: 400 14px/16px var(--atom-font-family-default);
 }
 
+/*
 
 body {
     color: var(--atom-fg);
     background: var(--atom-bg);
     transition: all 0.25s;
+    font: var(--atom-font-p);
 }
  
 * {
-    font: var(--atom-font-p);
 }
 
+*/
 
 /* h1, [role="heading"] {
     font: 700 clamp(1rem, 10vw, 10rem) / clamp(1rem, 10vw, 9rem) var(--atom-font-family-default);

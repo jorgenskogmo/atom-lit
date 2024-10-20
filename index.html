@@ -47,6 +47,8 @@
     Quite a task. Unless, what if we:
   </p>
 
+  <a href="/docs/">Documentation</a>
+
 
 
   <h3>Range</h3>
@@ -79,27 +81,32 @@
 
   <br />
   <atom-button label="" bind="clicks">
-    <atom-icon slot="center" name="aperture"></atom-icon>
+    <atom-icon slot="center" name="icon_aperture"></atom-icon>
   </atom-button>
 
   <atom-button label="Left Icon">
-    <div slot="left"><atom-icon name="mail"></atom-icon></div>
+    <atom-icon slot="left" name="icon_mail"></atom-icon>
   </atom-button>
 
   <atom-button label="Right Icon">
-    <div slot="right"><atom-icon name="aperture"></atom-icon></div>
+    <atom-icon slot="right" name="icon_aperture"></atom-icon>
   </atom-button>
 
   <atom-button label="Two Icons">
-    <div slot="left"><atom-icon name="x"></atom-icon></div>
-    <div slot="right"><atom-icon name="aperture"></atom-icon></div>
+    <atom-icon slot="left" name="icon_x"></atom-icon>
+    <atom-icon slot="right" name="icon_aperture"></atom-icon>
   </atom-button>
 
+  <atom-button label="Three Icons">
+    <atom-icon slot="left" name="icon_aperture"></atom-icon>
+    <atom-icon slot="center" name="icon_aperture"></atom-icon>
+    <atom-icon slot="right" name="icon_aperture"></atom-icon>
+  </atom-button>
 
   <hr />
 
   <atom-button label="" bind="clicks">
-    <atom-icon slot="center" name="plus"></atom-icon>
+    <atom-icon slot="center" name="icon_plus"></atom-icon>
   </atom-button>
 
   <code>clicks</code>: <atom-binding bind="clicks"></atom-binding>
@@ -116,6 +123,27 @@
   <atom-switch value="0">off</atom-switch>
   <atom-switch disabled>Disabled</atom-switch>
   <atom-switch-darkmode default="system">Dark mode</atom-switch-darkmode>
+
+
+  <h3>Icon</h3>
+  <atom-icon name="aperture"></atom-icon>
+
+
+
+
+  <h3>Code</h3>
+
+  <atom-code>
+    <code lang="javascript">
+        // #1 the following should render as formatted code
+        const a = 1.0; // ok?
+        function b() {
+            return 1;
+        }
+        const c = () => { a() }
+    </code>
+  </atom-code>
+
 
 </body>
 
