@@ -15,7 +15,8 @@
     "build:react": "bun scripts/generate-declarations-react.ts",
     "wip:types": "npx tsc -p tsconfig.atom.json",
     "wip:bb": "bun build ./index.tsx --outdir ./build",
-    "dist": "vite build"
+    "build:dist": "vite build",
+    "serve:dist": "serve -c ../serve.json dist"
   },
   "keywords": [
     "lit",
