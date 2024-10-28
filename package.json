@@ -10,7 +10,7 @@
     "build": "bun run build:js && bun run build:react && bun run build:docs:index",
     "build:js": "./node_modules/.bin/esbuild src/atom/index.ts --bundle --outfile='atom-lib.js'",
     "build:vscode": "bunx web-component-analyzer analyze src/atom/components --format vscode --outFile vscode-html-custom-data.json > /dev/null",
-    "build:docs:index": "bun run scripts/docs-build-index.ts",
+    "build:docs:pages": "bun run scripts/docs-build-index.ts",
     "build:react": "bun scripts/generate-declarations-react.ts",
     "build:docs": "bunx web-component-analyzer analyze src/atom/components --format markdown --outFile src/atom/docs/wca.md",
     "wip:types": "npx tsc -p tsconfig.atom.json",

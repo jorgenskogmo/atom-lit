@@ -31,8 +31,10 @@ export class Range extends Atom {
 		this.announce(Range.atomEvent, value, event);
 	}
 	override render() {
-		const pct = Math.floor((this.value / this.max) * 100);
-		const css = `background: linear-gradient(to right, var(--atom-color-accent) ${pct - 1}%, var(--atom-control-bg) ${pct - 1}%)`;
+		// console.log("slider: this.value:", this.value);
+		// fixme: ensure slider head moves when value changes
+		const pct = Math.floor(((this.value as number) / this.max) * 100);
+		const css = `background: linear-gradient(to right, var(--atom-color-accent) ${pct}%, var(--atom-control-bg) ${pct - 1}%)`;
 		return html`    
     <div class="range">
         <input

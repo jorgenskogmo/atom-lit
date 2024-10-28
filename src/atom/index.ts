@@ -6,6 +6,7 @@ import "./style/init.ts";
 // atoms
 import "./components/binding";
 import "./components/range";
+import "./components/range-color";
 import "./components/button";
 import "./components/icon";
 import "./components/switch";

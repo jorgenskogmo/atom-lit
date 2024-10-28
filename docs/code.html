@@ -28,56 +28,19 @@
         It allows passing multiple code-blocks, using <code>atom-code-fragment</code>, and letting the user toggle between them.
     </p>
 
-
     <atom-code>
-        <code lang="html">
-            <p>
-                <b>bold</b>
-                something
-            </p>
-        </code>
+        <code lang="ATOM-CODE-EXAMPLE"></code>
     </atom-code>
 
-
-    <p>Like this:</p>
-
-    <atom-code>
-        <pre lang="ATOM-CODE-EXAMPLE"></pre>
-    </atom-code>
-
-    Note that the <code>atom-code component</code> can NOT be nested inside a <a href="https://html.spec.whatwg.org/#phrasing-content">HTML phrasing-content</a> tag, so dont nest it inside e.g. a <code>p</code> tag.
+    Note:<br />
+    - that the <code>atom-code component</code> can NOT be nested inside a <a href="https://html.spec.whatwg.org/#phrasing-content">HTML phrasing-content</a> tag (so dont nest it inside e.g. a <code>p</code> tag).
 
 
     <section class="example">
-        <h3>Example 1: Single</h3>
-
-        <p></p>
-        <atom-code>
-            <code lang="typescript">
-                // #1 the following should render as formatted code
-                /**
-                    * jsdoc sth
-                */
-    
-                type Thing = {
-                    opt = "a" | "b" | "c";
-                }
-                const a = 1.0; // ok?
-                function b(one: string, two:number, three:Thing): string {
-                    return `its:${1}`;
-                }
-                const c = () => { a(1,2,3) }
-                <b>bold</b>
-            </code>
-        </atom-code>
-    </section>
-
-
-    <section class="example">
-        <h3>Example 2: Multiple</h3>
+        <h3>Example 1: Multiple</h3>
         <p></p>
 
-        <atom-code>
+        <atom-code selected="cpp">
             <code lang="html">
                 <p>alo</p>
             </code>
@@ -104,12 +67,70 @@
 
             <code lang="css">
                 pre { border: collapse }
+                * { color: var(--atom-bg)}
+            </code>
+
+            <code lang="cpp" selected="true">
+<textarea>
+    #include <iostream>
+    using namespace std;
+    
+    int main() 
+    {    
+        cout << "Size of char: " << sizeof(char) << " byte" << endl;
+        cout << "Size of int: " << sizeof(int) << " bytes" << endl;
+        cout << "Size of float: " << sizeof(float) << " bytes" << endl;
+        cout << "Size of double: " << sizeof(double) << " bytes" << endl;
+    
+        return 0;
+    }
+</textarea>
+            </code>
+
+            <code lang="csharp">
+                class Car
+                {
+                    private string model = "Mustang";
+
+                    static void Main(string[] args)
+                    {
+                        Car myObj = new Car();
+                        Console.WriteLine(myObj.model);
+                    }
+                }
             </code>
 
         </atom-code>
-
-
     </section>
+
+
+
+    <section class="example">
+        <h3>Example 2: Single</h3>
+
+        <p></p>
+        <atom-code>
+            <code lang="typescript">
+                // #1 the following should render as formatted code
+                /**
+                    * jsdoc sth
+                */
+    
+                type Thing = {
+                    opt = "a" | "b" | "c";
+                }
+                const a = 1.0; // ok?
+                function b(one: string, two:number, three:Thing): string {
+                    return `its:${1}`;
+                }
+                const c = () => { a(1,2,3) }
+                <b>bold</b>
+            </code>
+        </atom-code>
+    </section>
+
+
+
 
 </body>
 

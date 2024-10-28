@@ -53,12 +53,12 @@
 
   <h3>Range</h3>
 
-  <atom-range id="btn0" min="1" max="60" value="20" bind="num"></atom-range>
+  <atom-range min="1" max="60" value="20" bind="num"></atom-range>
   <p>
     Direct state-subscriber: <span id="state0out" style="color:#09f">n/a</span>
     <br />
     A "monitor" for the state-value
-    <code>num</code>: <atom-binding bind="num"></atom-binding>
+    <code>$num</code>: <atom-binding bind="num"></atom-binding>
     <br />
     Output from change-event: <span id="btn0out" style="color:rgb(0, 110, 255)">non</span>
   </p>
@@ -69,9 +69,19 @@
   <div id="range-docs-attrs">range-docs</div>
   <hr />
 
+  <h3>Range Color</h3>
+
+
+  <atom-range-color value="90"></atom-range-color>
+  <atom-range-color value="10"></atom-range-color>
+
+  Bound:
+  <atom-range-color value="180" bind="color"></atom-range-color>
+  <code>$color</code>: <atom-binding bind="color"></atom-binding>
+
   <h3>Button</h3>
 
-  <atom-button label="dette er en knap"></atom-button>
+  <atom-button label=" dette er en knap"></atom-button>
   <atom-button variant="normal" label="Normal"></atom-button>
   <atom-button variant="primary" label="Primary"></atom-button>
   <atom-button variant="destructive" label="Destructive"></atom-button>
@@ -79,7 +89,6 @@
   <atom-button variant="subtle" label="Subtle"></atom-button>
   <atom-button variant="outline" label="Outline"></atom-button>
 
-  <br />
   <atom-button label="" bind="clicks">
     <atom-icon slot="center" name="icon_aperture"></atom-icon>
   </atom-button>

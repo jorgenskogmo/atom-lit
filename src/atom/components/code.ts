@@ -1,4 +1,4 @@
-import { state } from "lit/decorators.js";
+import { property, state } from "lit/decorators.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { Atom, html, customElement } from "../lib/Atom";
@@ -32,6 +32,8 @@ const langMap = {
 	typescript: "TypeScript",
 	html: "HTML",
 	css: "CSS",
+	csharp: "C#",
+	cpp: "C++",
 };
 
 type langType = keyof typeof langMap;
@@ -43,27 +45,51 @@ export class Code extends Atom {
 	@state()
 	fragmentIndex = -1;
 
+	@property({ type: String, reflect: true })
+	selected = "";
+
 	private sections: Section[] = [];
 
 	override async connectedCallback() {
 		super.connectedCallback();
 		this.sections = [];
-		[...this.querySelectorAll("code")].map((frag) => {
+
+		// default to select first-child:
+		let nextFragmentIndex = 0;
+
+		// loop over all children
+		[...this.querySelectorAll("code")].map((frag, index) => {
 			const raw = (frag as HTMLElement).innerHTML;
 			const language = ((frag as HTMLElement).getAttribute("lang") ||
 				"plain") as langType;
+
+			// only check the selected attribute on the children if top-level attribute $selected is not set
+			if (this.selected === "") {
+				const selected: boolean =
+					(frag as HTMLElement).getAttribute("selected") === "true" || false;
+				if (selected) nextFragmentIndex = index;
+			}
+
+			// obey top-level attribute $selected
+			if (language === this.selected) {
+				nextFragmentIndex = index;
+			}
+
 			if (language === "ATOM-CODE-EXAMPLE") {
 				this.sections.push(this.format(atom_code_example, language));
 			} else {
 				this.sections.push(this.format(raw, language));
 			}
 		});
-		this.fragmentIndex = 0;
-		console.log("sections:", this.sections);
+
+		this.fragmentIndex = nextFragmentIndex;
+		// console.log("sections:", this.sections);
 	}
 
 	private format(raw: string, language: langType): Section {
-		const text = decode(dedent(raw));
+		const clean = raw.replace("<textarea>", "").replace("</textarea>", "");
+
+		const text = decode(dedent(clean));
 
 		if (language === "ATOM-CODE-EXAMPLE") {
 			return {

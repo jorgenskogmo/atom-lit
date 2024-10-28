@@ -8,6 +8,6 @@ export const styles = css`
         padding-top: 3px;
         padding-bottom: 4px;
         border-radius: 4px;
-        font-size: 80%;
+        font: var(--atom-font-code);
     }
 `;
