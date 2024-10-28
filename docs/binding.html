@@ -44,7 +44,7 @@
             <br><br>
 
             a atom-range element bound to the same variable:<br />
-            <atom-range id="btn0" min="1" max="200" bind="clicks"></atom-range>
+            <atom-range id="btn0" min="-300" max="300" bind="clicks"></atom-range>
             <br><br>
 
             a atom-button element that increments it:<br>
@@ -54,7 +54,33 @@
     </section>
 
     <section class="example">
-        <h3>Example 2: Using vanilla state TODO</h3>
+        <h3>Example 2: Using atom-state</h3>
+
+        <p>
+            <atom-range-color value="10" label="Unbound"></atom-range-color>
+            <atom-range-color value="180" bind="color" label="Bound to state"></atom-range-color>
+            <code>$color</code>: <atom-binding bind="color"></atom-binding>
+
+            <br><br>
+
+            <atom-button id="colorBtn1" label="Set State.color to #0099FF"></atom-button>
+            <atom-button id="colorBtn2" label="Set ColorRange.color to #0099FF"></atom-button>
+            <atom-button id="colorBtn3" label="Set ColorRange.value to 90°"></atom-button>
+            <br><br>
+        </p>
+
+        <script type="module">
+            import { set, getState } from '../src/atom/lib/State.ts';
+            document.querySelector("#colorBtn1").addEventListener("click", () => {
+                console.log("colorBtn1 click")
+                set("color", "#0099FF")
+            });
+        </script>
+
+    </section>
+
+    <section class="example">
+        <h3>Example 3: Using vanilla state TODO</h3>
 
         <p>
             <input type="button" onclick="ex2_dec()" value="decrement" />

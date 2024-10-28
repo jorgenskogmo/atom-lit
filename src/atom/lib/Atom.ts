@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, query, state } from "lit/decorators.js";
 import { subscribe, update, type StateType, getState } from "./State";
 
 export type AtomEventKey = "ready" | "change" | "click" | "keyup";
@@ -7,6 +7,12 @@ export type AtomEventKey = "ready" | "change" | "click" | "keyup";
 class Atom extends LitElement {
 	@property()
 	value: number | string = 0;
+
+	@property({ type: Boolean, reflect: true })
+	disabled = false;
+
+	@property({ type: String, reflect: true })
+	label = "";
 
 	@property({ reflect: false })
 	bind: keyof StateType | undefined = undefined;
@@ -22,6 +28,7 @@ class Atom extends LitElement {
 				// console.log("atom subscription update:", this.bind, s);
 				if (this.bind !== undefined) {
 					this.value = s[this.bind] as typeof this.value;
+					this.stateUpdate();
 				}
 			});
 		}
@@ -40,6 +47,9 @@ class Atom extends LitElement {
 	action(_event: Event): void {
 		// Default implementation does nothing
 	}
+
+	// Stub method to be overridden in derived classes
+	stateUpdate() {}
 
 	announce(
 		eventKey: AtomEventKey,
@@ -76,4 +86,4 @@ class Atom extends LitElement {
 	}
 }
 
-export { Atom, html, css, customElement, property };
+export { Atom, html, css, customElement, property, query, state };

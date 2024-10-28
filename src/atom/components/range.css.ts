@@ -89,4 +89,10 @@ input[type=range]:focus-visible::-moz-range-thumb {
     outline: 4px solid #f00;
     outline-offset: 8px;
 }
+
+/* disabled */
+input[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
 `;

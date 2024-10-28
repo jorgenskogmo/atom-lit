@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="dark light">
+  <meta name="description" content="demo/dev page for the atom ui components project">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
   <title>lit-glue</title>
   <link rel="stylesheet" href="./src/main.css" />
+  <!-- <link rel="preload" href="./src/main.css" as="style" onload="this.rel='stylesheet'" /> -->
   <script type="module" src="./src/main.ts"></script>
 </head>
 
@@ -27,18 +29,18 @@
 
   <atom-button onclick="toast('alo', 'der')"></atom-button>
 
+
   <p class="xs">xs: a first line <br>and a second line</p>
   <p class="sm">sm: a first line <br>and a second line</p>
 
 
-
-  <h1 role="heading">
+  <h1 class="heading">
     Presenting Atom-components:<br />
     LitElement &<br />
     productive-defaults
   </h1>
 
-  <h2 role="subheading">
+  <h2 class="subheading">
     Introducing sustainable-software and productive-defaults
   </h2>
 
@@ -55,12 +57,13 @@
 
   <atom-range min="1" max="60" value="20" bind="num"></atom-range>
   <p>
-    Direct state-subscriber: <span id="state0out" style="color:#09f">n/a</span>
-    <br />
+    <!-- Direct state-subscriber: <span id="state0out" style="color:#09f">n/a</span><br /> -->
+
     A "monitor" for the state-value
     <code>$num</code>: <atom-binding bind="num"></atom-binding>
-    <br />
-    Output from change-event: <span id="btn0out" style="color:rgb(0, 110, 255)">non</span>
+
+    <!-- <br />
+    Output from change-event: <span id="btn0out" style="color:#09f">non</span> -->
   </p>
   <hr />
   <p>(Experimental) auto docs:</p>
@@ -85,7 +88,7 @@
   <atom-button variant="subtle" label="Subtle"></atom-button>
   <atom-button variant="outline" label="Outline"></atom-button>
 
-  <atom-button label="" bind="clicks">
+  <atom-button label="will be hidden by slot-center" bind="clicks">
     <atom-icon slot="center" name="icon_aperture"></atom-icon>
   </atom-button>
 
@@ -110,7 +113,7 @@
 
   <hr />
 
-  <atom-button label="" bind="clicks">
+  <atom-button label="Click to increment" bind="clicks">
     <atom-icon slot="center" name="icon_plus"></atom-icon>
   </atom-button>
 

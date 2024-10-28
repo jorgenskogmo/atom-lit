@@ -14507,7 +14507,7 @@
   // src/state.ts
   var initialState = {
     num: 10,
-    clicks: 99,
+    clicks: 90,
     airplane_mode: 0,
     color: "#0099ff"
   };
@@ -14549,6 +14549,8 @@
     constructor() {
       super(...arguments);
       this.value = 0;
+      this.disabled = false;
+      this.label = "";
       this.bind = void 0;
     }
     async connectedCallback() {
@@ -14558,6 +14560,7 @@
         this.cancelSubscription = subscribe((s2) => {
           if (this.bind !== void 0) {
             this.value = s2[this.bind];
+            this.stateUpdate();
           }
         });
       }
@@ -14569,6 +14572,9 @@
     }
     // Stub method to be overridden in derived classes
     action(_event) {
+    }
+    // Stub method to be overridden in derived classes
+    stateUpdate() {
     }
     announce(eventKey, value, originalEvent) {
       if (originalEvent) {
@@ -14595,6 +14601,12 @@
   __decorateClass([
     n4()
   ], Atom.prototype, "value", 2);
+  __decorateClass([
+    n4({ type: Boolean, reflect: true })
+  ], Atom.prototype, "disabled", 2);
+  __decorateClass([
+    n4({ type: String, reflect: true })
+  ], Atom.prototype, "label", 2);
   __decorateClass([
     n4({ reflect: false })
   ], Atom.prototype, "bind", 2);
@@ -14627,7 +14639,24 @@
   var styles2 = i`
 .range {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.labels {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-inline: 2px;
+    margin-bottom: 0.25rem;
+}
+.label {
+    flex-grow: 1;
+    font: var(--atom-font-label);
+}
+.label.value {
+    text-align: right;
+    font: var(--atom-font-code);
 }
 
 input[type="range"] {
@@ -14696,6 +14725,12 @@ input[type=range]:focus-visible::-moz-range-thumb {
     outline: 4px solid #f00;
     outline-offset: 8px;
 }
+
+/* disabled */
+input[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
 `;
 
   // src/atom/components/range.ts
@@ -14705,28 +14740,37 @@ input[type=range]:focus-visible::-moz-range-thumb {
       this.min = 1;
       this.max = 30;
       this.step = 1;
+      this.label = "Slider";
       this.value = 6;
+    }
+    stateUpdate() {
+      this.rangeElement.value = `${this.value}`;
     }
     action(event) {
       const value = Number.parseFloat(event.target.value);
       this.announce(Range.atomEvent, value, event);
     }
     render() {
-      const pct = Math.floor(this.value / this.max * 100);
+      const pct = (this.value - this.min) / (this.max - this.min) * 100;
       const css = `background: linear-gradient(to right, var(--atom-color-accent) ${pct}%, var(--atom-control-bg) ${pct - 1}%)`;
       return ke`    
     <div class="range">
+		<div class="labels">
+			<div class="label">${this.label}</div>
+			<div class="label value">${this.value}</div>
+		</div>		
         <input
 			style=${css}
             type="range"
+			?disabled=${this.disabled}
             min=${this.min}
             max=${this.max}
             step=${this.step}
             value=${this.value}
             @change=${this.action}
             @input=${this.action}
+			aria-label=${this.label}
         />
-        <span class="label" style="margin-inline:0.5rem">${this.value}</span>
     </div>`;
     }
   };
@@ -14744,6 +14788,9 @@ input[type=range]:focus-visible::-moz-range-thumb {
   __decorateClass([
     n4({ type: Number, reflect: true })
   ], Range.prototype, "value", 2);
+  __decorateClass([
+    e4("input[type=range]")
+  ], Range.prototype, "rangeElement", 2);
   Range = __decorateClass([
     t2("atom-range")
   ], Range);
@@ -14773,11 +14820,6 @@ input[type=range]:focus-visible::-moz-range-thumb {
 	input[type=range]::-moz-range-thumb {
 		border-color: var(--_thumb_color);
 	}
-
-	.label {
-		min-width: 5rem;
-		font: var(--atom-font-code);
-	}
 `;
   var RangeColor = class extends Atom {
     constructor() {
@@ -14786,6 +14828,13 @@ input[type=range]:focus-visible::-moz-range-thumb {
       this.max = 360;
       this.step = 1;
       this.color = "#00ff00";
+      this.label = "ColorSlider";
+    }
+    stateUpdate() {
+      console.log("range color bound @stateUpdate", this.value);
+      this.color = this.value;
+      this.value = this.hexToHsv(this.color).h;
+      this.rangeElement.value = `${this.value}`;
     }
     async connectedCallback() {
       super.connectedCallback();
@@ -14810,6 +14859,10 @@ input[type=range]:focus-visible::-moz-range-thumb {
     render() {
       return ke`    
     <div class="range">
+		<div class="labels">
+			<div class="label">${this.label}</div>
+			<div class="label value">${this.color}</div>
+		</div>
         <input
             type="range"
             min=${this.min}
@@ -14818,8 +14871,8 @@ input[type=range]:focus-visible::-moz-range-thumb {
             value=${this.value}
             @change=${this.action}
             @input=${this.action}
+			aria-label=${this.label}
         />
-        <span class="label" style="margin-inline:0.5rem">${this.color}</span>
     </div>`;
     }
     hsvToHex(h4, s2, v2) {
@@ -14878,6 +14931,9 @@ input[type=range]:focus-visible::-moz-range-thumb {
   __decorateClass([
     n4({ type: String, reflect: true })
   ], RangeColor.prototype, "color", 2);
+  __decorateClass([
+    e4("input[type=range]")
+  ], RangeColor.prototype, "rangeElement", 2);
   RangeColor = __decorateClass([
     t2("atom-range-color")
   ], RangeColor);
@@ -15028,7 +15084,7 @@ slot[name=right]::slotted(atom-icon){
     }
     render() {
       return ke`    
-        <button @click=${this.action} class="button ${this.variant}" role="button" tabindex="0">
+        <button @click=${this.action} class="button ${this.variant}" role="button" tabindex="0" aria-label="${this.label}">
             <div class="inner">
                 <slot name="left" class="prefix"></slot>
                 <slot name="center" class="center"><div class="label">${this.label}</div></slot>
@@ -15045,9 +15101,6 @@ slot[name=right]::slotted(atom-icon){
   __decorateClass([
     n4({ type: String })
   ], Button.prototype, "variant", 2);
-  __decorateClass([
-    n4({ type: String })
-  ], Button.prototype, "label", 2);
   Button = __decorateClass([
     t2("atom-button")
   ], Button);
@@ -15678,34 +15731,73 @@ slot[name=right]::slotted(atom-icon){
   // src/atom/components/icon.ts
   var styles4 = i`
 :host {
-	display: block;
+	display: inline-block;
+	--_size: 1;
+}
+
+.atom-icon.full {
+	--_size: 1.0;
+}
+.atom-icon.full > svg {
+	width: 100%;
+	height: 100%;
+}
+
+
+.atom-icon.xxxl {
+	--_size: 4.0;
+}
+.atom-icon.xxl {
+	--_size: 3.0;
+}
+.atom-icon.xl {
+	--_size: 2;
+}
+.atom-icon.l {
+	--_size: 1.5;
+}
+.atom-icon.m {
+	--_size: 1;
+}
+.atom-icon.s {
+	--_size: 0.75;
 }
 
 .atom-icon > svg {
 	display: block;
-	width: var(--atom-icon-size, 12px);
-	height: var(--atom-icon-size, 12px);
+	width: calc(var(--_size) * var(--atom-icon-size, 12px));
+	height: calc(var(--_size) * var(--atom-icon-size, 12px));
 	stroke: currentColor;
-	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
+	stroke-width: 1;
 	fill: none;
-	/* stroke: #0000ff !important; */
 }
+.atom-icon.full > svg { stroke-width: 1; }
+.atom-icon.xxxl > svg { stroke-width: 1; }
+.atom-icon.xxl > svg { stroke-width: 1.25; }
+.atom-icon.xl > svg { stroke-width: 1.5; }
+.atom-icon.l > svg { stroke-width: 1.75; }
+.atom-icon.m > svg { stroke-width: 2; }
+.atom-icon.s > svg { stroke-width: 1.5; }
 `;
   var Icon = class extends Atom {
     constructor() {
       super(...arguments);
       this.name = "icon_airplay";
+      this.size = "m";
     }
     render() {
-      return ke`<div class="atom-icon">${fe(FeatherIconShapes_exports[this.name])}</div>`;
+      return ke`<div class="atom-icon ${this.size}">${fe(FeatherIconShapes_exports[this.name])}</div>`;
     }
   };
   Icon.styles = [styles4];
   __decorateClass([
     n4({ type: String, reflect: true })
   ], Icon.prototype, "name", 2);
+  __decorateClass([
+    n4({ type: String, reflect: true })
+  ], Icon.prototype, "size", 2);
   Icon = __decorateClass([
     t2("atom-icon")
   ], Icon);
@@ -15802,8 +15894,8 @@ slot[name=right]::slotted(atom-icon){
   var Switch = class extends Atom {
     constructor() {
       super(...arguments);
+      this.label = "Switch";
       this.value = 0;
-      this.disabled = false;
     }
     attributeChangedCallback(name, _old, value) {
       if (name === "disabled" && _old === null && value !== "false") {
@@ -15817,7 +15909,7 @@ slot[name=right]::slotted(atom-icon){
     }
     render() {
       return ke`    
-        <button @click=${this.disabled ? null : this.action} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
+        <button aria-label="${this.label}" @click=${this.disabled ? null : this.action} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
             <div class="thumb"></div>
         </button>
         <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot></span>`;
@@ -15828,9 +15920,6 @@ slot[name=right]::slotted(atom-icon){
   __decorateClass([
     n4({ type: Number, reflect: true })
   ], Switch.prototype, "value", 2);
-  __decorateClass([
-    n4({ type: Boolean })
-  ], Switch.prototype, "disabled", 2);
   Switch = __decorateClass([
     t2("atom-switch")
   ], Switch);
@@ -16055,7 +16144,7 @@ span.slash {
     :host {
         --atom-hljs-bg: #282c34;
         --atom-hljs-color: #9abbda;
-        --atom-hljs-comment: #818896;
+        --atom-hljs-comment: #B2BABD;
 
         --atom-hljs-keyword: #61aeee;
         --atom-hljs-attribute: #c678dd;
@@ -16096,7 +16185,6 @@ span.slash {
         padding: 0px;
         font-size: normal;
         display: flex;
-        font: var(--atom-font-p);
     }
     .header button {
         background: none;
@@ -16105,11 +16193,11 @@ span.slash {
         appearance: none;
         border: none;
         color: #fff6;
-        
-        font-size: 14px;
+        color: #FFFFFFab;
         padding: 8px 16px;
         margin: 0;
         border-right: 1px solid var(--atom-bg);
+        font: var(--atom-font-label);
 
     }
     .header button.hasmany {
@@ -16117,6 +16205,10 @@ span.slash {
     }
     .header button:hover, .header button.selected {
         color: #fff;
+        border-bottom: 2px solid #09fc;
+    }
+    .header button.selected {
+        border-bottom: 2px solid #09f;
     }
 
     .copyBtn {
@@ -16305,7 +16397,8 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
     html: "HTML",
     css: "CSS",
     csharp: "C#",
-    cpp: "C++"
+    cpp: "C++",
+    sh: "Shell"
   };
   var Code = class extends Atom {
     constructor() {

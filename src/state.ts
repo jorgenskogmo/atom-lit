@@ -1,7 +1,7 @@
 // app state
 export const initialState = {
 	num: 10,
-	clicks: 99,
+	clicks: 90,
 	airplane_mode: 0,
 	color: "#0099ff",
 };

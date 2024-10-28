@@ -26,8 +26,7 @@ export class Button extends Atom {
 		| "outline"
 		| "subtle" = "normal";
 
-	@property({ type: String })
-	label = "Button";
+	override label = "Button";
 
 	override action(event: Event) {
 		console.log("@Button action", event);
@@ -38,7 +37,7 @@ export class Button extends Atom {
 
 	override render() {
 		return html`    
-        <button @click=${this.action} class="button ${this.variant}" role="button" tabindex="0">
+        <button @click=${this.action} class="button ${this.variant}" role="button" tabindex="0" aria-label="${this.label}">
             <div class="inner">
                 <slot name="left" class="prefix"></slot>
                 <slot name="center" class="center"><div class="label">${this.label}</div></slot>

@@ -5,7 +5,7 @@ export const styles = css`
     :host {
         --atom-hljs-bg: #282c34;
         --atom-hljs-color: #9abbda;
-        --atom-hljs-comment: #818896;
+        --atom-hljs-comment: #B2BABD;
 
         --atom-hljs-keyword: #61aeee;
         --atom-hljs-attribute: #c678dd;
@@ -54,6 +54,7 @@ export const styles = css`
         appearance: none;
         border: none;
         color: #fff6;
+        color: #FFFFFFab;
         padding: 8px 16px;
         margin: 0;
         border-right: 1px solid var(--atom-bg);
@@ -65,6 +66,10 @@ export const styles = css`
     }
     .header button:hover, .header button.selected {
         color: #fff;
+        border-bottom: 2px solid #09fc;
+    }
+    .header button.selected {
+        border-bottom: 2px solid #09f;
     }
 
     .copyBtn {

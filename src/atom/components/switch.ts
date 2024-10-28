@@ -14,11 +14,10 @@ export class Switch extends Atom {
 
 	static override styles = styles;
 
+	override label = "Switch";
+
 	@property({ type: Number, reflect: true })
 	override value = 0;
-
-	@property({ type: Boolean })
-	disabled = false;
 
 	override attributeChangedCallback(
 		name: string,
@@ -40,7 +39,7 @@ export class Switch extends Atom {
 
 	override render() {
 		return html`    
-        <button @click=${this.disabled ? null : this.action} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
+        <button aria-label="${this.label}" @click=${this.disabled ? null : this.action} class="button ${this.value ? "on" : "off"} ${this.disabled ? "disabled" : ""}">
             <div class="thumb"></div>
         </button>
         <span class="label ${this.disabled ? "disabled" : ""}"><slot></slot></span>`;

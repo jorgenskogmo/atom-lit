@@ -11,12 +11,12 @@ body {
   font: var(--atom-font-p);
 }
 
-h1, [role="heading"] {
+h1.heading {
   /* fluid */
   font: 700 clamp(1rem, 10vw, 10rem) / clamp(1rem, 10vw, 9rem) var(--atom-font-family-default);
 }
 
-h2, [role="subheading"] {
+h2.subheading {
   font: var(--atom-font-subhead);
   opacity: 0.75;
 }
