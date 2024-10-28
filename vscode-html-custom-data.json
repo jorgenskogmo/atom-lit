@@ -163,7 +163,7 @@
     },
     {
       "name": "atom-icon",
-      "description": "Attributes:\n\n  * `name` {`\"icon_activity\" | \"icon_airplay\" | \"icon_alert_circle\" | \"icon_alert_octagon\" | \"icon_alert_triangle\" | \"icon_align_center\" | \"icon_align_justify\" | \"icon_align_left\" | ... 278 more ... | \"icon_zoom_out\"`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult[]`} - \n\n  * `name` {`\"icon_activity\" | \"icon_airplay\" | \"icon_alert_circle\" | \"icon_alert_octagon\" | \"icon_alert_triangle\" | \"icon_align_center\" | \"icon_align_justify\" | \"icon_align_left\" | ... 278 more ... | \"icon_zoom_out\"`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `name` {`\"icon_activity\" | \"icon_airplay\" | \"icon_alert_circle\" | \"icon_alert_octagon\" | \"icon_alert_triangle\" | \"icon_align_center\" | \"icon_align_justify\" | \"icon_align_left\" | ... 278 more ... | \"icon_zoom_out\"`} - \n\n  * `size` {`\"s\" | \"m\" | \"l\" | \"xl\"`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult[]`} - \n\n  * `name` {`\"icon_activity\" | \"icon_airplay\" | \"icon_alert_circle\" | \"icon_alert_octagon\" | \"icon_alert_triangle\" | \"icon_align_center\" | \"icon_align_justify\" | \"icon_align_left\" | ... 278 more ... | \"icon_zoom_out\"`} - \n\n  * `size` {`\"s\" | \"m\" | \"l\" | \"xl\"`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "name",
@@ -1033,6 +1033,24 @@
           ]
         },
         {
+          "name": "size",
+          "description": "`size` {`\"s\" | \"m\" | \"l\" | \"xl\"`} - \n\nProperty: size\n\nDefault: xl",
+          "values": [
+            {
+              "name": "s"
+            },
+            {
+              "name": "m"
+            },
+            {
+              "name": "l"
+            },
+            {
+              "name": "xl"
+            }
+          ]
+        },
+        {
           "name": "value",
           "description": "`value` {`string | number`} - \n\nProperty: value\n\nDefault: 0",
           "values": []
@@ -1059,11 +1077,15 @@
     },
     {
       "name": "atom-range-color",
-      "description": "Attributes:\n\n  * `color` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult[]`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `color` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `color` {`string`} - \n\n  * `label` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult[]`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `color` {`string`} - \n\n  * `label` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "color",
           "description": "`color` {`string`} - \n\nProperty: color\n\nDefault: #00ff00"
+        },
+        {
+          "name": "label",
+          "description": "`label` {`string`} - \n\nProperty: label\n\nDefault: ColorSlider"
         },
         {
           "name": "value",
@@ -1092,7 +1114,7 @@
     },
     {
       "name": "atom-range",
-      "description": "Attributes:\n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `label` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `label` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "min",
@@ -1105,6 +1127,10 @@
         {
           "name": "step",
           "description": "`step` {`number`} - \n\nProperty: step\n\nDefault: 1"
+        },
+        {
+          "name": "label",
+          "description": "`label` {`string`} - \n\nProperty: label\n\nDefault: Slider"
         },
         {
           "name": "value",

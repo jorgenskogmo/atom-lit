@@ -46,7 +46,6 @@ export const styles = css`
         padding: 0px;
         font-size: normal;
         display: flex;
-        font: var(--atom-font-p);
     }
     .header button {
         background: none;
@@ -55,11 +54,10 @@ export const styles = css`
         appearance: none;
         border: none;
         color: #fff6;
-        
-        font-size: 14px;
         padding: 8px 16px;
         margin: 0;
         border-right: 1px solid var(--atom-bg);
+        font: var(--atom-font-label);
 
     }
     .header button.hasmany {

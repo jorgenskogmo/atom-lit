@@ -71,10 +71,8 @@
 
   <h3>Range Color</h3>
 
-  <atom-range-color value="10"></atom-range-color>
-
-  Bound:
-  <atom-range-color value="180" bind="color"></atom-range-color>
+  <atom-range-color value="10" label="Unbound"></atom-range-color>
+  <atom-range-color value="180" bind="color" label="Bound to state"></atom-range-color>
   <code>$color</code>: <atom-binding bind="color"></atom-binding>
 
   <h3>Button</h3>
@@ -133,7 +131,13 @@
 
 
   <h3>Icon</h3>
-  <atom-icon name="aperture"></atom-icon>
+  <atom-icon name="icon_aperture" size="s"></atom-icon>
+  <atom-icon name="icon_aperture" size="m"></atom-icon>
+  <atom-icon name="icon_aperture" size="l"></atom-icon>
+  <atom-icon name="icon_aperture" size="xl"></atom-icon>
+  <atom-icon name="icon_aperture" size="xxl"></atom-icon>
+  <atom-icon name="icon_aperture" size="xxxl"></atom-icon>
+  <div style="width: 250px; height: 300px; border: 1px dotted #ccc; color:var(--atom-color-accent)"><atom-icon name="icon_aperture" size="full"></atom-icon></div>
 
 
 

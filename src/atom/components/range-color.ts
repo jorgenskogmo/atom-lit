@@ -33,11 +33,6 @@ const local_styles = css`
 	input[type=range]::-moz-range-thumb {
 		border-color: var(--_thumb_color);
 	}
-
-	.label {
-		min-width: 5rem;
-		font: var(--atom-font-code);
-	}
 `;
 
 @customElement("atom-range-color")
@@ -52,6 +47,9 @@ export class RangeColor extends Atom {
 
 	@property({ type: String, reflect: true })
 	color = "#00ff00";
+
+	@property({ type: String, reflect: true })
+	label = "ColorSlider";
 
 	override async connectedCallback() {
 		super.connectedCallback();
@@ -80,6 +78,10 @@ export class RangeColor extends Atom {
 	override render() {
 		return html`    
     <div class="range">
+		<div class="labels">
+			<div class="label">${this.label}</div>
+			<div class="label value">${this.color}</div>
+		</div>
         <input
             type="range"
             min=${this.min}
@@ -89,7 +91,6 @@ export class RangeColor extends Atom {
             @change=${this.action}
             @input=${this.action}
         />
-        <span class="label" style="margin-inline:0.5rem">${this.color}</span>
     </div>`;
 	}
 

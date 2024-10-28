@@ -23,6 +23,9 @@ export class Range extends Atom {
 	@property({ type: Number, reflect: true })
 	step = 1;
 
+	@property({ type: String, reflect: true })
+	label = "Slider";
+
 	@property({ type: Number, reflect: true })
 	override value = 6;
 
@@ -37,6 +40,10 @@ export class Range extends Atom {
 		const css = `background: linear-gradient(to right, var(--atom-color-accent) ${pct}%, var(--atom-control-bg) ${pct - 1}%)`;
 		return html`    
     <div class="range">
+		<div class="labels">
+			<div class="label">${this.label}</div>
+			<div class="label value">${this.value}</div>
+		</div>		
         <input
 			style=${css}
             type="range"
@@ -47,7 +54,6 @@ export class Range extends Atom {
             @change=${this.action}
             @input=${this.action}
         />
-        <span class="label" style="margin-inline:0.5rem">${this.value}</span>
     </div>`;
 	}
 }

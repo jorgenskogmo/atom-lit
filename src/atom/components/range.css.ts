@@ -3,7 +3,24 @@ import { css } from "../lib/Atom";
 export const styles = css`
 .range {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.labels {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-inline: 2px;
+    margin-bottom: 0.25rem;
+}
+.label {
+    flex-grow: 1;
+    font: var(--atom-font-label);
+}
+.label.value {
+    text-align: right;
+    font: var(--atom-font-code);
 }
 
 input[type="range"] {
