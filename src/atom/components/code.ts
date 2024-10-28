@@ -34,6 +34,7 @@ const langMap = {
 	css: "CSS",
 	csharp: "C#",
 	cpp: "C++",
+	sh: "Shell",
 };
 
 type langType = keyof typeof langMap;

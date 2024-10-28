@@ -3,6 +3,10 @@ declare namespace JSX {
     "atom-switch-darkmode": {
       default?: "dark" | "light" | "system";
     };
+    "atom-range-color": {
+      color?: string;
+      onChange?: (event: CustomEvent) => void;
+    };
     "atom-button": {
       value?: number;
       variant?: | "normal"
@@ -19,6 +23,9 @@ declare namespace JSX {
       value?: number;
       disabled?: boolean;
       onChange?: (event: CustomEvent) => void;
+    };
+    "atom-code": {
+      selected?: string;
     };
     "atom-range": {
       min?: number;

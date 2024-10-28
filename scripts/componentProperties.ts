@@ -1,7 +1,7 @@
-import { listProperties } from "../lib/ListProperties";
+import { listProperties } from "./ListProperties";
 
 async function main(componentName: string) {
-	const path = `./src/atom/components/${componentName}.ts`;
+	const path = `../src/atom/components/${componentName}.ts`;
 	const file = Bun.file(path);
 	const text = await file.text();
 	const regex = /export class (\w+) extends/;

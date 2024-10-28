@@ -71,8 +71,6 @@
 
   <h3>Range Color</h3>
 
-
-  <atom-range-color value="90"></atom-range-color>
   <atom-range-color value="10"></atom-range-color>
 
   Bound:
@@ -142,15 +140,74 @@
 
   <h3>Code</h3>
 
-  <atom-code>
-    <code lang="javascript">
-        // #1 the following should render as formatted code
-        const a = 1.0; // ok?
-        function b() {
-            return 1;
-        }
-        const c = () => { a() }
+  <atom-code selected="cpp">
+    <code lang="html">
+        <p>alo</p>
     </code>
+
+    <code lang="javascript">
+        // comment
+        const a = 1.0;
+        function b(value) {
+            return value * value;
+        }
+        const c = () => { b(a) }
+    </code>
+
+    <code lang="typescript">
+        // comment
+        type Section = {
+            html: string;
+            lang: string;
+        };
+        type HappinessScoreConfig = 
+            | number 
+            | (weatherOpinion: WeatherOpinion) => number;
+    </code>
+
+    <code lang="css">
+        /* comment */
+        pre { border: collapse }
+        * { color: var(--atom-bg)}
+    </code>
+
+    <code lang="cpp" selected="true">
+<textarea>
+  // comment
+  #include <iostream>
+  using namespace std;
+
+  int main() 
+  {    
+      cout << "Size of char: " << sizeof(char) << " byte" << endl;
+      cout << "Size of int: " << sizeof(int) << " bytes" << endl;
+      cout << "Size of float: " << sizeof(float) << " bytes" << endl;
+      cout << "Size of double: " << sizeof(double) << " bytes" << endl;
+
+      return 0;
+  }
+</textarea>
+    </code>
+
+    <code lang="csharp">
+        // comment
+        class Car
+        {
+            private string model = "Mustang";
+
+            static void Main(string[] args)
+            {
+                Car myObj = new Car();
+                Console.WriteLine(myObj.model);
+            }
+        }
+    </code>
+
+    <code lang="sh">
+      # comment
+      ls -la
+  </code>
+
   </atom-code>
 
 

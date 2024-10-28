@@ -53,8 +53,8 @@
   --atom-button-border-radius: 6px;
   --atom-button-padding-block: 8px;
   --atom-button-padding-inline: 16px;
-  --atom-button-icon-padding: 8px;
-  --atom-button-icon-offset: -4px;
+  --atom-button-icon-padding: 6px;
+  --atom-button-icon-offset: -6px;
   --atom-icon-size: 14px;
 }
 .light-theme {

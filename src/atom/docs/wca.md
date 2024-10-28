@@ -4,7 +4,7 @@
 
 | Property | Attribute | Type                                             | Default     |
 |----------|-----------|--------------------------------------------------|-------------|
-| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
 | `value`  | `value`   | `string \| number`                               | 0           |
 
 ## Methods
@@ -24,7 +24,7 @@
 
 | Property   | Attribute  | Type                                             | Default     |
 |------------|------------|--------------------------------------------------|-------------|
-| `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
 | `options`  | `options`  | `string`                                         | ""          |
 | `selected` | `selected` | `string`                                         | ""          |
 | `value`    | `value`    | `string \| number`                               | 0           |
@@ -43,7 +43,7 @@
 
 | Property  | Attribute | Type                                             | Default     |
 |-----------|-----------|--------------------------------------------------|-------------|
-| `bind`    | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `bind`    | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
 | `label`   | `label`   | `string`                                         | "Button"    |
 | `value`   | `value`   | `number`                                         | 0           |
 | `variant` | `variant` | `"normal" \| "primary" \| "destructive" \| "constructive" \| "outline" \| "subtle"` | "normal"    |
@@ -56,19 +56,64 @@
 | `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
 
 
+# atom-code
+
+## Properties
+
+| Property        | Attribute  | Type                                             | Default     |
+|-----------------|------------|--------------------------------------------------|-------------|
+| `bind`          | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
+| `fragmentIndex` |            | `number`                                         | -1          |
+| `selected`      | `selected` | `string`                                         | ""          |
+| `value`         | `value`    | `string \| number`                               | 0           |
+
+## Methods
+
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(_event: Event): void`                          |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
+
+
 # atom-icon
 
 ## Properties
 
-| Property | Attribute | Type                                             | Default   |
-|----------|-----------|--------------------------------------------------|-----------|
-| `name`   | `name`    | `"activity" \| "airplay" \| "alert-circle" \| "alert-octagon" \| "alert-triangle" \| "align-center" \| "align-justify" \| "align-left" \| "align-right" \| "anchor" \| "aperture" \| "archive" \| ... 275 more ... \| "default"` | "airplay" |
+| Property | Attribute | Type                                             | Default        |
+|----------|-----------|--------------------------------------------------|----------------|
+| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined"    |
+| `name`   | `name`    | `"icon_activity" \| "icon_airplay" \| "icon_alert_circle" \| "icon_alert_octagon" \| "icon_alert_triangle" \| "icon_align_center" \| "icon_align_justify" \| "icon_align_left" \| ... 278 more ... \| "icon_zoom_out"` | "icon_airplay" |
+| `value`  | `value`   | `string \| number`                               | 0              |
 
 ## Methods
 
-| Method             | Type       |
-|--------------------|------------|
-| `createRenderRoot` | `(): this` |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(_event: Event): void`                          |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
+
+
+# atom-range-color
+
+## Properties
+
+| Property | Attribute | Type                                             | Default     |
+|----------|-----------|--------------------------------------------------|-------------|
+| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
+| `color`  | `color`   | `string`                                         | "#00ff00"   |
+| `max`    |           | `number`                                         | 360         |
+| `min`    |           | `number`                                         | 1           |
+| `step`   |           | `number`                                         | 1           |
+| `value`  | `value`   | `string \| number`                               | 0           |
+
+## Methods
+
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(event: Event): void`                           |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
+| `hexToHsv` | `(hex: string): { h: number; s: number; l: number; }` |
+| `hsvToHex` | `(h: number, s: number, v: number): string`      |
 
 
 # atom-range
@@ -77,7 +122,7 @@
 
 | Property | Attribute | Type                                             | Default     |
 |----------|-----------|--------------------------------------------------|-------------|
-| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
 | `max`    | `max`     | `number`                                         | 30          |
 | `min`    | `min`     | `number`                                         | 1           |
 | `step`   | `step`    | `number`                                         | 1           |
@@ -97,18 +142,17 @@
 
 | Property   | Attribute  | Type                                             | Default     |
 |------------|------------|--------------------------------------------------|-------------|
-| `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
 | `default`  | `default`  | `"dark" \| "light" \| "system"`                  | "light"     |
 | `disabled` | `disabled` | `boolean`                                        | false       |
 | `value`    | `value`    | `number`                                         | 0           |
 
 ## Methods
 
-| Method         | Type                                             |
-|----------------|--------------------------------------------------|
-| `action`       | `(event: Event): void`                           |
-| `announce`     | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
-| `handleChange` | `(): void`                                       |
+| Method     | Type                                             |
+|------------|--------------------------------------------------|
+| `action`   | `(): void`                                       |
+| `announce` | `(eventKey: AtomEventKey, value: string \| number, originalEvent?: Event \| undefined): void` |
 
 
 # atom-switch
@@ -117,7 +161,7 @@
 
 | Property   | Attribute  | Type                                             | Default     |
 |------------|------------|--------------------------------------------------|-------------|
-| `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `bind`     | `bind`     | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
 | `disabled` | `disabled` | `boolean`                                        | false       |
 | `value`    | `value`    | `number`                                         | 0           |
 
@@ -135,7 +179,7 @@
 
 | Property | Attribute | Type                                             | Default     |
 |----------|-----------|--------------------------------------------------|-------------|
-| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| undefined` | "undefined" |
+| `bind`   | `bind`    | `"num" \| "clicks" \| "airplane_mode" \| "color" \| undefined` | "undefined" |
 | `value`  | `value`   | `string \| number`                               | 0           |
 
 ## Methods

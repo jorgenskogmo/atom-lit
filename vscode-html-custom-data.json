@@ -3,7 +3,7 @@
   "tags": [
     {
       "name": "atom-binding",
-      "description": "Attributes:\n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "value",
@@ -12,7 +12,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -22,6 +22,9 @@
             },
             {
               "name": "airplane_mode"
+            },
+            {
+              "name": "color"
             }
           ]
         }
@@ -34,7 +37,7 @@
     },
     {
       "name": "atom-button-group",
-      "description": "Attributes:\n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `selected` {`string`} - \n\n  * `options` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "selected",
@@ -51,7 +54,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -61,6 +64,9 @@
             },
             {
               "name": "airplane_mode"
+            },
+            {
+              "name": "color"
             }
           ]
         }
@@ -68,7 +74,7 @@
     },
     {
       "name": "atom-button",
-      "description": "Attributes:\n\n  * `variant` {`\"normal\" | \"primary\" | \"destructive\" | \"constructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `variant` {`\"normal\" | \"primary\" | \"destructive\" | \"constructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `variant` {`\"normal\" | \"primary\" | \"destructive\" | \"constructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `variant` {`\"normal\" | \"primary\" | \"destructive\" | \"constructive\" | \"outline\" | \"subtle\"`} - \n\n  * `label` {`string`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "variant",
@@ -104,7 +110,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -114,6 +120,42 @@
             },
             {
               "name": "airplane_mode"
+            },
+            {
+              "name": "color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atom-code",
+      "description": "Attributes:\n\n  * `selected` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult[]`} - \n\n  * `fragmentIndex` {`number`} - \n\n  * `selected` {`string`} - \n\n  * `sections` {`Section[]`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "attributes": [
+        {
+          "name": "selected",
+          "description": "`selected` {`string`} - \n\nProperty: selected\n\nDefault: "
+        },
+        {
+          "name": "value",
+          "description": "`value` {`string | number`} - \n\nProperty: value\n\nDefault: 0",
+          "values": []
+        },
+        {
+          "name": "bind",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "values": [
+            {
+              "name": "num"
+            },
+            {
+              "name": "clicks"
+            },
+            {
+              "name": "airplane_mode"
+            },
+            {
+              "name": "color"
             }
           ]
         }
@@ -121,875 +163,928 @@
     },
     {
       "name": "atom-icon",
-      "description": "Attributes:\n\n  * `name` {`\"activity\" | \"airplay\" | \"alert-circle\" | \"alert-octagon\" | \"alert-triangle\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"anchor\" | \"aperture\" | \"archive\" | ... 275 more ... | \"default\"`} - \n\nProperties:\n\n  * `name` {`\"activity\" | \"airplay\" | \"alert-circle\" | \"alert-octagon\" | \"alert-triangle\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"anchor\" | \"aperture\" | \"archive\" | ... 275 more ... | \"default\"`} - ",
+      "description": "Attributes:\n\n  * `name` {`\"icon_activity\" | \"icon_airplay\" | \"icon_alert_circle\" | \"icon_alert_octagon\" | \"icon_alert_triangle\" | \"icon_align_center\" | \"icon_align_justify\" | \"icon_align_left\" | ... 278 more ... | \"icon_zoom_out\"`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult[]`} - \n\n  * `name` {`\"icon_activity\" | \"icon_airplay\" | \"icon_alert_circle\" | \"icon_alert_octagon\" | \"icon_alert_triangle\" | \"icon_align_center\" | \"icon_align_justify\" | \"icon_align_left\" | ... 278 more ... | \"icon_zoom_out\"`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "name",
-          "description": "`name` {`\"activity\" | \"airplay\" | \"alert-circle\" | \"alert-octagon\" | \"alert-triangle\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"anchor\" | \"aperture\" | \"archive\" | ... 275 more ... | \"default\"`} - \n\nProperty: name\n\nDefault: airplay",
+          "description": "`name` {`\"icon_activity\" | \"icon_airplay\" | \"icon_alert_circle\" | \"icon_alert_octagon\" | \"icon_alert_triangle\" | \"icon_align_center\" | \"icon_align_justify\" | \"icon_align_left\" | ... 278 more ... | \"icon_zoom_out\"`} - \n\nProperty: name\n\nDefault: icon_airplay",
           "values": [
             {
-              "name": "activity"
+              "name": "icon_activity"
             },
             {
-              "name": "airplay"
+              "name": "icon_airplay"
             },
             {
-              "name": "alert-circle"
+              "name": "icon_alert_circle"
             },
             {
-              "name": "alert-octagon"
+              "name": "icon_alert_octagon"
             },
             {
-              "name": "alert-triangle"
+              "name": "icon_alert_triangle"
             },
             {
-              "name": "align-center"
+              "name": "icon_align_center"
             },
             {
-              "name": "align-justify"
+              "name": "icon_align_justify"
             },
             {
-              "name": "align-left"
+              "name": "icon_align_left"
             },
             {
-              "name": "align-right"
+              "name": "icon_align_right"
             },
             {
-              "name": "anchor"
+              "name": "icon_anchor"
             },
             {
-              "name": "aperture"
+              "name": "icon_aperture"
             },
             {
-              "name": "archive"
+              "name": "icon_archive"
             },
             {
-              "name": "arrow-down-circle"
+              "name": "icon_arrow_down_circle"
             },
             {
-              "name": "arrow-down-left"
+              "name": "icon_arrow_down_left"
             },
             {
-              "name": "arrow-down-right"
+              "name": "icon_arrow_down_right"
             },
             {
-              "name": "arrow-down"
+              "name": "icon_arrow_down"
             },
             {
-              "name": "arrow-left-circle"
+              "name": "icon_arrow_left_circle"
             },
             {
-              "name": "arrow-left"
+              "name": "icon_arrow_left"
             },
             {
-              "name": "arrow-right-circle"
+              "name": "icon_arrow_right_circle"
             },
             {
-              "name": "arrow-right"
+              "name": "icon_arrow_right"
             },
             {
-              "name": "arrow-up-circle"
+              "name": "icon_arrow_up_circle"
             },
             {
-              "name": "arrow-up-left"
+              "name": "icon_arrow_up_left"
             },
             {
-              "name": "arrow-up-right"
+              "name": "icon_arrow_up_right"
             },
             {
-              "name": "arrow-up"
+              "name": "icon_arrow_up"
             },
             {
-              "name": "at-sign"
+              "name": "icon_at_sign"
             },
             {
-              "name": "award"
+              "name": "icon_award"
             },
             {
-              "name": "bar-chart-2"
+              "name": "icon_bar_chart_2"
             },
             {
-              "name": "bar-chart"
+              "name": "icon_bar_chart"
             },
             {
-              "name": "battery-charging"
+              "name": "icon_battery_charging"
             },
             {
-              "name": "battery"
+              "name": "icon_battery"
             },
             {
-              "name": "bell-off"
+              "name": "icon_bell_off"
             },
             {
-              "name": "bell"
+              "name": "icon_bell"
             },
             {
-              "name": "bluetooth"
+              "name": "icon_bluetooth"
             },
             {
-              "name": "bold"
+              "name": "icon_bold"
             },
             {
-              "name": "book-open"
+              "name": "icon_book_open"
             },
             {
-              "name": "book"
+              "name": "icon_book"
             },
             {
-              "name": "bookmark"
+              "name": "icon_bookmark"
             },
             {
-              "name": "box"
+              "name": "icon_box"
             },
             {
-              "name": "briefcase"
+              "name": "icon_briefcase"
             },
             {
-              "name": "calendar"
+              "name": "icon_calendar"
             },
             {
-              "name": "camera-off"
+              "name": "icon_camera_off"
             },
             {
-              "name": "camera"
+              "name": "icon_camera"
             },
             {
-              "name": "cast"
+              "name": "icon_cast"
             },
             {
-              "name": "check-circle"
+              "name": "icon_check_circle"
             },
             {
-              "name": "check-square"
+              "name": "icon_check_square"
             },
             {
-              "name": "check"
+              "name": "icon_check"
             },
             {
-              "name": "chevron-down"
+              "name": "icon_chevron_down"
             },
             {
-              "name": "chevron-left"
+              "name": "icon_chevron_left"
             },
             {
-              "name": "chevron-right"
+              "name": "icon_chevron_right"
             },
             {
-              "name": "chevron-up"
+              "name": "icon_chevron_up"
             },
             {
-              "name": "chevrons-down"
+              "name": "icon_chevrons_down"
             },
             {
-              "name": "chevrons-left"
+              "name": "icon_chevrons_left"
             },
             {
-              "name": "chevrons-right"
+              "name": "icon_chevrons_right"
             },
             {
-              "name": "chevrons-up"
+              "name": "icon_chevrons_up"
             },
             {
-              "name": "chrome"
+              "name": "icon_chrome"
             },
             {
-              "name": "circle"
+              "name": "icon_circle"
             },
             {
-              "name": "clipboard"
+              "name": "icon_clipboard"
             },
             {
-              "name": "clock"
+              "name": "icon_clock"
             },
             {
-              "name": "cloud-drizzle"
+              "name": "icon_cloud_drizzle"
             },
             {
-              "name": "cloud-lightning"
+              "name": "icon_cloud_lightning"
             },
             {
-              "name": "cloud-off"
+              "name": "icon_cloud_off"
             },
             {
-              "name": "cloud-rain"
+              "name": "icon_cloud_rain"
             },
             {
-              "name": "cloud-snow"
+              "name": "icon_cloud_snow"
             },
             {
-              "name": "cloud"
+              "name": "icon_cloud"
             },
             {
-              "name": "code"
+              "name": "icon_code"
             },
             {
-              "name": "codepen"
+              "name": "icon_codepen"
             },
             {
-              "name": "codesandbox"
+              "name": "icon_codesandbox"
             },
             {
-              "name": "coffee"
+              "name": "icon_coffee"
             },
             {
-              "name": "columns"
+              "name": "icon_columns"
             },
             {
-              "name": "command"
+              "name": "icon_command"
             },
             {
-              "name": "compass"
+              "name": "icon_compass"
             },
             {
-              "name": "copy"
+              "name": "icon_copy"
             },
             {
-              "name": "corner-down-left"
+              "name": "icon_corner_down_left"
             },
             {
-              "name": "corner-down-right"
+              "name": "icon_corner_down_right"
             },
             {
-              "name": "corner-left-down"
+              "name": "icon_corner_left_down"
             },
             {
-              "name": "corner-left-up"
+              "name": "icon_corner_left_up"
             },
             {
-              "name": "corner-right-down"
+              "name": "icon_corner_right_down"
             },
             {
-              "name": "corner-right-up"
+              "name": "icon_corner_right_up"
             },
             {
-              "name": "corner-up-left"
+              "name": "icon_corner_up_left"
             },
             {
-              "name": "corner-up-right"
+              "name": "icon_corner_up_right"
             },
             {
-              "name": "cpu"
+              "name": "icon_cpu"
             },
             {
-              "name": "credit-card"
+              "name": "icon_credit_card"
             },
             {
-              "name": "crop"
+              "name": "icon_crop"
             },
             {
-              "name": "crosshair"
+              "name": "icon_crosshair"
             },
             {
-              "name": "database"
+              "name": "icon_database"
             },
             {
-              "name": "delete"
+              "name": "icon_delete"
             },
             {
-              "name": "disc"
+              "name": "icon_disc"
             },
             {
-              "name": "divide-circle"
+              "name": "icon_divide_circle"
             },
             {
-              "name": "divide-square"
+              "name": "icon_divide_square"
             },
             {
-              "name": "divide"
+              "name": "icon_divide"
             },
             {
-              "name": "dollar-sign"
+              "name": "icon_dollar_sign"
             },
             {
-              "name": "download-cloud"
+              "name": "icon_download_cloud"
             },
             {
-              "name": "download"
+              "name": "icon_download"
             },
             {
-              "name": "dribbble"
+              "name": "icon_dribbble"
             },
             {
-              "name": "droplet"
+              "name": "icon_droplet"
             },
             {
-              "name": "edit-2"
+              "name": "icon_edit_2"
             },
             {
-              "name": "edit-3"
+              "name": "icon_edit_3"
             },
             {
-              "name": "edit"
+              "name": "icon_edit"
             },
             {
-              "name": "external-link"
+              "name": "icon_external_link"
             },
             {
-              "name": "eye-off"
+              "name": "icon_eye_off"
             },
             {
-              "name": "eye"
+              "name": "icon_eye"
             },
             {
-              "name": "facebook"
+              "name": "icon_facebook"
             },
             {
-              "name": "fast-forward"
+              "name": "icon_fast_forward"
             },
             {
-              "name": "feather"
+              "name": "icon_feather"
             },
             {
-              "name": "figma"
+              "name": "icon_figma"
             },
             {
-              "name": "file-minus"
+              "name": "icon_file_minus"
             },
             {
-              "name": "file-plus"
+              "name": "icon_file_plus"
             },
             {
-              "name": "file-text"
+              "name": "icon_file_text"
             },
             {
-              "name": "file"
+              "name": "icon_file"
             },
             {
-              "name": "film"
+              "name": "icon_film"
             },
             {
-              "name": "filter"
+              "name": "icon_filter"
             },
             {
-              "name": "flag"
+              "name": "icon_flag"
             },
             {
-              "name": "folder-minus"
+              "name": "icon_folder_minus"
             },
             {
-              "name": "folder-plus"
+              "name": "icon_folder_plus"
             },
             {
-              "name": "folder"
+              "name": "icon_folder"
             },
             {
-              "name": "framer"
+              "name": "icon_framer"
             },
             {
-              "name": "frown"
+              "name": "icon_frown"
             },
             {
-              "name": "gift"
+              "name": "icon_gift"
             },
             {
-              "name": "git-branch"
+              "name": "icon_git_branch"
             },
             {
-              "name": "git-commit"
+              "name": "icon_git_commit"
             },
             {
-              "name": "git-merge"
+              "name": "icon_git_merge"
             },
             {
-              "name": "git-pull-request"
+              "name": "icon_git_pull_request"
             },
             {
-              "name": "github"
+              "name": "icon_github"
             },
             {
-              "name": "gitlab"
+              "name": "icon_gitlab"
             },
             {
-              "name": "globe"
+              "name": "icon_globe"
             },
             {
-              "name": "grid"
+              "name": "icon_grid"
             },
             {
-              "name": "hard-drive"
+              "name": "icon_hard_drive"
             },
             {
-              "name": "hash"
+              "name": "icon_hash"
             },
             {
-              "name": "headphones"
+              "name": "icon_headphones"
             },
             {
-              "name": "heart"
+              "name": "icon_heart"
             },
             {
-              "name": "help-circle"
+              "name": "icon_help_circle"
             },
             {
-              "name": "hexagon"
+              "name": "icon_hexagon"
             },
             {
-              "name": "home"
+              "name": "icon_home"
             },
             {
-              "name": "image"
+              "name": "icon_image"
             },
             {
-              "name": "inbox"
+              "name": "icon_inbox"
             },
             {
-              "name": "info"
+              "name": "icon_info"
             },
             {
-              "name": "instagram"
+              "name": "icon_instagram"
             },
             {
-              "name": "italic"
+              "name": "icon_italic"
             },
             {
-              "name": "key"
+              "name": "icon_key"
             },
             {
-              "name": "layers"
+              "name": "icon_layers"
             },
             {
-              "name": "layout"
+              "name": "icon_layout"
             },
             {
-              "name": "life-buoy"
+              "name": "icon_life_buoy"
             },
             {
-              "name": "link-2"
+              "name": "icon_link_2"
             },
             {
-              "name": "link"
+              "name": "icon_link"
             },
             {
-              "name": "linkedin"
+              "name": "icon_linkedin"
             },
             {
-              "name": "list"
+              "name": "icon_list"
             },
             {
-              "name": "loader"
+              "name": "icon_loader"
             },
             {
-              "name": "lock"
+              "name": "icon_lock"
             },
             {
-              "name": "log-in"
+              "name": "icon_log_in"
             },
             {
-              "name": "log-out"
+              "name": "icon_log_out"
             },
             {
-              "name": "mail"
+              "name": "icon_mail"
             },
             {
-              "name": "map-pin"
+              "name": "icon_map_pin"
             },
             {
-              "name": "map"
+              "name": "icon_map"
             },
             {
-              "name": "maximize-2"
+              "name": "icon_maximize_2"
             },
             {
-              "name": "maximize"
+              "name": "icon_maximize"
             },
             {
-              "name": "meh"
+              "name": "icon_meh"
             },
             {
-              "name": "menu"
+              "name": "icon_menu"
             },
             {
-              "name": "message-circle"
+              "name": "icon_message_circle"
             },
             {
-              "name": "message-square"
+              "name": "icon_message_square"
             },
             {
-              "name": "mic-off"
+              "name": "icon_mic_off"
             },
             {
-              "name": "mic"
+              "name": "icon_mic"
             },
             {
-              "name": "minimize-2"
+              "name": "icon_minimize_2"
             },
             {
-              "name": "minimize"
+              "name": "icon_minimize"
             },
             {
-              "name": "minus-circle"
+              "name": "icon_minus_circle"
             },
             {
-              "name": "minus-square"
+              "name": "icon_minus_square"
             },
             {
-              "name": "minus"
+              "name": "icon_minus"
             },
             {
-              "name": "monitor"
+              "name": "icon_monitor"
             },
             {
-              "name": "moon"
+              "name": "icon_moon"
             },
             {
-              "name": "more-horizontal"
+              "name": "icon_more_horizontal"
             },
             {
-              "name": "more-vertical"
+              "name": "icon_more_vertical"
             },
             {
-              "name": "mouse-pointer"
+              "name": "icon_mouse_pointer"
             },
             {
-              "name": "move"
+              "name": "icon_move"
             },
             {
-              "name": "music"
+              "name": "icon_music"
             },
             {
-              "name": "navigation-2"
+              "name": "icon_navigation_2"
             },
             {
-              "name": "navigation"
+              "name": "icon_navigation"
             },
             {
-              "name": "octagon"
+              "name": "icon_octagon"
             },
             {
-              "name": "package"
+              "name": "icon_package"
             },
             {
-              "name": "paperclip"
+              "name": "icon_paperclip"
             },
             {
-              "name": "pause-circle"
+              "name": "icon_pause_circle"
             },
             {
-              "name": "pause"
+              "name": "icon_pause"
             },
             {
-              "name": "pen-tool"
+              "name": "icon_pen_tool"
             },
             {
-              "name": "percent"
+              "name": "icon_percent"
             },
             {
-              "name": "phone-call"
+              "name": "icon_phone_call"
             },
             {
-              "name": "phone-forwarded"
+              "name": "icon_phone_forwarded"
             },
             {
-              "name": "phone-incoming"
+              "name": "icon_phone_incoming"
             },
             {
-              "name": "phone-missed"
+              "name": "icon_phone_missed"
             },
             {
-              "name": "phone-off"
+              "name": "icon_phone_off"
             },
             {
-              "name": "phone-outgoing"
+              "name": "icon_phone_outgoing"
             },
             {
-              "name": "phone"
+              "name": "icon_phone"
             },
             {
-              "name": "pie-chart"
+              "name": "icon_pie_chart"
             },
             {
-              "name": "play-circle"
+              "name": "icon_play_circle"
             },
             {
-              "name": "play"
+              "name": "icon_play"
             },
             {
-              "name": "plus-circle"
+              "name": "icon_plus_circle"
             },
             {
-              "name": "plus-square"
+              "name": "icon_plus_square"
             },
             {
-              "name": "plus"
+              "name": "icon_plus"
             },
             {
-              "name": "pocket"
+              "name": "icon_pocket"
             },
             {
-              "name": "power"
+              "name": "icon_power"
             },
             {
-              "name": "printer"
+              "name": "icon_printer"
             },
             {
-              "name": "radio"
+              "name": "icon_radio"
             },
             {
-              "name": "refresh-ccw"
+              "name": "icon_refresh_ccw"
             },
             {
-              "name": "refresh-cw"
+              "name": "icon_refresh_cw"
             },
             {
-              "name": "repeat"
+              "name": "icon_repeat"
             },
             {
-              "name": "rewind"
+              "name": "icon_rewind"
             },
             {
-              "name": "rotate-ccw"
+              "name": "icon_rotate_ccw"
             },
             {
-              "name": "rotate-cw"
+              "name": "icon_rotate_cw"
             },
             {
-              "name": "rss"
+              "name": "icon_rss"
             },
             {
-              "name": "save"
+              "name": "icon_save"
             },
             {
-              "name": "scissors"
+              "name": "icon_scissors"
             },
             {
-              "name": "search"
+              "name": "icon_search"
             },
             {
-              "name": "send"
+              "name": "icon_send"
             },
             {
-              "name": "server"
+              "name": "icon_server"
             },
             {
-              "name": "settings"
+              "name": "icon_settings"
             },
             {
-              "name": "share-2"
+              "name": "icon_share_2"
             },
             {
-              "name": "share"
+              "name": "icon_share"
             },
             {
-              "name": "shield-off"
+              "name": "icon_shield_off"
             },
             {
-              "name": "shield"
+              "name": "icon_shield"
             },
             {
-              "name": "shopping-bag"
+              "name": "icon_shopping_bag"
             },
             {
-              "name": "shopping-cart"
+              "name": "icon_shopping_cart"
             },
             {
-              "name": "shuffle"
+              "name": "icon_shuffle"
             },
             {
-              "name": "sidebar"
+              "name": "icon_sidebar"
             },
             {
-              "name": "skip-back"
+              "name": "icon_skip_back"
             },
             {
-              "name": "skip-forward"
+              "name": "icon_skip_forward"
             },
             {
-              "name": "slack"
+              "name": "icon_slack"
             },
             {
-              "name": "slash"
+              "name": "icon_slash"
             },
             {
-              "name": "sliders"
+              "name": "icon_sliders"
             },
             {
-              "name": "smartphone"
+              "name": "icon_smartphone"
             },
             {
-              "name": "smile"
+              "name": "icon_smile"
             },
             {
-              "name": "speaker"
+              "name": "icon_speaker"
             },
             {
-              "name": "square"
+              "name": "icon_square"
             },
             {
-              "name": "star"
+              "name": "icon_star"
             },
             {
-              "name": "stop-circle"
+              "name": "icon_stop_circle"
             },
             {
-              "name": "sun"
+              "name": "icon_sun"
             },
             {
-              "name": "sunrise"
+              "name": "icon_sunrise"
             },
             {
-              "name": "sunset"
+              "name": "icon_sunset"
             },
             {
-              "name": "table"
+              "name": "icon_table"
             },
             {
-              "name": "tablet"
+              "name": "icon_tablet"
             },
             {
-              "name": "tag"
+              "name": "icon_tag"
             },
             {
-              "name": "target"
+              "name": "icon_target"
             },
             {
-              "name": "terminal"
+              "name": "icon_terminal"
             },
             {
-              "name": "thermometer"
+              "name": "icon_thermometer"
             },
             {
-              "name": "thumbs-down"
+              "name": "icon_thumbs_down"
             },
             {
-              "name": "thumbs-up"
+              "name": "icon_thumbs_up"
             },
             {
-              "name": "toggle-left"
+              "name": "icon_toggle_left"
             },
             {
-              "name": "toggle-right"
+              "name": "icon_toggle_right"
             },
             {
-              "name": "tool"
+              "name": "icon_tool"
             },
             {
-              "name": "trash-2"
+              "name": "icon_trash_2"
             },
             {
-              "name": "trash"
+              "name": "icon_trash"
             },
             {
-              "name": "trello"
+              "name": "icon_trello"
             },
             {
-              "name": "trending-down"
+              "name": "icon_trending_down"
             },
             {
-              "name": "trending-up"
+              "name": "icon_trending_up"
             },
             {
-              "name": "triangle"
+              "name": "icon_triangle"
             },
             {
-              "name": "truck"
+              "name": "icon_truck"
             },
             {
-              "name": "tv"
+              "name": "icon_tv"
             },
             {
-              "name": "twitch"
+              "name": "icon_twitch"
             },
             {
-              "name": "twitter"
+              "name": "icon_twitter"
             },
             {
-              "name": "type"
+              "name": "icon_type"
             },
             {
-              "name": "umbrella"
+              "name": "icon_umbrella"
             },
             {
-              "name": "underline"
+              "name": "icon_underline"
             },
             {
-              "name": "unlock"
+              "name": "icon_unlock"
             },
             {
-              "name": "upload-cloud"
+              "name": "icon_upload_cloud"
             },
             {
-              "name": "upload"
+              "name": "icon_upload"
             },
             {
-              "name": "user-check"
+              "name": "icon_user_check"
             },
             {
-              "name": "user-minus"
+              "name": "icon_user_minus"
             },
             {
-              "name": "user-plus"
+              "name": "icon_user_plus"
             },
             {
-              "name": "user-x"
+              "name": "icon_user_x"
             },
             {
-              "name": "user"
+              "name": "icon_user"
             },
             {
-              "name": "users"
+              "name": "icon_users"
             },
             {
-              "name": "video-off"
+              "name": "icon_video_off"
             },
             {
-              "name": "video"
+              "name": "icon_video"
             },
             {
-              "name": "voicemail"
+              "name": "icon_voicemail"
             },
             {
-              "name": "volume-1"
+              "name": "icon_volume_1"
             },
             {
-              "name": "volume-2"
+              "name": "icon_volume_2"
             },
             {
-              "name": "volume-x"
+              "name": "icon_volume_x"
             },
             {
-              "name": "volume"
+              "name": "icon_volume"
             },
             {
-              "name": "watch"
+              "name": "icon_watch"
             },
             {
-              "name": "wifi-off"
+              "name": "icon_wifi_off"
             },
             {
-              "name": "wifi"
+              "name": "icon_wifi"
             },
             {
-              "name": "wind"
+              "name": "icon_wind"
             },
             {
-              "name": "x-circle"
+              "name": "icon_x_circle"
             },
             {
-              "name": "x-octagon"
+              "name": "icon_x_octagon"
             },
             {
-              "name": "x-square"
+              "name": "icon_x_square"
             },
             {
-              "name": "x"
+              "name": "icon_x"
             },
             {
-              "name": "youtube"
+              "name": "icon_youtube"
             },
             {
-              "name": "zap-off"
+              "name": "icon_zap_off"
             },
             {
-              "name": "zap"
+              "name": "icon_zap"
             },
             {
-              "name": "zoom-in"
+              "name": "icon_zoom_in"
             },
             {
-              "name": "zoom-out"
+              "name": "icon_zoom_out"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": "`value` {`string | number`} - \n\nProperty: value\n\nDefault: 0",
+          "values": []
+        },
+        {
+          "name": "bind",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "values": [
+            {
+              "name": "num"
+            },
+            {
+              "name": "clicks"
+            },
+            {
+              "name": "airplane_mode"
+            },
+            {
+              "name": "color"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atom-range-color",
+      "description": "Attributes:\n\n  * `color` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult[]`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `color` {`string`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "attributes": [
+        {
+          "name": "color",
+          "description": "`color` {`string`} - \n\nProperty: color\n\nDefault: #00ff00"
+        },
+        {
+          "name": "value",
+          "description": "`value` {`string | number`} - \n\nProperty: value\n\nDefault: 0",
+          "values": []
+        },
+        {
+          "name": "bind",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "values": [
+            {
+              "name": "num"
+            },
+            {
+              "name": "clicks"
+            },
+            {
+              "name": "airplane_mode"
             },
             {
-              "name": "default"
+              "name": "color"
             }
           ]
         }
@@ -997,7 +1092,7 @@
     },
     {
       "name": "atom-range",
-      "description": "Attributes:\n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `min` {`number`} - \n\n  * `max` {`number`} - \n\n  * `step` {`number`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "min",
@@ -1017,7 +1112,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -1027,6 +1122,9 @@
             },
             {
               "name": "airplane_mode"
+            },
+            {
+              "name": "color"
             }
           ]
         }
@@ -1034,7 +1132,7 @@
     },
     {
       "name": "atom-switch-darkmode",
-      "description": "Attributes:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `disabled` {`boolean`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `default` {`\"dark\" | \"light\" | \"system\"`} - \n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "default",
@@ -1062,7 +1160,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -1072,6 +1170,9 @@
             },
             {
               "name": "airplane_mode"
+            },
+            {
+              "name": "color"
             }
           ]
         }
@@ -1079,7 +1180,7 @@
     },
     {
       "name": "atom-switch",
-      "description": "Attributes:\n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `disabled` {`boolean`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `atomEvent` {`AtomEventKey`} - \n\n  * `styles` {`CSSResult`} - \n\n  * `disabled` {`boolean`} - \n\n  * `value` {`number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "disabled",
@@ -1092,7 +1193,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -1102,6 +1203,9 @@
             },
             {
               "name": "airplane_mode"
+            },
+            {
+              "name": "color"
             }
           ]
         }
@@ -1109,7 +1213,7 @@
     },
     {
       "name": "atom-toast",
-      "description": "Attributes:\n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `container` {`HTMLDivElement`} - \n\n  * `timeout_hide` {`Timer | undefined`} - \n\n  * `timeout_remove` {`Timer | undefined`} - \n\n  * `DISPLAY_DURATION` {`number`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\n  * `cancelSubscription` - ",
+      "description": "Attributes:\n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperties:\n\n  * `styles` {`CSSResult`} - \n\n  * `container` {`HTMLDivElement`} - \n\n  * `timeout_hide` {`Timer | undefined`} - \n\n  * `timeout_remove` {`Timer | undefined`} - \n\n  * `DISPLAY_DURATION` {`number`} - \n\n  * `value` {`string | number`} - \n\n  * `bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\n  * `cancelSubscription` - ",
       "attributes": [
         {
           "name": "value",
@@ -1118,7 +1222,7 @@
         },
         {
           "name": "bind",
-          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
+          "description": "`bind` {`\"num\" | \"clicks\" | \"airplane_mode\" | \"color\" | undefined`} - \n\nProperty: bind\n\nDefault: undefined",
           "values": [
             {
               "name": "num"
@@ -1128,6 +1232,9 @@
             },
             {
               "name": "airplane_mode"
+            },
+            {
+              "name": "color"
             }
           ]
         }
